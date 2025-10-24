@@ -1,0 +1,834 @@
+<%- include ('./partials/secureHeader') %>	
+
+        <!-- Page Content - Only Page Elements Here-->
+        <div class="page-content footer-clear">
+
+            <!-- Page Title-->
+            <div class="pt-3">
+                <div class="page-title d-flex">
+                    <div class="align-self-center">
+                        <a href="#"
+                            data-back-button
+                            class="me-3 ms-0 icon icon-xxs bg-theme rounded-s shadow-m">
+                            <i class="bi bi-chevron-left color-theme font-14"></i>
+                        </a>
+                    </div>
+                    <div class="align-self-center me-auto">
+                        <!-- <p class="color-highlight">Hello Enabled</p> -->
+                        <h2 class="color-theme">Secure 401K or IRA</h2>
+                    </div>
+                    <div class="align-self-center ms-auto">
+
+
+        <a href="#" data-bs-toggle="dropdown"
+        class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
+        <img src="/img/user-default.png" width="45" class="rounded-m" alt="img">
+    </a>
+    <!-- Page Title Dropdown Menu-->
+    <div class="dropdown-menu">
+        <div class="card card-style shadow-m mt-1 me-1">
+            <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
+                <!-- <a href="page-wallet.html" class="list-group-item">
+                    <i
+                        class="has-bg gradient-green shadow-bg shadow-bg-xs color-white rounded-xs bi bi-credit-card"></i>
+                    <strong class="font-13">Wallet</strong>
+                </a>
+                <a href="page-activity.html" class="list-group-item">
+                    <i
+                        class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi bi-graph-up"></i>
+                    <strong class="font-13">Activity</strong>
+                </a> -->
+                <a href="profile" class="list-group-item">
+                    <i
+                        class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
+                    <strong class="font-13">Account</strong>
+                </a>
+
+                <a href="#" class="list-group-item" data-toggle-theme="" data-trigger-switch="switch-1">
+                    <i class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi-lightbulb-fill"></i>
+                    <strong class="font-13">Dark Mood</strong>
+                    <div class="form-switch ios-switch switch-green switch-s me-2">
+                        <input type="checkbox" data-toggle-theme="" class="ios-input" id="switch-1">
+                        <label class="custom-control-label" for="switch-1"></label>
+                    </div>
+                </a>
+
+                <a href="includes/logout.php" class="list-group-item">
+                    <i
+                        class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
+                    <strong class="font-13">Log Out</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    count_cart_item();
+    //count_wishlist_item();
+
+    function count_cart_item() {
+        $("#cart_table tbody").empty();
+        var load_count = "loadcount";
+        $.ajax({
+            url: 'includes/server',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                load_count: load_count,
+            },
+            success: function(response) {
+                //porpulate cart count
+                $('.cart_item_count').text(response.mssg);
+            }
+        });
+
+    }
+</script>                </div>
+            </div>
+
+            <svg id="header-deco" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
+                <path id="header-deco-1" d="M 0,600 C 0,600 0,120 0,120 C 92.36363636363635,133.79904306220095 184.7272727272727,147.59808612440193 287,148 C 389.2727272727273,148.40191387559807 501.4545454545455,135.40669856459328 592,129 C 682.5454545454545,122.5933014354067 751.4545454545455,122.77511961722489 848,115 C 944.5454545454545,107.22488038277511 1068.7272727272727,91.49282296650718 1172,91 C 1275.2727272727273,90.50717703349282 1357.6363636363635,105.25358851674642 1440,120 C 1440,120 1440,600 1440,600 Z"></path>
+                <path id="header-deco-2" d="M 0,600 C 0,600 0,240 0,240 C 98.97607655502392,258.2105263157895 197.95215311004785,276.4210526315789 278,282 C 358.04784688995215,287.5789473684211 419.16746411483257,280.5263157894737 524,265 C 628.8325358851674,249.4736842105263 777.377990430622,225.47368421052633 888,211 C 998.622009569378,196.52631578947367 1071.3205741626793,191.57894736842107 1157,198 C 1242.6794258373207,204.42105263157893 1341.3397129186603,222.21052631578948 1440,240 C 1440,240 1440,600 1440,600 Z"></path>
+                <path id="header-deco-3" d="M 0,600 C 0,600 0,360 0,360 C 65.43540669856458,339.55023923444975 130.87081339712915,319.1004784688995 245,321 C 359.12918660287085,322.8995215311005 521.9521531100479,347.1483253588517 616,352 C 710.0478468899521,356.8516746411483 735.3205741626795,342.3062200956938 822,333 C 908.6794258373205,323.6937799043062 1056.7655502392345,319.62679425837325 1170,325 C 1283.2344497607655,330.37320574162675 1361.6172248803828,345.1866028708134 1440,360 C 1440,360 1440,600 1440,600 Z"></path>
+                <path id="header-deco-4" d="M 0,600 C 0,600 0,480 0,480 C 70.90909090909093,494.91866028708137 141.81818181818187,509.8373205741627 239,499 C 336.18181818181813,488.1626794258373 459.6363636363636,451.5693779904306 567,446 C 674.3636363636364,440.4306220095694 765.6363636363636,465.88516746411483 862,465 C 958.3636363636364,464.11483253588517 1059.8181818181818,436.8899521531101 1157,435 C 1254.1818181818182,433.1100478468899 1347.090909090909,456.555023923445 1440,480 C 1440,480 1440,600 1440,600 Z"></path>
+            </svg>
+
+            <div class="card card-style">
+                <div class="content">
+                    <div class="tabs tabs-pill" id="tab-group-2">
+                        <div class="tab-controls rounded-m p-1 overflow-visible">
+                            <a class="font-13 rounded-m shadow-bg shadow-bg-s" data-bs-toggle="collapse" href="#tab-4" aria-expanded="true">Secure 401K or IRA</a>
+                            <a class="font-13 rounded-m shadow-bg shadow-bg-s" data-bs-toggle="collapse" href="#tab-5" aria-expanded="false">History</a>
+                            <!-- <a class="font-13 rounded-m shadow-bg shadow-bg-s" data-bs-toggle="collapse" href="#tab-6" aria-expanded="false">Payments</a> -->
+                        </div>
+                        <div class="mt-3"></div>
+                        <!-- Tab Group 1 -->
+                        <div class="collapse show" id="tab-4" data-bs-parent="#tab-group-2">
+                            <div class="card card-style">
+                                <div class="content">
+                                    <div class="alert bg-fade2-blue alert-dismissible color-blue-dark rounded-s fade show pe-2" role="alert">
+                                        Secure your 401(k) or IRA by contributing regularly, diversifying investments, monitoring and adjusting your strategy, and staying informed. </div>
+
+
+                                    
+                                    <form id="secure_funds_form">
+                                        <div class="form-custom form-label form-icon mb-3">
+                                            <i class="bi bi-house-lock-fill  font-13"></i>
+                                            <select name="select_backup_typ" class="form-select rounded-xs" id="select_backup_typ">
+                                                <option value="">Select 401K or IRA</option>
+                                                <option value="IRA" >IRA</option>
+                                                <option value="401K" >401K</option>
+                                            </select>
+                                            <label for="select_backup_typ" class="color-theme form-label-always-active">Secure using 401K or IRA</label>
+                                            <span>(required)</span>
+                                        </div>
+
+                                        <div class="form-custom form-label form-icon mb-3">
+                                            <i class="bi bi-person-circle font-14"></i>
+                                            <input type="text" name="name" class="form-control rounded-xs" id="name" placeholder="John Doe" required
+                                                value="">
+                                            <label for="name" class="color-theme form-label-always-active">Your Name</label>
+                                            <span>(required)</span>
+                                        </div>
+
+                                        <div class="form-custom form-label form-icon mb-3">
+                                            <i class="bi bi-person-circle font-14"></i>
+                                            <input type="text" name="age" class="numberinput form-control rounded-xs" id="age" placeholder="25" required
+                                                value="">
+                                            <label for="age" class="color-theme form-label-always-active">Your Age</label>
+                                            <span>(required)</span>
+                                        </div>
+
+                                        <div class="form-custom form-label form-icon mb-3">
+                                            <i class="bi bi-file-fill  font-13"></i>
+                                            <select name="work_status" class="form-select rounded-xs" id="work_status">
+                                                <option value="">Select your work status</option>
+                                                <option value="Employed" >Employed</option>
+                                                <option value="Self-employed" >Self-employed</option>
+                                                <option value="Unemployed" >Unemployed</option>
+                                                <option value="Retired" >Retired</option>
+                                            </select>
+                                            <label for="work_status" class="color-theme form-label-always-active">Work Status</label>
+                                        </div>
+
+                                        <div class="form-custom form-label form-icon mb-3">
+                                            <i class="bi bi-file-fill  font-13"></i>
+                                            <select name="bussines_owner" class="form-select rounded-xs" id="bussines_owner">
+                                                <option value="">Select an Option</option>
+                                                <option value="Yes" >Yes</option>
+                                                <option value="No" >No</option>
+                                            </select>
+                                            <label for="bussines_owner" class="color-theme form-label-always-active">Are you a business owner?</label>
+                                        </div>
+
+                                        <input type="hidden" name="edit_id" value="default">
+
+                                        <div class="row">
+                                            <label class="color-theme form-label-always-active radiolabel">Amount Range</label>
+                                            
+                                                <div class="col-sm-6 col-6 col-md-6 col-xl-4">
+                                                <div class="form-check form-check-custom">
+                                                        <input  class="form-check-input" type="radio" name="select_range" id="1_20000" value="$1 to $20000">
+                                                        <label class="form-check-label " for="1_20000">$1 to $20000</label>
+                                                        <i class="is-checked color-green-dark bi bi-check-circle-fill"></i>
+                                                        <i class="is-unchecked color-highlight bi bi-circle-fill"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 col-6 col-md-6 col-xl-4">
+                                                <div class="form-check form-check-custom">
+                                                        <input  class="form-check-input" type="radio" name="select_range" id="21000_40000" value="$21000 to $40000">
+                                                        <label class="form-check-label " for="21000_40000">$21000 to $40000</label>
+                                                        <i class="is-checked color-green-dark bi bi-check-circle-fill"></i>
+                                                        <i class="is-unchecked color-highlight bi bi-circle-fill"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 col-6 col-md-6 col-xl-4">
+                                                <div class="form-check form-check-custom">
+                                                        <input  class="form-check-input" type="radio" name="select_range" id="41000_60000" value="$41000 to $60000">
+                                                        <label class="form-check-label " for="41000_60000">$41000 to $60000</label>
+                                                        <i class="is-checked color-green-dark bi bi-check-circle-fill"></i>
+                                                        <i class="is-unchecked color-highlight bi bi-circle-fill"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 col-6 col-md-6 col-xl-4">
+                                                <div class="form-check form-check-custom">
+                                                        <input  class="form-check-input" type="radio" name="select_range" id="61000_80000" value="$61000 to $80000">
+                                                        <label class="form-check-label " for="61000_80000">$61000 to $80000</label>
+                                                        <i class="is-checked color-green-dark bi bi-check-circle-fill"></i>
+                                                        <i class="is-unchecked color-highlight bi bi-circle-fill"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 col-6 col-md-6 col-xl-4">
+                                                <div class="form-check form-check-custom">
+                                                        <input  class="form-check-input" type="radio" name="select_range" id="81000_100000" value="$81000 to $100000">
+                                                        <label class="form-check-label " for="81000_100000">$81000 to $100000</label>
+                                                        <i class="is-checked color-green-dark bi bi-check-circle-fill"></i>
+                                                        <i class="is-unchecked color-highlight bi bi-circle-fill"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 col-6 col-md-6 col-xl-4">
+                                                <div class="form-check form-check-custom">
+                                                        <input  class="form-check-input" type="radio" name="select_range" id="101000_200000" value="$101000 to $200000">
+                                                        <label class="form-check-label " for="101000_200000">$101000 to $200000</label>
+                                                        <i class="is-checked color-green-dark bi bi-check-circle-fill"></i>
+                                                        <i class="is-unchecked color-highlight bi bi-circle-fill"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 col-6 col-md-6 col-xl-4">
+                                                <div class="form-check form-check-custom">
+                                                        <input  class="form-check-input" type="radio" name="select_range" id="201000_500000" value="$201000 to $500000">
+                                                        <label class="form-check-label " for="201000_500000">$201000 to $500000</label>
+                                                        <i class="is-checked color-green-dark bi bi-check-circle-fill"></i>
+                                                        <i class="is-unchecked color-highlight bi bi-circle-fill"></i>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 col-6 col-md-6 col-xl-4">
+                                                <div class="form-check form-check-custom">
+                                                        <input  class="form-check-input" type="radio" name="select_range" id="1000000_above" value="$1000000 to Above">
+                                                        <label class="form-check-label " for="1000000_above">$1000000 to Above</label>
+                                                        <i class="is-checked color-green-dark bi bi-check-circle-fill"></i>
+                                                        <i class="is-unchecked color-highlight bi bi-circle-fill"></i>
+                                                    </div>
+                                                </div>
+                                                                                        </div>
+
+                                        <button id="secure_funds" class="btn btn-full bg-blue-dark rounded-xs text-uppercase font-700 w-100 btn-s mt-4" type="submit">
+                                            Submit form
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab Group 2 -->
+                        <div class="collapse" id="tab-5" data-bs-parent="#tab-group-2">
+                            
+                        </div>
+                        <!-- Tab Group 3 -->
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <!-- End of Page Content-->
+
+
+
+        <!-- Transaction Action Sheet -->
+        <div id="menu-activity-1" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+            <!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
+            <div class="menu-size" style="height:380px;">
+                <div class="content">
+                    <a href="#" class="d-flex py-1 pb-4">
+                        <div class="align-self-center">
+                            <span class="icon rounded-s me-2 gradient-green shadow-bg shadow-bg-xs"><i class="bi bi-person-circle font-18 color-white"></i></span>
+                        </div>
+                        <div class="align-self-center ps-1">
+                            <h5 id="name" class="pt-1 mb-n1"></h5>
+                            <p id="ststus_writeup" class="mb-0 font-11 opacity-70">Awaiting Approval</p>
+                        </div>
+                        <div class="align-self-center ms-auto text-end">
+                            <h4 id="ststus" class="pt-1 font-14 mb-n1 color-yellow-dark">PENDING</h4>
+                            <p id="id_num" class="mb-0 font-11"></p>
+                        </div>
+                    </a>
+                    <div class="row">
+
+                        <strong class="col-5 color-theme">Type</strong>
+                        <strong id="type_of_bk" class="col-7 text-end">Transfer</strong>
+                        <div class="col-12 mt-2 mb-2">
+                            <div class="divider my-0"></div>
+                        </div>
+                        <strong class="col-5 color-theme">Age</strong>
+                        <strong id="age1" class="col-7 text-end">Transfer</strong>
+                        <div class="col-12 mt-2 mb-2">
+                            <div class="divider my-0"></div>
+                        </div>
+                        <strong class="col-5 color-theme">Amount Range</strong>
+                        <strong id="range1" class="col-7 text-end color-highlight"></strong>
+                        <div class="col-12 mt-2 mb-2">
+                            <div class="divider my-0"></div>
+                        </div>
+                        <strong class="col-5 color-theme">Own a business?</strong>
+                        <strong id="business" class="col-7 text-end"></strong>
+                        <div class="col-12 mt-2 mb-2">
+                            <div class="divider my-0"></div>
+                        </div>
+                        <strong class="col-5 color-theme">Date</strong>
+                        <strong id="date1" class="col-7 text-end "></strong>
+                        <div class="col-12 mt-2 mb-2">
+                            <div class="divider my-0"></div>
+                        </div>
+                        <strong class="col-5 color-theme">Work Status</strong>
+                        <strong id="wrk_status" class="col-7 text-end"></strong>
+                        <div class="col-12 mt-2 mb-4">
+                            <div class="divider my-0"></div>
+                        </div>
+
+                        <div id="button_div">
+                            <!-- <div class="col-6">
+                                <a href="#" class="btn btn-s btn-full gradient-green shadow-bg shadow-bg-xs">Edit Info</a>
+                            </div> -->
+                            <!-- <div class="col-6">
+                                <a href="#" data-bs-dismiss="offcanvas" class="btn btn-s btn-full gradient-red shadow-bg shadow-bg-xs">Reject</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var links = document.querySelectorAll('a[data-bs-toggle="offcanvas"]');
+
+                links.forEach(function(link) {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        var id = link.getAttribute('data-id');
+
+                        fetch(`includes/server?id=${id}&get_data=get_data`, {
+                                headers: {
+                                    'X-Requested-With': 'XMLHttpRequest'
+                                }
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.error) {
+                                    console.error('Error:', data.error);
+                                    return;
+                                }
+
+                                document.querySelector('#name').innerText = data.name;
+
+                                document.querySelector('#ststus_writeup').innerText =
+                                    (data.status === "Pending") ? 'Awaiting Approval' : 'Approved';
+                                // Clear any existing buttons to avoid duplication
+                                $('#button_div').empty();
+
+                                // Append the 'Reject' button if status is 'Pending'
+                                if (data.status === "Pending") {
+                                    $('#button_div').append(`
+                                      <a href="#" data-id="${data.id}" class="edit_data btn btn-s btn-full gradient-yellow shadow-bg shadow-bg-xs">
+                                         Edit Info
+                                          </a>
+
+                                  `);
+                                }
+
+                                document.querySelector('#ststus').innerText = data.status;
+                                // Update the color class based on status
+                                if (data.status === "Approved") {
+                                    $('#ststus').removeClass('color-yellow-dark').addClass('color-green-dark');
+                                } else {
+                                    $('#ststus').removeClass('color-green-dark').addClass('color-yellow-dark');
+                                }
+                                document.querySelector('#id_num').innerText = `ID ${data.id}`;
+                                document.querySelector('#age1').innerText = data.age;
+                                document.querySelector('#range1').innerText = data.amount_range;
+                                document.querySelector('#business').innerText = data.business;
+                                document.querySelector('#date1').innerText = formatDate(data.date);
+                                document.querySelector('#wrk_status').innerText = data.wrk_status;
+                                document.querySelector('#type_of_bk').innerText = data.secure_typ;
+
+                            })
+                            .catch(error => console.error('Error fetching data:', error));
+                    });
+                });
+            });
+
+            $(document).ready(function() {
+                // Use event delegation for dynamically added elements
+                $(document).on('click', '.edit_data', function(e) {
+                    e.preventDefault(); // Prevent default link behavior
+
+                    const id = $(this).data('id'); // Get the ID from the data attribute
+
+                    // Create a form element
+                    const form = $('<form>', {
+                        action: '#', // Updated with .php extension for correct server request
+                        method: 'POST'
+                    });
+
+                    // Add the ID as a hidden input field
+                    form.append($('<input>', {
+                        type: 'hidden',
+                        name: 'edit_id_from_input',
+                        value: id
+                    }));
+
+                    // Append the form to the body, submit it, and remove it
+                    $('body').append(form);
+                    form.submit();
+                    form.remove();
+                });
+            });
+        </script>
+
+
+
+
+
+        <script>
+            //////when secure_funds button is clicked
+            $(document).on("click", "#secure_funds", function(e) {
+                e.preventDefault();
+
+                // Change the button text and add a spinner
+                $(this).html('Processing, please wait...')
+                    .css("pointer-events", "none"); // Prevent multiple clicks
+
+                // Get form data properly
+                //var formData = new FormData(document.getElementById("secure_funds_form"));
+                // formData.append("rcard_sub", "rcard_sub");
+
+
+
+                var invalidLabels = []; // Array to store all invalid labels
+
+                async function validateForm() {
+                    var isValid = true;
+                    let validationPromises = [];
+
+                    $("#secure_funds_form input, #secure_funds_form select, #secure_funds_form textarea").each(function() {
+                        let formContainer = $(this).closest(".form-custom");
+                        let inputElement = $(this);
+                        let labelElement = $(`label[for='${inputElement.attr('id')}']`);
+
+
+
+
+
+
+                        // Handle radio button validation
+                        if (inputElement.attr("type") === "radio") {
+                            let radioName = inputElement.attr("name");
+                            let radioGroup = $(`input[name='${radioName}']`);
+                            let mainLabel = $(".radiolabel");
+
+                            if (!radioGroup.is(":checked")) {
+                                // Add invalid class to the radio buttons and main label
+                                radioGroup.addClass("is-invalid");
+                                mainLabel.addClass("is-invalid");
+
+                                // Push only the main label once
+                                if (!invalidLabels.includes(mainLabel.text())) {
+                                    invalidLabels.push(mainLabel.text());
+                                }
+                                isValid = false;
+                            } else {
+                                // Remove invalid class if a radio button is selected
+                                radioGroup.removeClass("is-invalid");
+                                mainLabel.removeClass("is-invalid");
+                            }
+
+                            // Real-time validation for radio buttons
+                            radioGroup.on("change", function() {
+                                if (radioGroup.is(":checked")) {
+                                    radioGroup.removeClass("is-invalid");
+                                    mainLabel.removeClass("is-invalid");
+                                }
+                            });
+                        }
+
+
+
+                        // Handle file input validation separately
+                        if (inputElement.attr("type") === "file") {
+                            let dropifyInstance = inputElement.data('dropify');
+
+                            let validationPromise = new Promise((resolve) => {
+                                setTimeout(async function() {
+                                    let previewImg = inputElement.closest('.dropify-wrapper')
+                                        .find('.dropify-preview .dropify-render img');
+
+                                    if (previewImg.length > 0) {
+                                        let imgSrc = previewImg.attr('src');
+
+                                        if (imgSrc && imgSrc.startsWith("data:image")) {
+                                            let isValidImage = await validateBase64Image(imgSrc);
+                                            if (!isValidImage) {
+                                                //console.log(`Invalid base64 image for input: ${inputElement.attr('id')}`);
+                                                markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                                //invalidLabels.push(labelElement.text());
+                                                resolve(false);
+                                            } else {
+                                                inputElement.removeClass("is-invalid");
+                                                labelElement.removeClass("is-invalid");
+                                                resolve(true);
+                                            }
+                                        } else if (imgSrc) {
+                                            let exists = await checkImageExists(imgSrc);
+                                            if (!exists) {
+                                                //console.log(`Image does not exist for input: ${inputElement.attr('id')}`);
+                                                markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                                //invalidLabels.push(labelElement.text());
+                                                resolve(false);
+                                            } else {
+                                                inputElement.removeClass("is-invalid");
+                                                labelElement.removeClass("is-invalid");
+                                                resolve(true);
+                                            }
+                                        } else {
+                                            //console.log(`No image found for input: ${inputElement.attr('id')}`);
+                                            markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                            invalidLabels.push(labelElement.text());
+                                            resolve(false);
+                                        }
+                                    } else {
+                                        //console.log(`No preview image found for input: ${inputElement.attr('id')}`);
+                                        markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                        //invalidLabels.push(labelElement.text());
+                                        resolve(false);
+                                    }
+                                }, 500);
+                            });
+
+                            validationPromises.push(validationPromise);
+
+                            // Handle changes to the dropify input
+                            inputElement.on("change", async function() {
+                                let previewImg = inputElement.closest('.dropify-wrapper').find('.dropify-preview .dropify-render img');
+                                //console.log(previewImg);
+
+                                if (previewImg.length > 0) {
+                                    let imgSrc = previewImg.attr('src');
+
+                                    if (imgSrc && imgSrc.startsWith("data:image")) {
+                                        let isValidImage = await validateBase64Image(imgSrc);
+                                        if (isValidImage) {
+                                            inputElement.removeClass("is-invalid");
+                                            labelElement.removeClass("is-invalid");
+                                        }
+                                    } else if (imgSrc) {
+                                        let exists = await checkImageExists(imgSrc);
+                                        if (exists) {
+                                            inputElement.removeClass("is-invalid");
+                                            labelElement.removeClass("is-invalid");
+                                        }
+                                    }
+                                } else {
+                                    //console.log("is valid");
+                                    inputElement.removeClass("is-invalid");
+                                    labelElement.removeClass("is-invalid");
+                                    formContainer.removeClass("is-invalid");
+                                }
+                            });
+
+                            // Handle Dropify image removal
+                            inputElement.on("dropify.afterClear", function(event, element) {
+                                //console.log("The image was removed.");
+                                inputElement.addClass("is-invalid");
+                                labelElement.addClass("is-invalid");
+                                formContainer.addClass("is-invalid");
+                            });
+
+                        } else if (inputElement.attr("type") === "email") {
+                            // Email validation
+                            let email = inputElement.val();
+
+                            // Remove any invalid characters (spaces and special characters except for @ and .)
+                            let validEmail = email.replace(/[^a-zA-Z0-9@._-]/g, "");
+
+                            // Ensure only one @ symbol
+                            let atSymbolCount = (validEmail.match(/@/g) || []).length;
+                            if (atSymbolCount > 1) {
+                                validEmail = validEmail.replace(/@/g, "", atSymbolCount - 1); // Remove extra @ symbols
+                            }
+
+                            inputElement.val(validEmail); // Update the input field
+
+                            // Check email format
+                            if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(validEmail)) {
+                                markInvalid(inputElement, formContainer, null, labelElement);
+                                invalidLabels.push(labelElement.text());
+                                //console.log(`Invalid email for input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+                                isValid = false;
+                            } else {
+                                formContainer.removeClass("is-invalid");
+                                inputElement.removeClass("is-invalid");
+                                labelElement.removeClass("is-invalid");
+                            }
+
+                            inputElement.on("input change", function() {
+                                if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test($(this).val())) {
+                                    inputElement.removeClass("is-invalid");
+                                    labelElement.removeClass("is-invalid");
+                                } else {
+                                    inputElement.addClass("is-invalid");
+                                    labelElement.addClass("is-invalid");
+                                    invalidLabels.push(labelElement.text());
+                                    //console.log(`Invalid email during input change: ${labelElement.text()}`);
+                                    isValid = false;
+                                }
+                            });
+                        } else if (inputElement.attr("type") === "tel") {
+                            // Phone number validation
+                            let phoneNumber = inputElement.val();
+
+                            // Allow only numbers and an optional leading +
+                            let validPhone = phoneNumber.replace(/[^0-9+]/g, "");
+
+                            // Ensure the + sign is only at the start
+                            if (validPhone.indexOf("+") > 0) {
+                                validPhone = validPhone.replace(/\+/g, ""); // Remove all + signs
+                            }
+
+                            inputElement.val(validPhone); // Update the input field
+
+                            // Add the invalid label to the array if invalid
+                            if (!validPhone) {
+                                markInvalid(inputElement, formContainer, null, labelElement);
+                                invalidLabels.push(labelElement.text());
+                                //console.log(`Invalid phone number for input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+                                isValid = false;
+                            }
+
+                            inputElement.on("input change", function() {
+                                let phoneNumber = $(this).val();
+                                let validPhone = phoneNumber.replace(/[^0-9+]/g, "");
+                                if (validPhone.indexOf("+") > 0) {
+                                    validPhone = validPhone.replace(/\+/g, "");
+                                }
+                                inputElement.val(validPhone);
+
+                                if (validPhone) {
+                                    inputElement.removeClass("is-invalid");
+                                    labelElement.removeClass("is-invalid");
+                                } else {
+                                    inputElement.addClass("is-invalid");
+                                    labelElement.addClass("is-invalid");
+                                    invalidLabels.push(labelElement.text());
+                                    //console.log(`Invalid phone number during input change: ${labelElement.text()}`);
+                                    isValid = false;
+                                }
+                            });
+                        } else {
+                            // Validate non-file inputs
+                            if (!inputElement.val()) {
+                                inputElement.addClass("is-invalid");
+                                labelElement.addClass("is-invalid");
+                                invalidLabels.push(labelElement.text());
+                                //console.log(`Invalid non-file input for input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+                                isValid = false;
+                            } else {
+                                formContainer.removeClass("is-invalid");
+                                inputElement.removeClass("is-invalid");
+                                labelElement.removeClass("is-invalid");
+                            }
+
+                            inputElement.on("input change", function() {
+                                if ($(this).val()) {
+                                    inputElement.removeClass("is-invalid");
+                                    labelElement.removeClass("is-invalid");
+                                } else {
+                                    inputElement.addClass("is-invalid");
+                                    labelElement.addClass("is-invalid");
+                                    invalidLabels.push(labelElement.text());
+                                    //console.log(`Invalid non-file input during input change: ${labelElement.text()}`);
+                                    isValid = false;
+                                }
+                            });
+                        }
+
+                    });
+
+                    let results = await Promise.all(validationPromises);
+                    if (results.includes(false)) {
+                        isValid = false;
+                    }
+
+                    // Clear existing error messages before displaying a new one
+                    iziToast.destroy();
+
+                    if (!isValid) {
+                        console.log(invalidLabels);
+
+                        let invalidLabelsMessage = invalidLabels.join(', '); // Combine all invalid labels into a single string
+                        iziToast.warning({
+                            position: 'topRight',
+                            title: 'Error',
+                            message: `Form is invalid. Please fill in all required fields!: ${invalidLabelsMessage}`,
+                        });
+                        $('#secure_funds').html('Submit form').css("pointer-events", "auto");
+                    } else {
+                        //console.log("✅ All fields are valid. Proceeding to next action...");
+                        ajaxcall2();
+                    }
+                }
+                // Convert callback-based functions to promises
+                function validateBase64Image(base64Str) {
+                    return new Promise((resolve) => {
+                        let img = new Image();
+                        img.onload = () => resolve(true);
+                        img.onerror = () => resolve(false);
+                        img.src = base64Str;
+                    });
+                }
+
+                function checkImageExists(url) {
+                    return new Promise((resolve) => {
+                        let img = new Image();
+                        img.onload = () => resolve(true);
+                        img.onerror = () => resolve(false);
+                        img.src = url;
+                    });
+                }
+
+                // Function to mark an input as invalid
+                function markInvalid(inputElement, formContainer, dropifyInstance, labelElement) {
+                    formContainer.addClass("is-invalid");
+                    inputElement.addClass("is-invalid");
+                    labelElement.addClass("is-invalid");
+                    //console.log(invalidLabels);
+                    invalidLabels.push(labelElement.text());
+
+                    if (dropifyInstance) {
+                        dropifyInstance.resetPreview();
+                        dropifyInstance.clearElement();
+                    }
+                }
+
+                // Trigger validation
+                validateForm();
+
+
+                function ajaxcall2() {
+                    // Get form data properly
+                    var formData = new FormData(document.getElementById("secure_funds_form"));
+                    formData.append("secure_funds", "secure_funds");
+                    //formData.set("wallet_address", $('#wallet_address option:selected').data('wallet-name'));
+
+                    $.ajax({
+                        url: 'includes/server',
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        cache: false,
+                        dataType: 'json', // Expect JSON response
+                        processData: false,
+                        success: function(response) {
+                            if (response.mssg == "ok") {
+                                iziToast.success({
+                                    position: 'topRight',
+                                    title: 'Profile Updated',
+                                    message: `Your Info has been successfully Updated. Please wait while we verify your Data!`,
+                                });
+                                $('#secure_funds').html('Submit form').css("pointer-events", "auto");
+                                $('#secure_funds_form')[0].reset();
+                            } else {
+                                iziToast.error({
+                                    position: 'topRight',
+                                    title: 'Error',
+                                    message: `${response.mssg}`,
+                                });
+                                $('#secure_funds').html('Submit form').css("pointer-events", "auto");
+                            }
+                        },
+                        error: function(xhr) {
+                            console.error('Error:', xhr.responseText);
+                        }
+                    });
+                }
+
+            });
+        </script>
+
+
+    </div>
+    <!-- End of Page ID-->
+
+
+
+
+    <!-- Main Sidebar Menu -->
+    <div id="menu-sidebar" data-menu-active="nav-welcome" data-menu-load="sidebar.html"
+        class="offcanvas offcanvas-start offcanvas-detached rounded-m">
+    </div>
+
+    <!-- Highlights Menu -->
+    <div id="menu-highlights" data-menu-load="menu-highlights.html"
+        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+
+    <!-- Notifications Bell -->
+    <div id="menu-notifications" data-menu-load="menu-notifications.html"
+        class="offcanvas offcanvas-top offcanvas-detached rounded-m">
+    </div>
+
+    <!-- modal section -->
+    <div id="deposit_modal" data-menu-load="deposit_modal.php"
+        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+    <!-- modalsection ends  -->
+
+    <!--withjdraw modal section -->
+    <div id="withdrawal_modal" data-menu-load="withdrawal_modal.php"
+        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+    </div>
+    <!-- withdraw modalsection ends  -->
+
+    <!-- Notifications Bell -->
+    <div id="menu-notifications" data-menu-load="menu-notifications.html"
+        class="offcanvas offcanvas-top offcanvas-detached rounded-m">
+    </div>
+
+
+
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
+</body>

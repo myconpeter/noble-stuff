@@ -1,0 +1,936 @@
+<%- include ('./partials/secureHeader') %>	
+        <!-- Page Content - Only Page Elements Here-->
+        <div class="page-content footer-clear">
+
+            <!-- Page Title-->
+            <div class="pt-3 disabled">
+                <div class="page-title d-flex">
+                    <div class="align-self-center me-auto">
+                        <p class="color-white">Welcome Back</p>
+                        <h1 class="color-white">PayApp</h1>
+                    </div>
+                    <div class="align-self-center ms-auto">
+                        <a href="#"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#menu-sidebar"
+                            class="icon bg-white rounded-m">
+                            <i class="bi bi-list font-20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <svg id="header-deco" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg">
+                <path id="header-deco-1" d="M 0,600 C 0,600 0,120 0,120 C 92.36363636363635,133.79904306220095 184.7272727272727,147.59808612440193 287,148 C 389.2727272727273,148.40191387559807 501.4545454545455,135.40669856459328 592,129 C 682.5454545454545,122.5933014354067 751.4545454545455,122.77511961722489 848,115 C 944.5454545454545,107.22488038277511 1068.7272727272727,91.49282296650718 1172,91 C 1275.2727272727273,90.50717703349282 1357.6363636363635,105.25358851674642 1440,120 C 1440,120 1440,600 1440,600 Z"></path>
+                <path id="header-deco-2" d="M 0,600 C 0,600 0,240 0,240 C 98.97607655502392,258.2105263157895 197.95215311004785,276.4210526315789 278,282 C 358.04784688995215,287.5789473684211 419.16746411483257,280.5263157894737 524,265 C 628.8325358851674,249.4736842105263 777.377990430622,225.47368421052633 888,211 C 998.622009569378,196.52631578947367 1071.3205741626793,191.57894736842107 1157,198 C 1242.6794258373207,204.42105263157893 1341.3397129186603,222.21052631578948 1440,240 C 1440,240 1440,600 1440,600 Z"></path>
+                <path id="header-deco-3" d="M 0,600 C 0,600 0,360 0,360 C 65.43540669856458,339.55023923444975 130.87081339712915,319.1004784688995 245,321 C 359.12918660287085,322.8995215311005 521.9521531100479,347.1483253588517 616,352 C 710.0478468899521,356.8516746411483 735.3205741626795,342.3062200956938 822,333 C 908.6794258373205,323.6937799043062 1056.7655502392345,319.62679425837325 1170,325 C 1283.2344497607655,330.37320574162675 1361.6172248803828,345.1866028708134 1440,360 C 1440,360 1440,600 1440,600 Z"></path>
+                <path id="header-deco-4" d="M 0,600 C 0,600 0,480 0,480 C 70.90909090909093,494.91866028708137 141.81818181818187,509.8373205741627 239,499 C 336.18181818181813,488.1626794258373 459.6363636363636,451.5693779904306 567,446 C 674.3636363636364,440.4306220095694 765.6363636363636,465.88516746411483 862,465 C 958.3636363636364,464.11483253588517 1059.8181818181818,436.8899521531101 1157,435 C 1254.1818181818182,433.1100478468899 1347.090909090909,456.555023923445 1440,480 C 1440,480 1440,600 1440,600 Z"></path>
+            </svg>
+
+            <div class="notch-clear"></div>
+            <div class="pt-5 mt-4"></div>
+            <div class="card card-style overflow-visible mt-5">
+                <div class="mt-n5"></div>
+                <img src="/img/user-default.png" alt="img" width="180" class="mx-auto rounded-circle mt-n5 shadow-l">
+                <h1 class="color-theme text-center font-30 pt-3 mb-0">micheal peter</h1>
+
+                
+                    <p class="text-center font-11"><i class="bi bi-x-circle-fill color-red-dark pe-2"></i>Not Verified User</p>
+
+                
+
+
+                <div class="content mt-0 mb-2">
+                    <div class="list-group list-custom list-group-flush list-group-m rounded-xs">
+                        <a href="#" class="list-group-item" data-bs-toggle="offcanvas" data-bs-target="#menu-information">
+                            <i class="bi bi-person-circle"></i>
+                            <div>Information / Settings</div>
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                        <a href="payments" class="list-group-item">
+                            <i class="bi bi-credit-card"></i>
+                            <div>Buy Crypto</div>
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+
+
+
+                         <a href="kyc" class="list-group-item">
+                                <a href="kyc" class="btn btn-xxs gradient-green">Verify Now</a>
+                            </a>
+                        
+                        <a href="#" class="list-group-item pe-2" data-trigger-switch="switch-5">
+                            <i class="has-bg gradient-green color-white shadow-bg shadow-bg-xs rounded-xs bi bi-lock-fill"></i>
+                            <div><strong>Enable/Disable 2FA</strong><span>Use Google 2fa</span></div>
+                            <div class="form-switch ios-switch switch-green switch-s">
+                                <input type="checkbox" class="ios-input" id="switch-5">
+                                <label class="custom-control-label" for="switch-5"></label>
+                            </div>
+                        </a>
+
+
+                        <a href="#" class="list-group-item" data-bs-toggle="offcanvas" data-bs-target="#menu-highlights">
+                            <i class="bi bi-droplet-fill"></i>
+                            <div>Color Scheme</div>
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="contact.php">
+                <div class="btn btn-full mx-3 gradient-highlight shadow-bg shadow-bg-xs">Contact Support</div>
+            </a>
+
+        </div>
+        <!-- End of Page Content-->
+
+        <!-- Off Canvas and Menu Elements-->
+        <!-- Always outside the Page Content-->
+
+        <!-- Main Sidebar Menu -->
+        <!-- Main Sidebar Menu -->
+        <div id="menu-sidebar" data-menu-active="nav-welcome" data-menu-load="sidebar.html"
+            class="offcanvas offcanvas-start offcanvas-detached rounded-m">
+        </div>
+
+        <div id="menu-highlights"
+            data-menu-active="nav-pages"
+            data-menu-load="menu-highlights.html"
+            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        </div>
+
+        <div id="menu-information"
+            class="offcanvas offcanvas-start">
+            <div style="width:100vw">
+                <!-- Page Title-->
+                <div class="pt-3">
+                    <div class="page-title d-flex">
+                        <div class="align-self-center">
+                            <a href="#"
+                                data-bs-dismiss="offcanvas"
+                                class="me-3 ms-0 icon icon-xxs bg-theme rounded-s shadow-m">
+                                <i class="bi bi-chevron-left color-theme font-14"></i>
+                            </a>
+                        </div>
+                        <div class="align-self-center me-auto">
+                            <h1 class="color-theme mb-0 font-18">Back to Profile</h1>
+                        </div>
+                        <div class="align-self-center ms-auto">
+                            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-sidebar"
+                                class="icon icon-xxs gradient-highlight color-white shadow-bg shadow-bg-xs rounded-s">
+                                <i class="bi bi-list font-20"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content mt-0 mb-2">
+                    <form id="user_edit_form">
+                        <h5 class="pb-3 pt-4">Personal Information</h5>
+                        <div class="form-custom form-label form-border mb-3 bg-transparent">
+                            <input readonly type="text" name="username" class="form-control rounded-xs" value="codedflexy555@gmail.com" id="c1a" placeholder="nick.user.name" />
+                            <label for="c1a" class="form-label-always-active color-highlight">Username</label>
+                        </div>
+                        <div class="form-custom form-label form-border mb-3 bg-transparent">
+                            <input name="fullname" type="text" class="form-control rounded-xs" id="c1ab" placeholder="John" value="micheal peter" />
+                            <label for="c1ab" class="form-label-always-active color-highlight">Fullname</label>
+                            <span>(required)</span>
+                        </div>
+
+
+
+                        <div class="file-data">
+                            <div class="form-custom form-label mb-3 form-icon">
+                                <!-- Dropify File Input -->
+                                <input id="Profile_photo" name="Profile_photo" type="file" class="dropify" data-height="50" data-default-file="images/" />
+                                <label for="Profile_photo" class="color-highlight form-label-always-active">Select Profile Photo</label>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-custom form-label form-border mb-3 bg-transparent">
+                            <input type="email" name="email" class="form-control rounded-xs" id="c1" value="michealpeter040@gmail.com" placeholder="name@domain.com" />
+                            <label for="c1" class="color-highlight form-label-always-active">Email Address</label>
+                            <span>(required)</span>
+                        </div>
+                        <div class="form-custom form-label form-border form-icon">
+                            <i class="bi bi-currency-exchange font-13"></i>
+                            <label for="usercurrency" class="color-highlight form-label-always-active">Account Currency</label>
+                            <script>var storedCurrency = 'USD';</script>
+
+                            <select required class="form-control" id="usercurrency" name="usercurrency">
+                                <option value="" selected disabled>Select Currency</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-custom form-label form-border form-icon">
+                            <i class="bi bi-flag font-13"></i>
+                            <label for="country" class="color-highlight form-label-always-active">Country</label>
+
+                            <script>var storedCountry = 'Nigeria'; var storedState = 'Ogun';</script>                            <select required class="form-select rounded-xs" onchange="print_state('state', this.selectedIndex);" id="country" name="country"></select>
+                        </div>
+
+
+                        <div class="form-custom form-label form-border form-icon">
+                            <i class="bi bi-flag-fill font-13"></i>
+                            <label for="state" class="color-highlight form-label-always-active">State</label>
+                            <select required class="countries form-select rounded-xs" name="state" id="state"></select>
+                        </div>
+
+
+
+                        <h5 class="pb-3 pt-4">Account Security</h5>
+                        <div class="form-custom form-label form-border mb-3 bg-transparent">
+                            <input name="phone" type="tel" class="form-control rounded-xs" id="phone"
+                                value="08161512861"
+                                pattern="^\+?[0-9\s\-]*$"
+                                title="Enter a valid phone number (digits, spaces, hyphens, and an optional leading +)"
+                                required />
+                            <label for="phone" class="phone color-highlight form-label-always-active">Phone Number</label>
+                            <span>(required)</span>
+                        </div>
+
+                        <div class="form-custom form-label form-border mb-3 bg-transparent">
+                            <input name="current_pass_from_form" type="password" class="form-control rounded-xs" id="current_pass_from_form" value="" />
+                            <label for="current_pass_from_form" class="color-highlight form-label-always-active">Current Password</label>
+                            <span>(required)</span>
+                        </div>
+                        <div class="form-custom form-label form-border mb-4 bg-transparent">
+                            <input data-ignore="true" type="password" class="form-control rounded-xs" name="password" id="password" value="" />
+                            <label for="password" class="color-highlight form-label-always-active">New Password</label>
+                            <span>(required)</span>
+                        </div>
+                        <div class="form-custom form-label form-border mb-4 bg-transparent">
+                            <input name="confirm_password" type="password" class="form-control rounded-xs" id="confirm_password" value="" />
+                            <label for="confirm_password" class="color-highlight form-label-always-active">Confirm New Password</label>
+                            <span>(required)</span>
+
+                            <a href="#" id="user_edit_btn" class="btn btn-full gradient-highlight shadow-bg shadow-bg-s mt-4">Apply Settings</a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- End of Page ID-->
+
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
+    <script type="text/javascript" src="/scripts/countries.js"></script>
+    <!-- <script language="javascript">
+        print_country("country");
+    </script> -->
+</body>
+
+<script>
+    //////when deposit button is clicked
+    $(document).on("click", "#user_edit_btn", function(e) {
+        e.preventDefault();
+
+        // Change the button text and add a spinner
+        $(this).html('Processing, please wait...')
+            .css("pointer-events", "none"); // Prevent multiple clicks
+
+        // Get form data properly
+        var formData = new FormData(document.getElementById("user_edit_form"));
+        formData.append("user_edit", "user_edit");
+
+
+        // Custom validation for form fields
+        // var isValid = true;
+        // var isValidPassword = true;
+
+
+
+        // var invalidLabels = []; // Array to store all invalid labels
+
+        // async function validateForm() {
+        //     var isValid = true;
+        //     let validationPromises = [];
+
+
+        //     $("#user_edit_form input, #user_edit_form select, #user_edit_form textarea").each(function() {
+        //         let formContainer = $(this).closest(".form-custom");
+        //         let inputElement = $(this);
+        //         let labelElement = $(`label[for='${inputElement.attr('id')}']`);
+
+        //         // Handle file input validation separately
+        //         if (inputElement.attr("type") === "file") {
+        //             let dropifyInstance = inputElement.data('dropify');
+
+        //             let validationPromise = new Promise((resolve) => {
+        //                 setTimeout(async function() {
+        //                     let previewImg = inputElement.closest('.dropify-wrapper')
+        //                         .find('.dropify-preview .dropify-render img');
+
+        //                     if (previewImg.length > 0) {
+        //                         let imgSrc = previewImg.attr('src');
+
+        //                         if (imgSrc && imgSrc.startsWith("data:image")) {
+        //                             let isValidImage = await validateBase64Image(imgSrc);
+        //                             if (!isValidImage) {
+        //                                 markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+        //                                 resolve(false);
+        //                             } else {
+        //                                 inputElement.removeClass("is-invalid");
+        //                                 labelElement.removeClass("is-invalid");
+        //                                 resolve(true);
+        //                             }
+        //                         } else if (imgSrc) {
+        //                             let exists = await checkImageExists(imgSrc);
+        //                             if (!exists) {
+        //                                 markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+        //                                 resolve(false);
+        //                             } else {
+        //                                 inputElement.removeClass("is-invalid");
+        //                                 labelElement.removeClass("is-invalid");
+        //                                 resolve(true);
+        //                             }
+        //                         } else {
+        //                             markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+        //                             resolve(false);
+        //                         }
+        //                     } else {
+        //                         markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+        //                         resolve(false);
+        //                     }
+        //                 }, 500);
+        //             });
+
+        //             validationPromises.push(validationPromise);
+
+        //             // Handle changes to the dropify input
+        //             inputElement.on("change", function() {
+        //                 inputElement.removeClass("is-invalid");
+        //                 labelElement.removeClass("is-invalid");
+        //             });
+        //         } else {
+        //             // Validate non-file inputs
+        //             if (!inputElement.val()) {
+        //                 //console.log(`Invalid input detected: ${inputElement.attr('name')}`);
+        //                 inputElement.addClass("is-invalid");
+        //                 labelElement.addClass("is-invalid");
+        //                 isValid = false;
+
+        //                 // Add the invalid label to the array
+        //                 invalidLabels.push(labelElement.text());
+        //             } else {
+        //                 formContainer.removeClass("is-invalid");
+        //                 inputElement.removeClass("is-invalid");
+        //                 labelElement.removeClass("is-invalid");
+        //             }
+
+        //             inputElement.on("input change", function() {
+        //                 if ($(this).val()) {
+        //                     inputElement.removeClass("is-invalid");
+        //                     labelElement.removeClass("is-invalid");
+        //                 } else {
+        //                     inputElement.addClass("is-invalid");
+        //                     labelElement.addClass("is-invalid");
+        //                 }
+        //             });
+        //         }
+        //     });
+
+        //     let results = await Promise.all(validationPromises);
+        //     if (results.includes(false)) {
+        //         isValid = false;
+        //     }
+
+        //     // Clear existing error messages before displaying a new one
+        //     iziToast.destroy();
+
+        //     if (!isValid) {
+        //         let invalidLabelsMessage = invalidLabels.join(', '); // Combine all invalid labels into a single string
+        //         iziToast.warning({
+        //             position: 'topRight',
+        //             title: 'Error',
+        //             message: `Form is invalid. Please fill in all required fields!: ${invalidLabelsMessage}`,
+        //         });
+        //         $('#user_edit_btn').html('Apply Settings').css("pointer-events", "auto");
+        //     } else {
+        //         //console.log("✅ All fields are valid. Proceeding to next action...");
+        //         ajaxcall1();
+        //     }
+        // }
+
+        // Convert callback-based functions to promises
+        // function validateBase64Image(base64Str) {
+        //     return new Promise((resolve) => {
+        //         let img = new Image();
+        //         img.onload = () => resolve(true);
+        //         img.onerror = () => resolve(false);
+        //         img.src = base64Str;
+        //     });
+        // }
+
+        // function checkImageExists(url) {
+        //     return new Promise((resolve) => {
+        //         let img = new Image();
+        //         img.onload = () => resolve(true);
+        //         img.onerror = () => resolve(false);
+        //         img.src = url;
+        //     });
+        // }
+
+        // // Function to mark an input as invalid
+        // function markInvalid(inputElement, formContainer, dropifyInstance, labelElement) {
+        //     formContainer.addClass("is-invalid");
+        //     inputElement.addClass("is-invalid");
+        //     labelElement.addClass("is-invalid");
+        //     //console.log(`Adding is-invalid class to: ${inputElement.attr('name')}`);
+        //     // Add the invalid label to the array
+        //     invalidLabels.push(labelElement.text());
+        //     if (dropifyInstance) {
+        //         dropifyInstance.resetPreview();
+        //         dropifyInstance.clearElement();
+        //     }
+        // }
+
+        // // Trigger validation
+        // validateForm();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var invalidLabels = []; // Array to store all invalid labels
+
+        async function validateForm() {
+            var isValid = true;
+            let validationPromises = [];
+
+            $("#user_edit_form input, #user_edit_form select, #user_edit_form textarea").each(function() {
+                let formContainer = $(this).closest(".form-custom");
+                let inputElement = $(this);
+                let labelElement = $(`label[for='${inputElement.attr('id')}']`);
+
+
+
+
+
+
+                // Handle radio button validation
+                if (inputElement.attr("type") === "radio") {
+                    let radioName = inputElement.attr("name");
+                    let radioGroup = $(`input[name='${radioName}']`);
+                    let mainLabel = $(".radiolabel");
+
+                    if (!radioGroup.is(":checked")) {
+                        // Add invalid class to the radio buttons and main label
+                        radioGroup.addClass("is-invalid");
+                        mainLabel.addClass("is-invalid");
+
+                        // Push only the main label once
+                        if (!invalidLabels.includes(mainLabel.text())) {
+                            invalidLabels.push(mainLabel.text());
+                        }
+                        isValid = false;
+                    } else {
+                        // Remove invalid class if a radio button is selected
+                        radioGroup.removeClass("is-invalid");
+                        mainLabel.removeClass("is-invalid");
+                    }
+
+                    // Real-time validation for radio buttons
+                    radioGroup.on("change", function() {
+                        if (radioGroup.is(":checked")) {
+                            radioGroup.removeClass("is-invalid");
+                            mainLabel.removeClass("is-invalid");
+                        }
+                    });
+                }
+
+                // Handle Password and Confirm Password Validation
+                if (inputElement.attr("type") === "password") {
+                    let passwordField = $("input[name='password']");
+                    let confirmPasswordField = $("input[name='confirm_password']");
+                    let mainLabel = $("label[for='confirm_password']"); // Adjust if needed
+                    let errorMessage = "Password and Confirm Password do not match";
+                    if (passwordField.val() !== confirmPasswordField.val()) {
+                        // Add invalid class to fields
+                        passwordField.addClass("is-invalid");
+                        confirmPasswordField.addClass("is-invalid");
+                        mainLabel.addClass("is-invalid");
+
+                        // Custom error message
+                      
+
+                        // Push only if not already in the array
+                        if (!invalidLabels.includes(errorMessage)) {
+                            invalidLabels.push(errorMessage);
+                        }
+                        isValid = false;
+                    } else {
+                        // Remove invalid class if passwords match
+                        passwordField.removeClass("is-invalid");
+                        confirmPasswordField.removeClass("is-invalid");
+                        mainLabel.removeClass("is-invalid");
+                    }
+
+                    // Real-time validation for password fields
+                    confirmPasswordField.on("input", function() {
+                        if (passwordField.val() === confirmPasswordField.val()) {
+                            passwordField.removeClass("is-invalid");
+                            confirmPasswordField.removeClass("is-invalid");
+                            mainLabel.removeClass("is-invalid");
+
+                            // Remove the error message if passwords match
+                            invalidLabels = invalidLabels.filter(msg => msg !== errorMessage);
+                        }
+                    });
+                }
+
+
+                // Handle file input validation separately
+                if (inputElement.attr("type") === "file") {
+                    let dropifyInstance = inputElement.data('dropify');
+
+                    let validationPromise = new Promise((resolve) => {
+                        setTimeout(async function() {
+                            let previewImg = inputElement.closest('.dropify-wrapper')
+                                .find('.dropify-preview .dropify-render img');
+
+                            if (previewImg.length > 0) {
+                                let imgSrc = previewImg.attr('src');
+
+                                if (imgSrc && imgSrc.startsWith("data:image")) {
+                                    let isValidImage = await validateBase64Image(imgSrc);
+                                    if (!isValidImage) {
+                                        //console.log(`Invalid base64 image for input: ${inputElement.attr('id')}`);
+                                        markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                        //invalidLabels.push(labelElement.text());
+                                        resolve(false);
+                                    } else {
+                                        inputElement.removeClass("is-invalid");
+                                        labelElement.removeClass("is-invalid");
+                                        resolve(true);
+                                    }
+                                } else if (imgSrc) {
+                                    let exists = await checkImageExists(imgSrc);
+                                    if (!exists) {
+                                        //console.log(`Image does not exist for input: ${inputElement.attr('id')}`);
+                                        markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                        //invalidLabels.push(labelElement.text());
+                                        resolve(false);
+                                    } else {
+                                        inputElement.removeClass("is-invalid");
+                                        labelElement.removeClass("is-invalid");
+                                        resolve(true);
+                                    }
+                                } else {
+                                    //console.log(`No image found for input: ${inputElement.attr('id')}`);
+                                    markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                    invalidLabels.push(labelElement.text());
+                                    resolve(false);
+                                }
+                            } else {
+                                //console.log(`No preview image found for input: ${inputElement.attr('id')}`);
+                                markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                //invalidLabels.push(labelElement.text());
+                                resolve(false);
+                            }
+                        }, 500);
+                    });
+
+                    validationPromises.push(validationPromise);
+
+                    // Handle changes to the dropify input
+                    inputElement.on("change", async function() {
+                        let previewImg = inputElement.closest('.dropify-wrapper').find('.dropify-preview .dropify-render img');
+                        //console.log(previewImg);
+
+                        if (previewImg.length > 0) {
+                            let imgSrc = previewImg.attr('src');
+
+                            if (imgSrc && imgSrc.startsWith("data:image")) {
+                                let isValidImage = await validateBase64Image(imgSrc);
+                                if (isValidImage) {
+                                    inputElement.removeClass("is-invalid");
+                                    labelElement.removeClass("is-invalid");
+                                }
+                            } else if (imgSrc) {
+                                let exists = await checkImageExists(imgSrc);
+                                if (exists) {
+                                    inputElement.removeClass("is-invalid");
+                                    labelElement.removeClass("is-invalid");
+                                }
+                            }
+                        } else {
+                            //console.log("is valid");
+                            inputElement.removeClass("is-invalid");
+                            labelElement.removeClass("is-invalid");
+                            formContainer.removeClass("is-invalid");
+                        }
+                    });
+
+                    // Handle Dropify image removal
+                    inputElement.on("dropify.afterClear", function(event, element) {
+                        //console.log("The image was removed.");
+                        inputElement.addClass("is-invalid");
+                        labelElement.addClass("is-invalid");
+                        formContainer.addClass("is-invalid");
+                    });
+
+                } else if (inputElement.attr("type") === "email") {
+                    // Email validation
+                    let email = inputElement.val();
+
+                    // Remove any invalid characters (spaces and special characters except for @ and .)
+                    let validEmail = email.replace(/[^a-zA-Z0-9@._-]/g, "");
+
+                    // Ensure only one @ symbol
+                    let atSymbolCount = (validEmail.match(/@/g) || []).length;
+                    if (atSymbolCount > 1) {
+                        validEmail = validEmail.replace(/@/g, "", atSymbolCount - 1); // Remove extra @ symbols
+                    }
+
+                    inputElement.val(validEmail); // Update the input field
+
+                    // Check email format
+                    // if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(validEmail)) {
+                    //     markInvalid(inputElement, formContainer, null, labelElement);
+                    //     invalidLabels.push(labelElement.text());
+                    //     //console.log(`Invalid email for input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+                    //     isValid = false;
+                    // }
+                    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(validEmail)) {
+                        markInvalid(inputElement, formContainer, null, labelElement);
+
+                        if (!invalidLabels.includes(labelElement.text())) {
+                            invalidLabels.push(labelElement.text()); // Prevent duplicate entries
+                        }
+
+                        isValid = false;
+                    } else {
+                        formContainer.removeClass("is-invalid");
+                        inputElement.removeClass("is-invalid");
+                        labelElement.removeClass("is-invalid");
+                    }
+
+                    inputElement.on("input change", function() {
+                        if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test($(this).val())) {
+                            inputElement.removeClass("is-invalid");
+                            labelElement.removeClass("is-invalid");
+                            formContainer.removeClass("is-invalid");
+                        } else {
+                            inputElement.addClass("is-invalid");
+                            labelElement.addClass("is-invalid");
+                            invalidLabels.push(labelElement.text());
+                            //console.log(`Invalid email during input change: ${labelElement.text()}`);
+                            isValid = false;
+                        }
+                    });
+                } else if (inputElement.attr("type") === "tel") {
+                    // Phone number validation
+                    let phoneNumber = inputElement.val();
+
+                    // Allow only numbers and an optional leading +
+                    let validPhone = phoneNumber.replace(/[^0-9+]/g, "");
+
+                    // Ensure the + sign is only at the start
+                    if (validPhone.indexOf("+") > 0) {
+                        validPhone = validPhone.replace(/\+/g, ""); // Remove all + signs
+                    }
+
+                    inputElement.val(validPhone); // Update the input field
+
+                    // Add the invalid label to the array if invalid
+
+                    if (!validPhone) {
+                        markInvalid(inputElement, formContainer, null, labelElement);
+
+                        if (!invalidLabels.includes(labelElement.text())) {
+                            invalidLabels.push(labelElement.text()); // Prevent duplicate entries
+                        }
+
+                        isValid = false;
+                    } else {
+                        inputElement.removeClass("is-invalid");
+                        labelElement.removeClass("is-invalid");
+                        //consol.log('rmove class');
+                        formContainer.removeClass("is-invalid");
+                    }
+
+                    inputElement.on("input change", function() {
+
+                        let phoneNumber = $(this).val();
+                        let validPhone = phoneNumber.replace(/[^0-9+]/g, "");
+
+                        if (validPhone.indexOf("+") > 0) {
+                            validPhone = validPhone.replace(/\+/g, "");
+                        }
+
+                        inputElement.val(validPhone);
+
+                        // Remove old error if valid
+                        invalidLabels = invalidLabels.filter(msg => msg !== labelElement.text());
+
+                        if (validPhone) {
+                            inputElement.removeClass("is-invalid");
+                            labelElement.removeClass("is-invalid");
+                            formContainer.removeClass("is-invalid");
+                        } else {
+                            inputElement.addClass("is-invalid");
+                            labelElement.addClass("is-invalid");
+
+                            if (!invalidLabels.includes(labelElement.text())) {
+                                invalidLabels.push(labelElement.text()); // Prevent duplicate errors
+                            }
+
+                            isValid = false;
+                        }
+                    });
+                } else {
+                    // Validate non-file inputs
+                    if (!inputElement.val()) {
+                        inputElement.addClass("is-invalid");
+                        labelElement.addClass("is-invalid");
+                        invalidLabels.push(labelElement.text());
+                        //console.log(`Invalid non-file input for input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+                        isValid = false;
+                    } else {
+                        formContainer.removeClass("is-invalid");
+                        inputElement.removeClass("is-invalid");
+                        labelElement.removeClass("is-invalid");
+                    }
+
+                    inputElement.on("input change", function() {
+                        if ($(this).val()) {
+                            inputElement.removeClass("is-invalid");
+                            labelElement.removeClass("is-invalid");
+                        } else {
+                            inputElement.addClass("is-invalid");
+                            labelElement.addClass("is-invalid");
+                            invalidLabels.push(labelElement.text());
+                            //console.log(`Invalid non-file input during input change: ${labelElement.text()}`);
+                            isValid = false;
+                        }
+                    });
+                }
+
+            });
+
+            let results = await Promise.all(validationPromises);
+            if (results.includes(false)) {
+                isValid = false;
+            }
+
+            // Clear existing error messages before displaying a new one
+            iziToast.destroy();
+
+            if (!isValid) {
+                console.log(invalidLabels);
+
+                let invalidLabelsMessage = invalidLabels.join(', '); // Combine all invalid labels into a single string
+                iziToast.warning({
+                    position: 'topRight',
+                    title: 'Error',
+                    message: `Form is invalid. Please fill in all required fields!: ${invalidLabelsMessage}`,
+                });
+                $('#user_edit_btn').html('Apply Settings').css("pointer-events", "auto");
+            } else {
+                //console.log("✅ All fields are valid. Proceeding to next action...");
+                ajaxcall1();
+            }
+        }
+        // Convert callback-based functions to promises
+        function validateBase64Image(base64Str) {
+            return new Promise((resolve) => {
+                let img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = base64Str;
+            });
+        }
+
+        function checkImageExists(url) {
+            return new Promise((resolve) => {
+                let img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = url;
+            });
+        }
+
+        // Function to mark an input as invalid
+        function markInvalid(inputElement, formContainer, dropifyInstance, labelElement) {
+            formContainer.addClass("is-invalid");
+            inputElement.addClass("is-invalid");
+            labelElement.addClass("is-invalid");
+            //console.log(invalidLabels);
+            invalidLabels.push(labelElement.text());
+
+            if (dropifyInstance) {
+                dropifyInstance.resetPreview();
+                dropifyInstance.clearElement();
+            }
+        }
+
+        // Trigger validation
+        validateForm();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var newPassword = $("#new_password").val();
+        // var confirmPassword = $("#confirm_password").val();
+
+        // if (newPassword !== "" || confirmPassword !== "") { // Only check if one of them is filled
+        //     if (newPassword !== confirmPassword) {
+        //         isValidPassword = false;
+        //     } else {
+        //         $("#new_password, #confirm_password").removeClass("is-invalid");
+        //     }
+        // }
+
+        // if (!isValid) {
+        //     iziToast.warning({
+        //         position: 'topRight',
+        //         title: 'Error',
+        //         message: `Form is invalid. Please fill in all required fields.!`,
+        //     });
+        //     $('#user_edit_btn').html('Apply Settings').css("pointer-events", "auto");
+        //     return;
+        // } else if (!isValidPassword) {
+        //     $("#new_password, #confirm_password").addClass("is-invalid");
+        //     //   toastr["error"]("Passwords do not match!");
+        //     iziToast.error({
+        //         position: 'topRight',
+        //         title: 'Error',
+        //         message: `Passwords do not match!`,
+        //     });
+        //     $('#user_edit_btn').html('Apply Settings').css("pointer-events", "auto");
+        //     return;
+        // }
+
+
+
+        function ajaxcall1() {
+            $.ajax({
+                url: 'includes/server',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                cache: false,
+                dataType: 'json', // Expect JSON response
+                processData: false,
+                success: function(response) {
+                    if (response.mssg == "ok") {
+                        iziToast.success({
+                            position: 'topRight',
+                            title: 'Profile Updated',
+                            message: `Your update has been successfully applied!`,
+                        });
+                        $('#user_edit_btn').html('Apply Settings').css("pointer-events", "auto");
+                    } else {
+                        iziToast.error({
+                            position: 'topRight',
+                            title: 'Error',
+                            message: `${response.mssg}`,
+                        });
+                        $('#user_edit_btn').html('Apply Settings').css("pointer-events", "auto");
+                    }
+                },
+                error: function(xhr) {
+                    console.error('Error:', xhr.responseText);
+                }
+            });
+        }
+
+    });
+</script>

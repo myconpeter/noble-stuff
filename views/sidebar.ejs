@@ -1,0 +1,181 @@
+<!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
+<div class="menu-size" style="width: 230px">
+  <!-- Menu Title-->
+  <div class="pt-3">
+    <div class="page-title sidebar-title d-flex">
+      <div class="align-self-center me-auto">
+        <p class="color-highlight">Welcome Back</p>
+        <h6 class="font-13 opacity-80 font-500 mb-0 pt-2">micheal peter</h6>
+      </div>
+      <div class="align-self-center ms-auto">
+        <a
+          href="#"
+          data-bs-toggle="dropdown"
+          class="icon gradient-blue shadow-bg shadow-bg-s rounded-m"
+        >
+          <img src="/img/user-default.png" width="45" class="rounded-m" alt="img" />
+        </a>
+        <!-- Page Title Dropdown Menu-->
+        <div class="dropdown-menu">
+          <div class="card card-style shadow-m mt-1 me-1">
+            <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
+              <a href="profile" class="list-group-item">
+                <i
+                  class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"
+                ></i>
+                <strong class="font-13">Account</strong>
+              </a>
+
+              <a
+                href="#"
+                class="list-group-item"
+                data-toggle-theme=""
+                data-trigger-switch="switch-1"
+              >
+                <i
+                  class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi-lightbulb-fill"
+                ></i>
+                <strong class="font-13">Dark Mood</strong>
+                <div class="form-switch ios-switch switch-green switch-s me-2">
+                  <input type="checkbox" data-toggle-theme="" class="ios-input" id="switch-1" />
+                  <label class="custom-control-label" for="switch-1"></label>
+                </div>
+              </a>
+
+              <a href="includes/logout.php" class="list-group-item">
+                <i
+                  class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"
+                ></i>
+                <strong class="font-13">Log Out</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        count_cart_item();
+        //count_wishlist_item();
+
+        function count_cart_item() {
+          $("#cart_table tbody").empty();
+          var load_count = "loadcount";
+          $.ajax({
+            url: "includes/server",
+            type: "POST",
+            dataType: "JSON",
+            data: {
+              load_count: load_count,
+            },
+            success: function (response) {
+              //porpulate cart count
+              $(".cart_item_count").text(response.mssg);
+            },
+          });
+        }
+      </script>
+    </div>
+
+    <div class="divider divider-margins mb-3 opacity-50"></div>
+
+    <!-- Main Menu List-->
+    <div class="list-group list-custom list-menu-large">
+      <a href="/secure/kyc" id="nav-welcome" class="list-group-item">
+        <!-- <i class="bi bg-red-dark shadow-bg shadow-bg-xs bi-heart-fill"></i> -->
+        <div>Account Status</div>
+        <span class="badge bg-red-dark rounded-xl">Not Verified</span>
+        <!-- <p class="text-center font-11"><i class="bi bi-x-circle-fill color-red-dark pe-2"></i>Not Verified User</p> -->
+      </a>
+      <a href="/secure/link" id="nav-pages" class="list-group-item">
+        <i class="bi bg-green-dark shadow-bg shadow-bg-xs bi bi-link-45deg"></i>
+        <div>Link Wallet</div>
+        <i class="bi bi-chevron-right"></i>
+      </a>
+      <a href="/secure/medical" id="nav-homes" data-submenu="sub2" class="list-group-item">
+        <i class="bi bg-magenta-dark shadow-bg shadow-bg-xs bi-hospital"></i>
+        <div>MedBed</div>
+        <i class="bi bi-plus font-18"></i>
+      </a>
+      <div class="list-submenu" id="sub2">
+        <a href="/secure/medical" id="nav-waves" class="list-group-item">
+          <div class="ps-4">MedBed Products</div>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+        <a href="/secure/medical" id="nav-classic" class="list-group-item">
+          <div class="ps-4">BOOK APPOINTMENT</div>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </div>
+
+      <a href="#" id="nav-homes" data-submenu="sub1" class="list-group-item">
+        <i class="bi bg-blue-dark shadow-bg shadow-bg-xs bi-credit-card-2-back-fill"></i>
+        <div>Cards</div>
+        <i class="bi bi-plus font-18"></i>
+      </a>
+      <div class="list-submenu" id="sub1">
+        <a href="/secure/cards" id="nav-waves" class="list-group-item">
+          <div class="ps-4">Request Card</div>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+        <a href="#" id="nav-classic" class="list-group-item">
+          <div class="ps-4">Link Card</div>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </div>
+      <a href="/secure/transaction" id="nav-comps" class="list-group-item">
+        <i class="bi bg-brown-dark shadow-bg shadow-bg-xs bi-gear-wide-connected"></i>
+        <div>Transactions</div>
+        <i class="bi bi-chevron-right"></i>
+      </a>
+      <a
+        data-bs-toggle="offcanvas"
+        data-bs-target="#menu-highlights"
+        href="#"
+        class="list-group-item"
+      >
+        <i class="bi bg-magenta-dark shadow-bg shadow-bg-xs bi-droplet"></i>
+        <div>Color Theme</div>
+        <i class="bi bi-chevron-right"></i>
+      </a>
+
+      <a href="#" class="list-group-item" data-toggle-theme data-trigger-switch="switch-1">
+        <i class="bi bg-yellow-dark shadow-bg shadow-bg-xs bi-lightbulb-fill"></i>
+        <div>Dark Mode</div>
+        <div class="form-switch ios-switch switch-green switch-s me-2">
+          <input type="checkbox" data-toggle-theme class="ios-input" id="switch-1" />
+          <label class="custom-control-label" for="switch-1"></label>
+        </div>
+      </a>
+    </div>
+
+    <div class="divider divider-margins mb-3 opacity-50"></div>
+
+    <div class="divider divider-margins opacity-50"></div>
+
+    <!-- Useful Links-->
+    <h6 class="opacity-40 px-3 mt-n2 mb-0">Useful Links</h6>
+    <div class="list-group list-custom list-menu-small">
+      <a href="/secure/contact" class="list-group-item default-link">
+        <i class="bi bi-arrow-up-circle-fill opacity-20 font-16"></i>
+        <div>Support</div>
+        <i class="bi bi-chevron-right"></i>
+      </a>
+      <a href="/secure/profile" class="list-group-item">
+        <i class="bi bi-person-circle opacity-20 font-16"></i>
+        <div>Account</div>
+        <i class="bi bi-chevron-right"></i>
+      </a>
+      <a href="#" class="list-group-item">
+        <i class="bi bi-bar-chart-fill opacity-20 font-16"></i>
+        <div>Log Out</div>
+        <i class="bi bi-chevron-right"></i>
+      </a>
+    </div>
+
+    <div class="divider divider-margins opacity-50"></div>
+    <!-- Menu Copyright -->
+    <p class="px-3 font-9 opacity-30 color-theme mt-n3">
+      Copyright <span class="copyright-year"></span> Q-F-S LedgerVault.co
+    </p>
+  </div>
+</div>

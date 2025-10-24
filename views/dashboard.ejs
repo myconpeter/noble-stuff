@@ -1,0 +1,1497 @@
+<%- include ('./partials/secureHeader') %>	
+
+		<!-- Page Content - Only Page Elements Here-->
+		<div class="page-content footer-clear">
+
+			<!-- Page Title-->
+			<div class="pt-3">
+				<div class="page-title d-flex">
+					<div class="align-self-center me-auto">
+						<p id="wel" class="font-14 mb-n1">Welcome Back</p>
+						<!-- <h1  class="font-24">Crypto Home</h1> -->
+						<h6 style="margin-top: 25px;" class="font-13 opacity-80 font-500 mb-0 pt-2">micheal peter</h6>
+					</div>
+					<div class="align-self-center ms-auto">
+
+
+        <a href="#" data-bs-toggle="dropdown"
+        class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
+        <img src="/img/user-default.png" width="45" class="rounded-m" alt="img">
+    </a>
+    <!-- Page Title Dropdown Menu-->
+    <div class="dropdown-menu">
+        <div class="card card-style shadow-m mt-1 me-1">
+            <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
+          
+                <a href="/secure/profile" class="list-group-item">
+                    <i
+                        class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
+                    <strong class="font-13">Account</strong>
+                </a>
+
+                <a href="#" class="list-group-item" data-toggle-theme="" data-trigger-switch="switch-1">
+                    <i class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi-lightbulb-fill"></i>
+                    <strong class="font-13">Dark Mood</strong>
+                    <div class="form-switch ios-switch switch-green switch-s me-2">
+                        <input type="checkbox" data-toggle-theme="" class="ios-input" id="switch-1">
+                        <label class="custom-control-label" for="switch-1"></label>
+                    </div>
+                </a>
+
+                <a href="includes/logout.php" class="list-group-item">
+                    <i
+                        class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
+                    <strong class="font-13">Log Out</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    count_cart_item();
+    //count_wishlist_item();
+
+    function count_cart_item() {
+        $("#cart_table tbody").empty();
+        var load_count = "loadcount";
+        $.ajax({
+            url: 'includes/server',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                load_count: load_count,
+            },
+            success: function(response) {
+                //porpulate cart count
+                $('.cart_item_count').text(response.mssg);
+            }
+        });
+
+    }
+</script>				</div>
+			</div>
+
+			<style>
+				#wel {
+					border-top-right-radius: 10px;
+					border-bottom-right-radius: 10px;
+					/* border-radius: 5px; */
+					padding-right: 10px;
+					text-indent: 16px;
+					/* top: -10px; */
+					left: 0;
+					position: absolute;
+					background-color: white;
+				}
+			</style>
+
+			<svg id="header-deco" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
+				<path id="header-deco-1" d="M 0,600 C 0,600 0,120 0,120 C 92.36363636363635,133.79904306220095 184.7272727272727,147.59808612440193 287,148 C 389.2727272727273,148.40191387559807 501.4545454545455,135.40669856459328 592,129 C 682.5454545454545,122.5933014354067 751.4545454545455,122.77511961722489 848,115 C 944.5454545454545,107.22488038277511 1068.7272727272727,91.49282296650718 1172,91 C 1275.2727272727273,90.50717703349282 1357.6363636363635,105.25358851674642 1440,120 C 1440,120 1440,600 1440,600 Z"></path>
+				<path id="header-deco-2" d="M 0,600 C 0,600 0,240 0,240 C 98.97607655502392,258.2105263157895 197.95215311004785,276.4210526315789 278,282 C 358.04784688995215,287.5789473684211 419.16746411483257,280.5263157894737 524,265 C 628.8325358851674,249.4736842105263 777.377990430622,225.47368421052633 888,211 C 998.622009569378,196.52631578947367 1071.3205741626793,191.57894736842107 1157,198 C 1242.6794258373207,204.42105263157893 1341.3397129186603,222.21052631578948 1440,240 C 1440,240 1440,600 1440,600 Z"></path>
+				<path id="header-deco-3" d="M 0,600 C 0,600 0,360 0,360 C 65.43540669856458,339.55023923444975 130.87081339712915,319.1004784688995 245,321 C 359.12918660287085,322.8995215311005 521.9521531100479,347.1483253588517 616,352 C 710.0478468899521,356.8516746411483 735.3205741626795,342.3062200956938 822,333 C 908.6794258373205,323.6937799043062 1056.7655502392345,319.62679425837325 1170,325 C 1283.2344497607655,330.37320574162675 1361.6172248803828,345.1866028708134 1440,360 C 1440,360 1440,600 1440,600 Z"></path>
+				<path id="header-deco-4" d="M 0,600 C 0,600 0,480 0,480 C 70.90909090909093,494.91866028708137 141.81818181818187,509.8373205741627 239,499 C 336.18181818181813,488.1626794258373 459.6363636363636,451.5693779904306 567,446 C 674.3636363636364,440.4306220095694 765.6363636363636,465.88516746411483 862,465 C 958.3636363636364,464.11483253588517 1059.8181818181818,436.8899521531101 1157,435 C 1254.1818181818182,433.1100478468899 1347.090909090909,456.555023923445 1440,480 C 1440,480 1440,600 1440,600 Z"></path>
+			</svg>
+
+			<div class="card card-style shadow-card shadow-card-l bg-5" data-card-height="180">
+				<!-- <div class="card-top px-3 py-3 mt-1 no-click">
+					
+
+				</div> -->
+				<div style="top: 30%;" class="card-center">
+					<div class="bg-theme px-3 py-2 rounded-end d-inline-block">
+						<h5 class="font-400 mb-0 opacity-70">Assets Valuation</h5>
+
+						<div class="total totalbal">
+							<img style="height: 30px; margin-left: 40%; margin-top: 5px;" class="img-fluid" src="/img/ZKZg.gif" alt="">
+						</div>
+
+						<!-- <h1 class="font-700 font-30">$435,315</h1> -->
+					</div>
+				</div>
+				<div class="card-bottom pb-3 px-3">
+					<div class="d-flex">
+						<div class="align-self-end me-auto">
+							<div class="row g-2">
+								<div class="col-12 col-md-12">
+									<a href="/secure/medical" class="btn btn-sm py-1 px-2 gradient-blue shadow-bg-m">
+										QuantumMedbed
+										<i class="bi bi-hospital pe-3 ms-n1" style="margin-left: 8px !important;"></i>
+									</a>
+								</div>
+								<div class="col-12 col-md-12">
+									<a href="/secure/fund" class="btn btn-sm py-1 px-2 gradient-green shadow-bg-m text-start">
+										Secure 401K or IRA
+										<i class="bi bi-house-lock-fill pe-3 ms-n1" style="margin-left: 8px !important;"></i>
+									</a>
+								</div>
+							</div>
+
+
+
+						</div>
+						<div>
+
+
+															<span class="badge bg-red-dark rounded-xl">Not Verified</span>
+								<!-- <p class="text-center font-11"><i class="bi bi-x-circle-fill color-red-dark pe-2"></i>Not Verified User</p> -->
+
+														<!-- <a href="kyc">
+								<p class="color-white">Click to Verify Now</p>
+							</a> -->
+						</div>
+					</div>
+				</div>
+				<div class="card-overlay bg-black opacity-70"></div>
+			</div>
+
+
+
+			<!-- chart
+			<div class="section" style="margin-bottom: -60px; background-color: black;">
+				<iframe src="chart.html" width="100%"></iframe>
+			</div> -->
+
+
+			<div class="content py-2">
+				<div class="d-flex text-center">
+					<div class="me-auto">
+						<a href="/secure/deposit" data-bs-toggle="offcanvas" data-bs-target="#deposit_modal"
+							class="icon icon-xxl rounded-m bg-theme shadow-m"><i
+								class="font-28 color-green-dark bi bi-arrow-down-circle"></i></a>
+						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Deposit</h6>
+					</div>
+
+
+
+					<div class="m-auto">
+						<a href="#" data-bs-toggle="offcanvas" data-bs-target="#withdrawal_modal"
+							class="icon icon-xxl rounded-m bg-theme shadow-m"><i
+								class="font-28 color-red-dark bi bi-arrow-up-circle"></i></a>
+						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Withdraw</h6>
+					</div>
+					<div class="m-auto">
+						<a href="/secure/link" class="icon icon-xxl rounded-m bg-theme shadow-m">
+							<i class="font-28 color-red-dark bi bi-link-45deg"></i>
+						</a>
+
+						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Link Wallet</h6>
+					</div>
+
+					<div data-bs-toggle="offcanvas" data-bs-target="#menu-exchange" class="m-auto">
+						<a href="/secure/buy" class="icon icon-xxl rounded-m bg-theme shadow-m">
+							<img width="50px" src="/img/cardslovo.png" alt="" srcset="">
+						</a>
+						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Buy Crypto</h6>
+					</div>
+					<div class="ms-auto">
+						<a href="#" class="icon icon-xxl rounded-m bg-theme shadow-m"><i
+								class="font-28 color-blue-dark bi bi-arrow-repeat"></i></a>
+						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Swap</h6>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<!-- Title-->
+			<div class="content my-0 px-1">
+				<div class="d-flex">
+					<div class="align-self-center">
+						<h3 class="font-16 mb-2">Your Crypto Coins</h3>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="bitcoin">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/btc.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="btc_wFund">0.00 BTC</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="btc_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="btc_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="btc_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="ethereum">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/ethereum.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="eth_wFund">0.00 ETH</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="eth_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="eth_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="eth_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="tether">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/usdt.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="usdt_wFund">0.00 USDT(TRC20)</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="usdt_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="usdt_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="usdt_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="stellar">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/xlm.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="xlm_wFund">0.00 xlm</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="xlm_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="xlm_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="xlm_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="ripple">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/xrp.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="xrp_wFund">0.00 xrp</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="xrp_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="xrp_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="xrp_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="litecoin">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/litecoin.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="ltc_wFund">0.00 LTC</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="ltc_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="ltc_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="ltc_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="doge">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/doge.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="doge_wFund">0.00 DOGE</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="doge_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="doge_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="doge_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="binancecoin">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/bnb-icon2_2x.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="bnb_wFund">0.00 BNB</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="bnb_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="bnb_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="bnb_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="shiba-inu">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/shiba.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="shib_wFund">0.00 shib</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="shib_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="shib_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="shib_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="tron">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/tron.png" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="tron_wFund">0.00 TRX</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="tron_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="tron_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="tron_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="cardano">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/cardano.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="cardano_wFund">0.00 ADA</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="cardano_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="cardano_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="cardano_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="solana">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/solana.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="sol_wFund">0.00 SOL</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="sol_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="sol_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="sol_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="polygon-ecosystem-token">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/matic-token-icon.webp" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="matic_wFund">0.00 MATIC</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="matic_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="matic_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="matic_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="algorand">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/Algorand.png" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="algo_wFund">0.00 ALGO</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="algo_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="algo_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="algo_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="official_trump">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/trump.png" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="official_trump_wFund">0.00 Official Trump</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="official_trump_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="official_trump_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="official_trump_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card card-style mb-3">
+				<div class="content pb-0 select_coin" id="pepe">
+					<div class="d-flex">
+						<div>
+							<span class="icon me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+								<img width="100%" class="img1" src="/img/pepe-token.jpeg" alt="Lights" class="trans-img">
+							</span>
+						</div>
+						<div class="ps-1">
+							<h4 class="font-14 mb-n1" id="pepe_wFund"> PEPE</h4>
+							<h5 class="font-14 font-400 opacity-70 mb-n1" id="pepe_amount">0.00</h5>
+						</div>
+						<div class="ms-auto">
+							<span id="pepe_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>0.0%</span>
+							<h1 id="pepe_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+		</div>
+		<!-- End of Page Content-->
+
+		<!-- Off Canvas and Menu Elements-->
+		<!-- Always outside the Page Content-->
+
+		<!-- Get Started -->
+		<div id="menu-get-started" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+			<div class="d-flex mx-3 mt-2 py-1">
+				<div class="align-self-center">
+					<h1 class="mb-0">Get Started</h1>
+				</div>
+				<div class="align-self-center ms-auto">
+					<a href="#" class="py-3 ps-4 shadow-0 me-n2" data-bs-dismiss="offcanvas">
+						<i class="bi bi-x color-red-dark font-26"></i>
+					</a>
+				</div>
+			</div>
+			<div class="content mb-4">
+				<a href="#" class="d-flex mb-4" data-bs-toggle="offcanvas" data-bs-target="#menu-buy">
+					<div class="align-self-center">
+						<span class="icon icon-l gradient-green me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+							<i class="bi bi-arrow-90deg-up font-16"></i>
+						</span>
+					</div>
+					<div class="align-self-center ps-2">
+						<h4 class="mb-0 mt-1 font-20">Buy</h4>
+						<p class="mb-0">Buy using Local Currency</p>
+					</div>
+				</a>
+				<a href="#" class="d-flex mb-4" data-bs-toggle="offcanvas" data-bs-target="#menu-sell">
+					<div class="align-self-center">
+						<span class="icon icon-l gradient-red me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+							<i class="bi bi-arrow-90deg-down font-16"></i>
+						</span>
+					</div>
+					<div class="align-self-center ps-2">
+						<h4 class="mb-0 mt-1 font-20">Sell</h4>
+						<p class="mb-0">Sell to your Local Currency</p>
+					</div>
+				</a>
+				<a href="#" class="d-flex">
+					<div class="align-self-center" data-bs-toggle="offcanvas" data-bs-target="#menu-exchange">
+						<span class="icon icon-l gradient-blue me-2 color-white shadow-bg shadow-bg-xs rounded-m">
+							<i class="bi bi-arrow-left-right font-16"></i>
+						</span>
+					</div>
+					<div class="align-self-center ps-2">
+						<h4 class="mb-0 mt-1 font-20">Convert</h4>
+						<p class="mb-0">Fast conversion between Coins</p>
+					</div>
+				</a>
+			</div>
+		</div>
+
+
+	
+
+		<!-- Highlights Menu -->
+		<div id="menu-highlights" data-menu-load="menu-highlights.html"
+			class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+		</div>
+
+		<!-- Notifications Bell -->
+		<div id="menu-notifications" data-menu-load="menu-notifications.html"
+			class="offcanvas offcanvas-top offcanvas-detached rounded-m">
+		</div>
+
+		<!-- modal section -->
+		<div id="deposit_modal" data-menu-load="deposit_modal.html"
+			class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+		</div>
+		<!-- modalsection ends  -->
+
+		<!--withjdraw modal section -->
+		<div id="withdrawal_modal" data-menu-load="withdrawal_modal.html"
+			class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+		</div>
+		<!-- withdraw modalsection ends  -->
+
+
+		<script>
+			/////when a button is clixked 
+			$(document).on("click", ".select_coin", function(e) {
+				e.preventDefault();
+
+				// Get the ID of the clicked element
+				var coinId = $(this).attr("id");
+
+				// Show it in an alert
+				//alert("Clicked ID: " + coinId);
+
+				$.ajax({
+					url: 'deposit.php', // Make sure this points to your actual backend script
+					type: 'POST',
+					data: {
+						coinId: coinId
+					},
+					success: function(response) {
+						// Create a form and submit it programmatically
+						var form = $('<form>', {
+							action: 'coin', // The actual endpoint for processing the coin
+							method: 'POST'
+						}).append(
+							$('<input>', {
+								type: 'hidden',
+								name: 'coinId',
+								value: coinId
+							})
+						);
+
+						$('body').append(form);
+						form.submit();
+					},
+					error: function(xhr, status, error) {
+						console.error("Error processing transaction:", error);
+					}
+				});
+			});
+
+
+
+
+			// Using event delegation to handle dynamic content
+			$(document).on('change', '.tokenSelect', function() {
+				var selectedValue = $(this).val(); // Get the selected value
+				// console.log(selectedValue);
+				// Change the name attribute based on the selection
+				if (selectedValue === 'Crypto') {
+					// $(this).attr('name', 'Crypto'); // Set name to 'token'
+					$('.formicon').removeClass('bi-currency-exchange').addClass('bi-currency-bitcoin'); // Change icon to exchange
+					$('.tokencurrency').text('(Crypto Amount)');
+					$('.amtid').removeClass('bi-currency-dollar').addClass('bi-currency-bitcoin'); // Change icon to exchange
+				} else if (selectedValue === 'fiat') {
+					// $(this).attr('name', 'fiat'); // Set name to 'fiat'
+					$('.formicon').removeClass('bi-currency-bitcoin').addClass('bi-currency-exchange'); // Change icon to dollar
+					$('.tokencurrency').text(`(${currencyCode = $("#currencyCode").val()} Currency Amount:  )`);
+					$('.amtid').removeClass('bi-currency-bitcoin').addClass('bi-currency-exchange'); // Change icon to dollar
+				}
+			});
+
+
+			//////when deposit button is clicked
+			$(document).on("click", "#Proceed", function(e) {
+				e.preventDefault();
+
+				// Change the button text and add a spinner
+				$(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing, please wait...')
+					.css("pointer-events", "none"); // Prevent multiple clicks
+
+				// Get form data properly
+				var formData = new FormData(document.getElementById("deposit_form"));
+				formData.append("deposit_formkey", "deposit_formkey");
+
+
+
+				// Custom validation for form fields
+				var isValid = true;
+				$("#deposit_form input, #deposit_form select").each(function() {
+					if (!$(this).val()) { // Check if input/select is empty
+						$(this).addClass("is-invalid"); // Add Bootstrap's validation class
+						isValid = false;
+					} else {
+						$(this).removeClass("is-invalid"); // Remove if previously added
+					}
+				});
+				if (!isValid) {
+					// If there are invalid fields, show an alert or a message
+
+					toastr["warning"]("Form is invalid. Please fill in all required fields.!");
+					// Re-enable the button if the form is invalid
+					$('#Proceed').html('Proceed').css("pointer-events", "auto");
+					return;
+				}
+
+
+
+				function sendDataWithRetry(url, data, maxRetries = 20, delay = 5000) {
+					let attempts = 0;
+
+					var deposit_format = data.get("deposit_format");
+					console.log(deposit_format);
+					var amount = data.get("amount");
+					var crypto_wallet = data.get("crypto_wallet");
+					data.set("amount", amount.replace(/[^0-9.]/g, ''));
+
+
+					function attemptRequest() {
+						$.ajax({
+							url: url,
+							type: 'POST',
+							data: data,
+							contentType: false,
+							cache: false,
+							dataType: 'json', // Expect JSON response
+							processData: false,
+							success: function(response) {
+								if (response.status === 'success') { // Adjust based on API response structure
+									// console.log('Success:', response);
+									let cal_crypto_amount = response.crypto_amount;
+									let crypto_price = response.crypto_price;
+									let fiat_amount = response.fiat_amount;
+									$('#deposit_form')[0].reset();
+									$('#Proceed').html('Proceed') // Reset button text
+										.css("pointer-events", "auto"); // Re-enable click
+									//console.log("enable button ckicl");
+
+									///redirectet and send data to deposite page
+									$.ajax({
+										url: 'deposit', // The endpoint where the data should go
+										type: 'POST',
+										data: {
+											amount: cal_crypto_amount,
+											crypto_wallet: crypto_wallet,
+											crypto_price: crypto_price,
+											deposit_format: deposit_format,
+											fiat_amount: fiat_amount
+										},
+										success: function(response) {
+											// console.log("Crypto transaction processed:", response);
+											// Redirect using POST, data will be in the request body, not in the URL
+											var form = $('<form action="deposit" method="POST">' +
+												'<input type="hidden" name="amount" value="' + cal_crypto_amount + '">' +
+												'<input type="hidden" name="fiat_amount" value="' + fiat_amount + '">' +
+												'<input type="hidden" name="deposit_format" value="' + deposit_format + '">' +
+												'<input type="hidden" name="crypto_price" value="' + crypto_price + '">' +
+												'<input type="hidden" name="crypto_wallet" value="' + crypto_wallet + '">' +
+												'</form>');
+											$('body').append(form); // Append the form to the body
+											form.submit(); // Submit the form
+										},
+										error: function(xhr, status, error) {
+											console.error("Error processing transaction:", error);
+										}
+									});
+
+								} else {
+									retry();
+								}
+							},
+							error: function(xhr) {
+								console.error('Error:', xhr.responseText);
+								retry();
+							}
+						});
+					}
+
+					function retry() {
+						attempts++;
+						if (attempts < maxRetries) {
+							console.log(`Retrying... Attempt ${attempts}/${maxRetries}`);
+							setTimeout(attemptRequest, delay);
+						} else {
+							//console.log('Max retries reached. Stopping attempts.');
+							toastr["error"]("Network Error Please Try Again.!");
+
+							$("#Proceed").html("Proceed").css("pointer-events", "auto");
+						}
+					}
+
+					attemptRequest();
+				}
+
+				sendDataWithRetry('includes/server', formData);
+
+
+			});
+	$(document).on("click", "#withdraw", function(e) {
+				e.preventDefault();
+
+				// Change the button text and add a spinner
+				$(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing, please wait...')
+					.css("pointer-events", "none"); // Prevent multiple clicks
+
+				// Get form data properly
+				var formData = new FormData(document.getElementById("withdraw_form"));
+
+				formData.append("deposit_formkey", "deposit_formkey");
+
+
+
+				// Custom validation for form fields
+				var isValid = true;
+				$("#withdraw_form input, #withdraw_form select").each(function() {
+					if (!$(this).val()) { // Check if input/select is empty
+						$(this).addClass("is-invalid"); // Add Bootstrap's validation class
+						isValid = false;
+					} else {
+						$(this).removeClass("is-invalid"); // Remove if previously added
+					}
+				});
+				if (!isValid) {
+					toastr["warning"]("Form is invalid. Please fill in all required fields.!");
+					// Re-enable the button if the form is invalid
+					$('#withdraw').html('Proceed').css("pointer-events", "auto");
+					return;
+				}
+
+
+				var amount = formData.get("amount");
+
+				// Remove non-numeric characters except dot (.)
+				amount = amount.replace(/[^0-9.]/g, '');
+
+				// Set the cleaned amount back into formData
+				formData.set("amount", amount);
+
+				// sendDataWithRetry('includes/server', formData);
+				// console.log("Form submitted via AJAX");
+
+				// Get specific field values (e.g., 'amount', 'crypto_wallet')
+				var withdraw_format = formData.get("withdraw_format");
+				var crypto_wallet = formData.get("crypto_wallet");
+				var wallet_address = formData.get("wallet_address");
+				var withdraw_format = formData.get("withdraw_format");
+				//formData.append("deposit_format", withdraw_format);
+
+
+				function sendDataWithRetry(url, formData, maxRetries = 20, delay = 5000) {
+					let attempts = 0;
+
+					function attemptRequest() {
+						$.ajax({
+							url: url,
+							type: 'POST',
+							data: formData,
+							contentType: false,
+							cache: false,
+							dataType: 'json', // Expect JSON response
+							processData: false,
+							success: function(response) {
+								if (response.status === 'success') { // Adjust based on API response structure
+
+									// console.log('Success:', response);
+									$('#withdraw').html('Proceed').css("pointer-events", "auto");
+									$('#withdraw_form')[0].reset();
+									$('#withdraw').html('Proceed') // Reset button text
+										.css("pointer-events", "auto");
+									// Re-enable click
+									console.log(response.fiat_amount);
+									console.log(response.crypto_price);
+
+									let crypto_amount = response.crypto_amount;
+									let crypto_price = response.crypto_price;
+									let fiat_amount = response.fiat_amount;
+
+									$.ajax({
+										url: 'includes/server?withdrawvalidate',
+										type: 'POST',
+										dataType: 'json',
+										data: {
+											crypto_amount: crypto_amount,
+											crypto_price: crypto_price,
+											fiat_amount: fiat_amount,
+											crypto_wallet: crypto_wallet,
+											wallet_address: wallet_address,
+											withdraw_format: withdraw_format
+										},
+										success: function(response) {
+											if (response.mssg == "ok") {
+												Swal.fire({
+													icon: "success",
+													title: "Success!",
+													text: `Your withdrawal request has been successfully submitted. Please wait while we process your withdrawal!`,
+												}).then((result) => {
+
+													window.location = "index";
+
+												});
+											} else {
+												Swal.fire({
+													icon: "error",
+													title: "Oops...",
+													text: `${response.mssg}`,
+												});
+											}
+										}
+									});
+								} else {
+									retry();
+								}
+							},
+							error: function(xhr) {
+								console.error('Error:', xhr.responseText);
+								retry();
+							}
+						});
+					}
+
+
+					function retry() {
+						attempts++;
+						if (attempts < maxRetries) {
+							console.log(`Retrying... Attempt ${attempts}/${maxRetries}`);
+							setTimeout(attemptRequest, delay);
+						} else {
+							// console.log('Max retries reached. Stopping attempts.');
+							toastr["error"]("Network Error Please Try Again.!");
+							$("#Proceed").html("Proceed").css("pointer-events", "auto");
+						}
+					}
+
+					attemptRequest();
+				}
+
+				sendDataWithRetry('includes/server', formData);
+
+
+			});
+
+
+			///style input number
+			$(document).ready(function() {
+				// Listen for input event using event delegation
+				$(document).on('input', '.numberinput', function() {
+					var rawValue = $(this).val();
+
+					// Allow only numbers, commas, and periods
+					var validValue = rawValue.replace(/[^0-9.,]/g, ''); // Remove any character that's not a number, comma, or period
+
+					// Validate the value to prevent incorrect formats like "0.00000,555555555555"
+					validValue = validateFormat(validValue);
+
+					// Format the number with commas, but handle the decimal point
+					var formattedValue = formatNumber(validValue);
+
+					// Update the input field with the formatted value
+					$(this).val(formattedValue);
+				});
+
+				// Validate the format to prevent invalid decimal and comma usage
+				function validateFormat(value) {
+					// Prevent starting with a comma or period
+					if (value.startsWith(',') || value.startsWith('.')) {
+						value = value.substring(1);
+					}
+
+					// Only allow one period
+					if ((value.match(/\./g) || []).length > 1) {
+						value = value.replace(/\.(?=.*\.)/g, ''); // Remove additional periods
+					}
+
+					// Prevent commas after a period or multiple commas
+					if (value.includes('.') && value.indexOf(',') > value.indexOf('.')) {
+						value = value.replace(/,/g, ''); // Remove commas after a decimal point
+					}
+
+					return value;
+				}
+
+				// Format the number with commas, but keep the decimal part intact
+				function formatNumber(value) {
+					if (!value) return value;
+
+					// Split the value at the decimal point (if exists)
+					var parts = value.split('.');
+
+					// Format the integer part with commas
+					parts[0] = parts[0].replace(/,/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+					// Join the integer part and the decimal part back together
+					return parts.join('.');
+				}
+
+				// Optional: Handle form submission or other processing
+				$('#submit-button').on('click', function() {
+					var rawValue = $('#c4').val().replace(/[^0-9.]/g, ''); // Remove commas and non-numeric characters except for the decimal point
+					console.log('Raw numeric value (no commas or invalid characters):', rawValue); // Submit or process the raw numeric value
+				});
+
+
+
+			});
+		</script>
+
+
+		<script>
+			$(document).ready(function() {
+				var key = 1;
+
+				function e(e) {
+					return (e = parseFloat(e).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				}
+				// let actualValue = 0;
+				var intervalID;
+				var totalbal = 0;
+				let intervalRuns = 0;
+				const maxIntervalRuns = 2;
+
+				function fetchDataAndCalculate() {
+					intervalRuns++;
+					v = 0,
+						btc_in_usd = $("#btc_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						eth_in_usd = $("#eth_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						xlm_in_usd = $("#xlm_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						xrp_in_usd = $("#xrp_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						official_trump_in_usd = $("#official_trump_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						usdt_in_usd = $("#usdt_wFund").text().match(/[\d.]+/)[0],
+						tron_in_usd = $("#tron_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						bnb_in_usd = $("#bnb_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						cardano_in_usd = $("#cardano_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						doge_in_usd = $("#doge_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						ltc_in_usd = $("#ltc_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						shib_in_usd = $("#shib_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						matic_in_usd = $("#matic_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						ftm_in_usd = $("#ftm_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						sol_in_usd = $("#sol_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						algo_in_usd = $("#algo_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						pepe_in_usd = $("#pepe_wFund").text().replace(/[^\d.-]+/g, '').trim(),
+						currencysymbol = $("#currencysymbol").val(),
+						currencyCode = $("#currencyCode").val(),
+
+						$.ajax({
+							url: "includes/fetchData",
+							type: "POST",
+							data: {
+								getCoinPrice: 1,
+								currencyCode: currencyCode,
+							},
+							success: function(q) {
+
+								(q = JSON.parse(q)),
+								$(q).each(function(q, z) {
+									$(z).each(function(q, z) {
+
+										if ("ripple" == z.id) {
+											const currenxrpPrice = z.current_price;
+											const amountOfxrp = xrp_in_usd; // Replace with the amount of BTC you want to calculate the price for
+											// console.log(amountOfxrp);
+											const priceInFiatCurrency = amountOfxrp * currenxrpPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#xrp_amount").html(formattedPrice + " " + currencyCode);
+											$("#xrp_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#xrp_predict").removeClass('color-green-dark'),
+													$("#xrp_predict").addClass('color-red-dark'),
+													$("#xrp_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#xrp_predict").removeClass('color-red-dark'),
+													$("#xrp_predict").addClass('color-green-dark'),
+													$("#xrp_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("bitcoin" == z.id) {
+											const currenbtcPrice = z.current_price;
+											const amountOfbtc = btc_in_usd; // Replace with the amount of BTC you want to calculate the price for
+											// console.log(amountOfbtc);
+											const priceInFiatCurrency = amountOfbtc * currenbtcPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#btc_amount").html(formattedPrice + " " + currencyCode);
+											$("#btc_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#btc_predict").removeClass('color-green-dark'),
+													$("#btc_predict").addClass('color-red-dark'),
+													$("#btc_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#btc_predict").removeClass('color-red-dark'),
+													$("#btc_predict").addClass('color-green-dark'),
+													$("#btc_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("ethereum" == z.id) {
+											const currenethPrice = z.current_price;
+											const amountOfeth = eth_in_usd; // Replace with the amount of eth you want to calculate the price for
+											// console.log(amountOfeth);
+											const priceInFiatCurrency = amountOfeth * currenethPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#eth_amount").html(formattedPrice + " " + currencyCode);
+											$("#eth_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#eth_predict").removeClass('color-green-dark'),
+													$("#eth_predict").addClass('color-red-dark'),
+													$("#eth_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#eth_predict").removeClass('color-red-dark'),
+													$("#eth_predict").addClass('color-green-dark'),
+													$("#eth_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("stellar" == z.id) {
+											const currenxlmPrice = z.current_price;
+											const amountOfxlm = xlm_in_usd; // Replace with the amount of xlm you want to calculate the price for
+											// console.log(amountOfxlm);
+											const priceInFiatCurrency = amountOfxlm * currenxlmPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#xlm_amount").html(formattedPrice + " " + currencyCode);
+											$("#xlm_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#xlm_predict").removeClass('color-green-dark'),
+													$("#xlm_predict").addClass('color-red-dark'),
+													$("#xlm_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#xlm_predict").removeClass('color-red-dark'),
+													$("#xlm_predict").addClass('color-green-dark'),
+													$("#xlm_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("dogecoin" == z.id) {
+											const currendogePrice = z.current_price;
+											const amountOfdoge = doge_in_usd; // Replace with the amount of doge you want to calculate the price for
+											// console.log(amountOfdoge);
+											const priceInFiatCurrency = amountOfdoge * currendogePrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#doge_amount").html(formattedPrice + " " + currencyCode);
+											$("#doge_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#doge_predict").removeClass('color-green-dark'),
+													$("#doge_predict").addClass('color-red-dark'),
+													$("#doge_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#doge_predict").removeClass('color-red-dark'),
+													$("#doge_predict").addClass('color-green-dark'),
+													$("#doge_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("polygon-ecosystem-token" == z.id) {
+											const currenmaticPrice = z.current_price;
+											const amountOfmatic = matic_in_usd; // Replace with the amount of matic you want to calculate the price for
+											// console.log(amountOfmatic);
+											const priceInFiatCurrency = amountOfmatic * currenmaticPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#matic_amount").html(formattedPrice + " " + currencyCode);
+											$("#matic_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#matic_predict").removeClass('color-green-dark'),
+													$("#matic_predict").addClass('color-red-dark'),
+													$("#matic_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#matic_predict").removeClass('color-red-dark'),
+													$("#matic_predict").addClass('color-green-dark'),
+													$("#matic_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("binancecoin" == z.id) {
+											const currenbnbPrice = z.current_price;
+											const amountOfbnb = bnb_in_usd; // Replace with the amount of bnb you want to calculate the price for
+											// console.log(amountOfbnb);
+											const priceInFiatCurrency = amountOfbnb * currenbnbPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#bnb_amount").html(formattedPrice + " " + currencyCode);
+											$("#bnb_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#bnb_predict").removeClass('color-green-dark'),
+													$("#bnb_predict").addClass('color-red-dark'),
+													$("#bnb_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#bnb_predict").removeClass('color-red-dark'),
+													$("#bnb_predict").addClass('color-green-dark'),
+													$("#bnb_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("solana" == z.id) {
+											const currensolPrice = z.current_price;
+											const amountOfsol = sol_in_usd; // Replace with the amount of sol you want to calculate the price for
+											// console.log(amountOfsol);
+											const priceInFiatCurrency = amountOfsol * currensolPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#sol_amount").html(formattedPrice + " " + currencyCode);
+											$("#sol_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#sol_predict").removeClass('color-green-dark'),
+													$("#sol_predict").addClass('color-red-dark'),
+													$("#sol_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#sol_predict").removeClass('color-red-dark'),
+													$("#sol_predict").addClass('color-green-dark'),
+													$("#sol_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("shiba-inu" == z.id) {
+											const currenshibPrice = z.current_price;
+											const amountOfshib = shib_in_usd; // Replace with the amount of shib you want to calculate the price for
+											// conshibe.log(amountOfshib);
+											const priceInFiatCurrency = amountOfshib * currenshibPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#shib_amount").html(formattedPrice + " " + currencyCode);
+											$("#shib_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#shib_predict").removeClass('color-green-dark'),
+													$("#shib_predict").addClass('color-red-dark'),
+													$("#shib_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#shib_predict").removeClass('color-red-dark'),
+													$("#shib_predict").addClass('color-green-dark'),
+													$("#shib_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("tron" == z.id) {
+											const currentronPrice = z.current_price;
+											const amountOftron = tron_in_usd; // Replace with the amount of tron you want to calculate the price for
+											// controne.log(amountOftron);
+											const priceInFiatCurrency = amountOftron * currentronPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#tron_amount").html(formattedPrice + " " + currencyCode);
+											$("#tron_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#tron_predict").removeClass('color-green-dark'),
+													$("#tron_predict").addClass('color-red-dark'),
+													$("#tron_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#tron_predict").removeClass('color-red-dark'),
+													$("#tron_predict").addClass('color-green-dark'),
+													$("#tron_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("cardano" == z.id) {
+											const currencardanoPrice = z.current_price;
+											const amountOfcardano = cardano_in_usd; // Replace with the amount of cardano you want to calculate the price for
+											// concardanoe.log(amountOfcardano);
+											const priceInFiatCurrency = amountOfcardano * currencardanoPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#cardano_amount").html(formattedPrice + " " + currencyCode);
+											$("#cardano_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#cardano_predict").removeClass('color-green-dark'),
+													$("#cardano_predict").addClass('color-red-dark'),
+													$("#cardano_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#cardano_predict").removeClass('color-red-dark'),
+													$("#cardano_predict").addClass('color-green-dark'),
+													$("#cardano_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("tether" == z.id) {
+											const currenusdtPrice = z.current_price;
+											const amountOfusdt = usdt_in_usd; // Replace with the amount of usdt you want to calculate the price for
+											// conusdte.log(amountOfusdt);
+											const priceInFiatCurrency = amountOfusdt * currenusdtPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#usdt_amount").html(formattedPrice + " " + currencyCode);
+											$("#usdt_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#usdt_predict").removeClass('color-green-dark'),
+													$("#usdt_predict").addClass('color-red-dark'),
+													$("#usdt_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#usdt_predict").removeClass('color-red-dark'),
+													$("#usdt_predict").addClass('color-green-dark'),
+													$("#usdt_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("litecoin" == z.id) {
+											const currenltcPrice = z.current_price;
+											const amountOfltc = ltc_in_usd; // Replace with the amount of ltc you want to calculate the price for
+											// conltce.log(amountOfltc);
+											const priceInFiatCurrency = amountOfltc * currenltcPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#ltc_amount").html(formattedPrice + " " + currencyCode);
+											$("#ltc_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#ltc_predict").removeClass('color-green-dark'),
+													$("#ltc_predict").addClass('color-red-dark'),
+													$("#ltc_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#ltc_predict").removeClass('color-red-dark'),
+													$("#ltc_predict").addClass('color-green-dark'),
+													$("#ltc_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+										if ("algorand" == z.id) {
+											const currenalgoPrice = z.current_price;
+											const amountOfalgo = algo_in_usd; // Replace with the amount of algo you want to calculate the price for
+											// conalgoe.log(amountOfalgo);
+											const priceInFiatCurrency = amountOfalgo * currenalgoPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#algo_amount").html(formattedPrice + " " + currencyCode);
+											$("#algo_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#algo_predict").removeClass('color-green-dark'),
+													$("#algo_predict").addClass('color-red-dark'),
+													$("#algo_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#algo_predict").removeClass('color-red-dark'),
+													$("#algo_predict").addClass('color-green-dark'),
+													$("#algo_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+										if ("pepe" == z.id) {
+											const currenpepePrice = z.current_price;
+											const amountOfpepe = pepe_in_usd; // Replace with the amount of pepe you want to calculate the price for
+											// conpepee.log(amountOfpepe);
+											const priceInFiatCurrency = amountOfpepe * currenpepePrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#pepe_amount").html(formattedPrice + " " + currencyCode);
+											$("#pepe_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#pepe_predict").removeClass('color-green-dark'),
+													$("#pepe_predict").addClass('color-red-dark'),
+													$("#pepe_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#pepe_predict").removeClass('color-red-dark'),
+													$("#pepe_predict").addClass('color-green-dark'),
+													$("#pepe_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+										if ("official-trump" == z.id) {
+											const currenofficial_trumpPrice = z.current_price;
+											const amountOfofficial_trump = official_trump_in_usd; // Replace with the amount of official_trump you want to calculate the price for
+											// conofficial_trumpe.log(amountOfofficial_trump);
+											const priceInFiatCurrency = amountOfofficial_trump * currenofficial_trumpPrice;
+											totalbal += priceInFiatCurrency; // Accumulate the calculated value
+											//format the price
+											const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
+												minimumFractionDigits: 2,
+												maximumFractionDigits: 3
+											});
+
+											$("#official_trump_amount").html(formattedPrice + " " + currencyCode);
+											$("#official_trump_price").html(currencysymbol + z.current_price.toLocaleString());
+											z.price_change_percentage_24h < 0 ?
+												($("#official_trump_predict").removeClass('color-green-dark'),
+													$("#official_trump_predict").addClass('color-red-dark'),
+													$("#official_trump_predict").html(`<i class="bi bi-caret-down-fill pe-2"></i>Down by ${z.price_change_percentage_24h.toFixed(2)} %</span>`)) :
+												($("#official_trump_predict").removeClass('color-red-dark'),
+													$("#official_trump_predict").addClass('color-green-dark'),
+													$("#official_trump_predict").html(`<i class="bi bi-caret-up-fill pe-2"></i>Up by +${z.price_change_percentage_24h.toFixed(2)} %</span>`));
+										}
+
+
+									});
+								});
+
+							},
+							error: function(e) {
+								console.log("File Fetching error: " + e);
+							},
+						});
+
+
+
+					if (totalbal != 0) {
+						// Update the totalbal value outside the loop or conditional statement
+						$(".totalbal").html(`<h1 class="font-700 font-30">${currencysymbol}${totalbal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h1>`);
+
+					}
+
+					// Clear the interval after the initial accumulation
+					//clearInterval(intervalID);
+					console.log(totalbal);
+					if (intervalRuns >= maxIntervalRuns) {
+						// Clear the interval
+
+						clearInterval(intervalID);
+						totalbal = 0.00;
+						//alert(totalbal);
+						intervalID = setInterval(fetchDataAndCalculate, 10000);
+					}
+
+				};
+
+				// Start the interval
+				intervalID = setInterval(fetchDataAndCalculate, 8000);
+			});
+		</script>
+
+	</div>
+	<!-- End of Page ID-->
+
+	<script src="/scripts/bootstrap.min.js"></script>
+	<script src="/scripts/custom.js"></script>
+</body>

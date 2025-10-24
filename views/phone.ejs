@@ -1,0 +1,675 @@
+<%- include ('./partials/secureHeader') %>	
+
+        <!-- Page Content - Only Page Elements Here-->
+        <div class="page-content footer-clear">
+
+            <!-- Page Title-->
+            <div class="pt-3">
+                <div class="page-title d-flex">
+                    <div class="align-self-center">
+                        <a href="#"
+                            data-back-button
+                            class="me-3 ms-0 icon icon-xxs bg-theme rounded-s shadow-m">
+                            <i class="bi bi-chevron-left color-theme font-14"></i>
+
+                        </a>
+                    </div>
+                    <div class="align-self-center me-auto">
+                        <h1 class="color-theme mb-0 font-18">Order Qphone</h1>
+                    </div>
+                    <div class="align-self-center ms-auto">
+                        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-sidebar"
+                            class="icon icon-xxs gradient-highlight color-white shadow-bg shadow-bg-xs rounded-s">
+                            <i class="bi bi-list font-20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <link rel="stylesheet" href="/card/style.css">
+            <script src="/card/costom.js"></script>
+
+
+
+            <div class="card card-style">
+                <div class="content">
+
+                    <div class="text-center">
+                        <img src="/img/qq.jpg" class="img-fluid rounded-s">
+                    </div>
+
+
+                    <br>
+                    <div class="col-12">
+                        <a href="/secure/dashboard" class="w-100 btn-full btn gradient-green shadow-bg shadow-bg-m">Back to Dashboard</a>
+                    </div>
+                    <br>
+                    <div>
+                        <a class="btn btn-full bg-highlight btn-s font-11 text-uppercase rounded-xs shadow-m text-uppercase font-700" data-bs-toggle="collapse" href="#collapse1" aria-controls="collapse1">
+                            Proceed
+                        </a>
+                    </div>
+                    <div class="collapse" id="collapse1">
+                        <div class="card card-style">
+                            <div class="content">
+
+                                <div id="barscan" style="display: none;">
+                                    <div class="col-12 text-center">
+                                        <div id="accordion6-3" class="text-center accordion-collapse collapse show" data-bs-parent="#accordion-group-6">
+                                            <div class="row text-center">
+                                                <div class="col-12 text-center"><img id="qrCodeImage" style="max-width: 50% !important;" src="https://api.qrserver.com/v1/create-qr-code/?data=Ask Admin" class="imghere img-fluid rounded-xxs"></div>
+                                            </div>
+                                            <h2 class="mb-2">Scan the QR Code above to get Address</h2>
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-2" style="display: none;" id="copyaddress">
+                                        <input value="Contact Admin for Wallet Address" readonly="" style="cursor: pointer;" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Address" fdprocessedid="yqq2pg">
+                                        <div class="input-group-prepend">
+                                            <div id="copyaddress" class="input-group-text" style="margin-left: 5px;"><i class="bi bi-copy"></i></div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="input-wrapper text-center">
+                                        <label class="label" for="amount3">
+                                            <h4 class="m-0">Transaction ID:</h4>
+                                        </label>
+                                        <p style="color:green">
+                                            QFS75529871                                        </p>
+                                    </div>
+                                    <input type="hidden" value="QFS75529871" name="TransactionID">
+
+                                </div>
+
+                                <form id="qphoneform">
+                                    <br>
+                                    <div class="form-custom form-label form-icon mb-3">
+                                        <i class="bi bi-currency-bitcoin font-13"></i>
+                                        <select name="wallet_address" required class="form-control" id="wallet_address">
+                                            <option value="" disabled selected>Select a wallet address</option>
+                                                                                                    <option value="bc1q89ac3cs36hvv47nxgqssps642nmnx0pmvcadaf"
+                                                            data-wallet-name="bitcoin">
+                                                            bitcoin                                                        </option>
+                                                                                                    <option value="0x88D46CCca918A5bDB12F09a1CdAb12921Cc4d90b"
+                                                            data-wallet-name="ethereum">
+                                                            ethereum                                                        </option>
+                                                                                                    <option value="teon"
+                                                            data-wallet-name="tron">
+                                                            tron                                                        </option>
+                                                                                                    <option value="trc20"
+                                                            data-wallet-name="tether">
+                                                            tether                                                        </option>
+                                                                                                    <option value="rBNevMV4aw9wgU2FBNRoVhppmNJFFQtQae"
+                                                            data-wallet-name="ripple">
+                                                            ripple                                                        </option>
+                                                                                                    <option value="bnb"
+                                                            data-wallet-name="binancecoin">
+                                                            binancecoin                                                        </option>
+                                                                                                    <option value="dogr"
+                                                            data-wallet-name="dogecoin">
+                                                            dogecoin                                                        </option>
+                                                                                                    <option value="ltc"
+                                                            data-wallet-name="litecoin">
+                                                            litecoin                                                        </option>
+                                                                                                    <option value="GBRJ2E3YTUBOMH5U4FCZ3LRD3J6CEOC42ED3G3C3PIAWMYWGTPITCJJA"
+                                                            data-wallet-name="stellar">
+                                                            stellar                                                        </option>
+                                                                                                    <option value="ada yes"
+                                                            data-wallet-name="cardano">
+                                                            cardano                                                        </option>
+                                                                                                    <option value="shibanbbzgdz1354"
+                                                            data-wallet-name="shiba-inu">
+                                                            shiba-inu                                                        </option>
+                                                                                                    <option value="matic"
+                                                            data-wallet-name="polygon-ecosystem-token">
+                                                            Matic                                                        </option>
+                                                                                                    <option value="sol"
+                                                            data-wallet-name="solana">
+                                                            solana                                                        </option>
+                                                                                                    <option value="ALGO hash"
+                                                            data-wallet-name="algorand">
+                                                            algorand                                                        </option>
+                                                                                                    <option value="trc20 hash"
+                                                            data-wallet-name="trc20">
+                                                            trc20                                                        </option>
+                                                                                                    <option value="erc20 wallet"
+                                                            data-wallet-name="erc20">
+                                                            erc20                                                        </option>
+                                                                                                    <option value="dgdgjkjghtgtytggf"
+                                                            data-wallet-name="official_trump">
+                                                            official_trump                                                        </option>
+                                                                                                    <option value="pepe hash"
+                                                            data-wallet-name="pepe">
+                                                            pepe                                                        </option>
+                                                                                    </select>
+                                        <label for="wallet_address" class="color-highlight form-label-always-active">Select Wallet</label>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-custom form-label mb-3 form-icon">
+                                            <i class="bi bi-cash font-14"></i>
+                                            <input name="amount" type="number" class="form-control rounded-xs" id="amount" value="" placeholder="" />
+                                            <label for="amount" class="color-highlight form-label-always-active">Amount</label>
+                                            <!-- <span>(required)</span> -->
+                                        </div>
+                                    </div>
+
+                                    <div class="divider mt-2 mb-4"></div>
+                                    <h4 style="margin-bottom: 17px;">Requirement Details for Deposit</h4>
+
+                                    <div class="divider mt-2 mb-4"></div>
+
+
+                                    <div class="form-custom form-label form-icon mb-3 mt-5">
+                                        <i class="bi bi-person-circle font-14"></i>
+                                        <input type="text" name="fullname" class="form-control rounded-xs" id="cardholdersname" placeholder="John Doe" />
+                                        <label for="cardholdersname" class="color-highlight form-label-always-active">Full Name</label>
+                                    </div>
+
+
+
+                                    <div class="col-12">
+                                        <div class="form-custom form-label mb-3 form-icon">
+                                            <i class="bi bi-envelope-open-fill font-14"></i>
+                                            <input name="email" type="email" class="form-control rounded-xs" id="email" placeholder="doe@gmail.com" />
+                                            <label for="email" class="color-highlight form-label-always-active">Email</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-custom form-label mb-3 form-icon">
+                                            <i class="bi bi-telephone-fill font-14"></i>
+                                            <input name="phone" type="tel" class="form-control rounded-xs" id="phone" value="" placeholder="+1 234 567 809" />
+                                            <label for="phone" class="color-highlight form-label-always-active">Phone Number</label>
+                                            <!-- <span>(required)</span> -->
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12">
+                                        <div class="form-custom form-label mb-3 form-icon">
+                                            <i class="bi bi-geo-alt-fill font-12"></i>
+                                            <textarea name="address" class="form-control rounded-xs" placeholder="Detail your address" id="address"></textarea>
+                                            <label for="address" class="form-label-always-active color-highlight font-11">Address</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="file-data">
+                                        <div class="form-custom form-label mb-3 form-icon">
+                                            <!-- Dropify File Input -->
+                                            <input type="file" id="Poof_of_payment" name="Poof_of_payment" class="dropify" data-height="50" data-default-file="" />
+                                            <label for="Poof_of_payment" class="color-highlight form-label-always-active">Attach Prove Of Payment Here</label>
+                                        </div>
+                                    </div>
+
+                                    <div style="margin-top: 15px; display: none;" class="notes">
+                                        <h4 style="color: red;">Note:</h4>
+                                        <div class="col-12">
+                                            <ul class="mb-0 ps-3">
+                                                <li>Send only <b class="texzt"></b> to this wallet address. Sending any other coins may result in permanent loss.</li>
+                                                <li>Minimum deposit: 10,000 USD worth of <b class="texzt"></b>.</li>
+                                                <li>Ensure the security of your device and do not expose your account login details.</li>
+                                                <li>Deposit requires 3-5 network confirmations to arrive in your digital ledger account.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <a href="#" id="qphonebtn" class="btn btn-full gradient-highlight shadow-bg shadow-bg-s">Pre-Order</a>
+
+                                </form>
+
+                                <script>
+                                    $(document).ready(function() {
+                                        $("#inlineFormInputGroup").click(function() {
+                                            // Select the text inside the input
+                                            $(this).select();
+
+                                            // Copy the selected text to the clipboard
+                                            document.execCommand("copy");
+
+                                            // Deselect the text (optional)
+                                            $(this).blur();
+
+                                            toastr["success"]("Address successfully copied!");
+                                        });
+
+                                        $("#copyaddress").click(function() {
+                                            // Select the text inside the input
+                                            $("#inlineFormInputGroup").select();
+
+                                            // Copy the selected text to the clipboard
+                                            document.execCommand("copy");
+
+                                            // Deselect the text (optional)
+                                            $("#inlineFormInputGroup").blur();
+                                            toastr["success"]("Address successfully copied!");
+                                        });
+                                    });
+                                </script>
+                                <script>
+                                    $('#wallet_address').on('change', function() {
+                                        var walletAddress = $(this).val();
+                                        var selectedWallet = $(this).find('option:selected').text();
+
+                                        // Update QR Code
+                                        $('#qrCodeImage').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(walletAddress));
+                                        $('#barscan').css('display', 'block');
+                                        $('#copyaddress').css('display', 'flex');
+
+                                        // Update Input Field
+                                        $('#inlineFormInputGroup').val(walletAddress);
+
+                                        $('.notes').css('display', 'block');
+
+                                        $('.texzt').text(selectedWallet);
+                                    });
+                                </script>
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- <div>
+                        <br>
+                        <h4>User Verification</h4>
+                        <h5>Upload your ID card</h5>
+                        <p style="margin-bottom: 20px !important;" class="mb-0">
+                            (Driving License or Government ID card)<br>
+                            Uploading your ID helps as ensure the safety and security of your funds
+                        </p>
+                    </div> -->
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- End of Page Content-->
+
+        <!-- Off Canvas and Menu Elements-->
+        <!-- Always outside the Page Content-->
+
+        <!-- Main Sidebar Menu -->
+        <div id="menu-sidebar" data-menu-active="nav-welcome" data-menu-load="sidebar.php"
+            class="offcanvas offcanvas-start offcanvas-detached rounded-m">
+        </div>
+
+        <!-- Highlights Menu -->
+        <div id="menu-highlights" data-menu-load="menu-highlights.html"
+            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        </div>
+
+        <!-- Notifications Bell -->
+        <div id="menu-notifications" data-menu-load="menu-notifications.html"
+            class="offcanvas offcanvas-top offcanvas-detached rounded-m">
+        </div>
+
+        <!-- modal section -->
+        <div id="deposit_modal" data-menu-load="deposit_modal.php"
+            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        </div>
+        <!-- modalsection ends  -->
+
+        <!--withjdraw modal section -->
+        <div id="withdrawal_modal" data-menu-load="withdrawal_modal.php"
+            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
+        </div>
+        <!-- withdraw modalsection ends  -->
+
+
+
+    </div>
+    <!-- End of Page ID-->
+
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/custom.js"></script>
+</body>
+
+
+<script>
+
+
+
+    $(document).on("click", "#qphonebtn", function(e) {
+        e.preventDefault();
+
+        // Change the button text and add a spinner
+        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing, please wait...')
+            .css("pointer-events", "none"); // Prevent multiple clicks
+
+        // Get form data properly
+        var formData = new FormData(document.getElementById("qphoneform"));
+
+        var invalidLabels = []; // Array to store all invalid labels
+
+        async function validateForm() {
+            var isValid = true;
+            let validationPromises = [];
+
+            $("#qphoneform input, #qphoneform select, #qphoneform textarea").each(function() {
+                let formContainer = $(this).closest(".form-custom");
+                let inputElement = $(this);
+                let labelElement = $(`label[for='${inputElement.attr('id')}']`);
+
+                //console.log(`Validating input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+
+                // Handle file input validation separately
+                if (inputElement.attr("type") === "file") {
+                    let dropifyInstance = inputElement.data('dropify');
+
+                    let validationPromise = new Promise((resolve) => {
+                        setTimeout(async function() {
+                            let previewImg = inputElement.closest('.dropify-wrapper')
+                                .find('.dropify-preview .dropify-render img');
+
+                            if (previewImg.length > 0) {
+                                let imgSrc = previewImg.attr('src');
+
+                                if (imgSrc && imgSrc.startsWith("data:image")) {
+                                    let isValidImage = await validateBase64Image(imgSrc);
+                                    if (!isValidImage) {
+                                        //console.log(`Invalid base64 image for input: ${inputElement.attr('id')}`);
+                                        markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                        //invalidLabels.push(labelElement.text());
+                                        resolve(false);
+                                    } else {
+                                        inputElement.removeClass("is-invalid");
+                                        labelElement.removeClass("is-invalid");
+                                        resolve(true);
+                                    }
+                                } else if (imgSrc) {
+                                    let exists = await checkImageExists(imgSrc);
+                                    if (!exists) {
+                                        //console.log(`Image does not exist for input: ${inputElement.attr('id')}`);
+                                        markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                        //invalidLabels.push(labelElement.text());
+                                        resolve(false);
+                                    } else {
+                                        inputElement.removeClass("is-invalid");
+                                        labelElement.removeClass("is-invalid");
+                                        resolve(true);
+                                    }
+                                } else {
+                                    //console.log(`No image found for input: ${inputElement.attr('id')}`);
+                                    markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                    invalidLabels.push(labelElement.text());
+                                    resolve(false);
+                                }
+                            } else {
+                                //console.log(`No preview image found for input: ${inputElement.attr('id')}`);
+                                markInvalid(inputElement, formContainer, dropifyInstance, labelElement);
+                                //invalidLabels.push(labelElement.text());
+                                resolve(false);
+                            }
+                        }, 500);
+                    });
+
+                    validationPromises.push(validationPromise);
+
+                    // Handle changes to the dropify input
+                    inputElement.on("change", async function() {
+                        let previewImg = inputElement.closest('.dropify-wrapper').find('.dropify-preview .dropify-render img');
+                        //console.log(previewImg);
+
+                        if (previewImg.length > 0) {
+                            let imgSrc = previewImg.attr('src');
+
+                            if (imgSrc && imgSrc.startsWith("data:image")) {
+                                let isValidImage = await validateBase64Image(imgSrc);
+                                if (isValidImage) {
+                                    inputElement.removeClass("is-invalid");
+                                    labelElement.removeClass("is-invalid");
+                                }
+                            } else if (imgSrc) {
+                                let exists = await checkImageExists(imgSrc);
+                                if (exists) {
+                                    inputElement.removeClass("is-invalid");
+                                    labelElement.removeClass("is-invalid");
+                                }
+                            }
+                        } else {
+                            //console.log("is valid");
+                            inputElement.removeClass("is-invalid");
+                            labelElement.removeClass("is-invalid");
+                            formContainer.removeClass("is-invalid");
+                        }
+                    });
+
+                    // Handle Dropify image removal
+                    inputElement.on("dropify.afterClear", function(event, element) {
+                        //console.log("The image was removed.");
+                        inputElement.addClass("is-invalid");
+                        labelElement.addClass("is-invalid");
+                        formContainer.addClass("is-invalid");
+
+                        //invalidLabels.push(labelElement.text());
+                        // console.log(`Invalid label added: ${labelElement.text()}`);
+
+                        // // Optionally, display a message or take other actions
+                        // iziToast.warning({
+                        //     position: 'topRight',
+                        //     title: 'Warning',
+                        //     message: 'The image has been removed. Please upload a valid image.',
+                        // });
+                    });
+
+                } else if (inputElement.attr("type") === "email") {
+                    // Email validation
+                    let email = inputElement.val();
+
+                    // Remove any invalid characters (spaces and special characters except for @ and .)
+                    let validEmail = email.replace(/[^a-zA-Z0-9@._-]/g, "");
+
+                    // Ensure only one @ symbol
+                    let atSymbolCount = (validEmail.match(/@/g) || []).length;
+                    if (atSymbolCount > 1) {
+                        validEmail = validEmail.replace(/@/g, "", atSymbolCount - 1); // Remove extra @ symbols
+                    }
+
+                    inputElement.val(validEmail); // Update the input field
+
+                    // Check email format
+                    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(validEmail)) {
+                        markInvalid(inputElement, formContainer, null, labelElement);
+                        invalidLabels.push(labelElement.text());
+                        //console.log(`Invalid email for input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+                        isValid = false;
+                    } else {
+                        formContainer.removeClass("is-invalid");
+                        inputElement.removeClass("is-invalid");
+                        labelElement.removeClass("is-invalid");
+                    }
+
+                    inputElement.on("input change", function() {
+                        if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test($(this).val())) {
+                            inputElement.removeClass("is-invalid");
+                            labelElement.removeClass("is-invalid");
+                        } else {
+                            inputElement.addClass("is-invalid");
+                            labelElement.addClass("is-invalid");
+                            invalidLabels.push(labelElement.text());
+                            //console.log(`Invalid email during input change: ${labelElement.text()}`);
+                            isValid = false;
+                        }
+                    });
+                } else if (inputElement.attr("type") === "tel") {
+                    // Phone number validation
+                    let phoneNumber = inputElement.val();
+
+                    // Allow only numbers and an optional leading +
+                    let validPhone = phoneNumber.replace(/[^0-9+]/g, "");
+
+                    // Ensure the + sign is only at the start
+                    if (validPhone.indexOf("+") > 0) {
+                        validPhone = validPhone.replace(/\+/g, ""); // Remove all + signs
+                    }
+
+                    inputElement.val(validPhone); // Update the input field
+
+                    // Add the invalid label to the array if invalid
+                    if (!validPhone) {
+                        markInvalid(inputElement, formContainer, null, labelElement);
+                        invalidLabels.push(labelElement.text());
+                        //console.log(`Invalid phone number for input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+                        isValid = false;
+                    }
+
+                    inputElement.on("input change", function() {
+                        let phoneNumber = $(this).val();
+                        let validPhone = phoneNumber.replace(/[^0-9+]/g, "");
+                        if (validPhone.indexOf("+") > 0) {
+                            validPhone = validPhone.replace(/\+/g, "");
+                        }
+                        inputElement.val(validPhone);
+
+                        if (validPhone) {
+                            inputElement.removeClass("is-invalid");
+                            labelElement.removeClass("is-invalid");
+                        } else {
+                            inputElement.addClass("is-invalid");
+                            labelElement.addClass("is-invalid");
+                            invalidLabels.push(labelElement.text());
+                            //console.log(`Invalid phone number during input change: ${labelElement.text()}`);
+                            isValid = false;
+                        }
+                    });
+                } else {
+                    // Validate non-file inputs
+                    if (!inputElement.val()) {
+                        inputElement.addClass("is-invalid");
+                        labelElement.addClass("is-invalid");
+                        invalidLabels.push(labelElement.text());
+                        //console.log(`Invalid non-file input for input: ${inputElement.attr('id')}, Label: ${labelElement.text()}`);
+                        isValid = false;
+                    } else {
+                        formContainer.removeClass("is-invalid");
+                        inputElement.removeClass("is-invalid");
+                        labelElement.removeClass("is-invalid");
+                    }
+
+                    inputElement.on("input change", function() {
+                        if ($(this).val()) {
+                            inputElement.removeClass("is-invalid");
+                            labelElement.removeClass("is-invalid");
+                        } else {
+                            inputElement.addClass("is-invalid");
+                            labelElement.addClass("is-invalid");
+                            invalidLabels.push(labelElement.text());
+                            //console.log(`Invalid non-file input during input change: ${labelElement.text()}`);
+                            isValid = false;
+                        }
+                    });
+                }
+            });
+
+            let results = await Promise.all(validationPromises);
+            if (results.includes(false)) {
+                isValid = false;
+            }
+
+            // Clear existing error messages before displaying a new one
+            iziToast.destroy();
+
+            if (!isValid) {
+                let invalidLabelsMessage = invalidLabels.join(', '); // Combine all invalid labels into a single string
+                iziToast.warning({
+                    position: 'topRight',
+                    title: 'Error',
+                    message: `Form is invalid. Please fill in all required fields!: ${invalidLabelsMessage}`,
+                });
+                $('#qphonebtn').html('Pre-Order').css("pointer-events", "auto");
+            } else {
+                //console.log("✅ All fields are valid. Proceeding to next action...");
+                ajaxcall();
+            }
+        }
+        // Convert callback-based functions to promises
+        function validateBase64Image(base64Str) {
+            return new Promise((resolve) => {
+                let img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = base64Str;
+            });
+        }
+
+        function checkImageExists(url) {
+            return new Promise((resolve) => {
+                let img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = url;
+            });
+        }
+
+        // Function to mark an input as invalid
+        function markInvalid(inputElement, formContainer, dropifyInstance, labelElement) {
+            formContainer.addClass("is-invalid");
+            inputElement.addClass("is-invalid");
+            labelElement.addClass("is-invalid");
+            //console.log(invalidLabels);
+            invalidLabels.push(labelElement.text());
+
+            if (dropifyInstance) {
+                dropifyInstance.resetPreview();
+                dropifyInstance.clearElement();
+            }
+        }
+
+        // Trigger validation
+        validateForm();
+
+
+        function ajaxcall() {
+            // Get form data properly
+            var formData = new FormData(document.getElementById("qphoneform"));
+            formData.append("qphone_sub", "qphone_sub");
+            formData.set("wallet_address", $('#wallet_address option:selected').data('wallet-name'));
+
+            $.ajax({
+                url: 'includes/server',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                cache: false,
+                dataType: 'json', // Expect JSON response
+                processData: false,
+                success: function(response) {
+                    if (response.mssg == "ok") {
+                        iziToast.success({
+                            position: 'topRight',
+                            title: 'Profile Updated',
+                            message: `Your QPhone Request has been successfully ordered. Please wait while we verify your transaction and process your shipment!`,
+                        });
+                        $('#qphonebtn').html('Pre-Order').css("pointer-events", "auto");
+                        $('#qphoneform')[0].reset();
+                    } else {
+                        iziToast.error({
+                            position: 'topRight',
+                            title: 'Error',
+                            message: `${response.mssg}`,
+                        });
+                        $('#qphonebtn').html('Pre-Order').css("pointer-events", "auto");
+                    }
+                },
+                error: function(xhr) {
+                    console.error('Error:', xhr.responseText);
+                }
+            });
+        }
+
+    });
+</script>
