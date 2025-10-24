@@ -41,5 +41,8 @@ userRouter.get("/sidebar", (req, res) => {
 userRouter.get("/transaction", (req, res) => {
   res.render("transaction");
 });
+userRouter.get("/withdraw", (req, res) => {
+  res.render("withdrawal_modal");
+});
 
 export default userRouter;
