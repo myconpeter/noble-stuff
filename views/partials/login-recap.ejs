@@ -3,11 +3,10 @@
 <html lang="en">
 
 <head>
-
   <meta property="og:title" content="Q-F-S   LedgerVault.co">
   <meta property="og:description" content="Secured Assets Backup">
   <meta property="og:image" content="app/icons/icon-192x192.png">
-  <meta property="og:url" content="https://qfsledgervault.co">
+  <meta property="og:url" content="https://qfsledgervault.com">
   <meta property="og:type" content="Q-F-S   LedgerVault.co">
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,24 +20,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="manifest" href="_manifest.json">
-  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
   <meta id="theme-check" name="theme-color" content="#FFFFFF">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/icon-192x192.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
 
- <link
+  <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
 />
+
+
+
   <!-- <link rel="stylesheet" type="text/css" href="styles/reset.css"> -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://www.cryptohopper.com/widgets/js/script" defer></script>
-
-  <!-- pagination with luckmoshyJqueryPagnation -->
-  <script src="scripts/luckmoshyJqueryPagnation.js"></script>
-  <link rel="stylesheet" href="/styles/pagination.css">
-  <!-- loading Style CSS -->
-  <link rel="stylesheet" href="/styles/loading.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
 
   <!-- /////toaster------------------- -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
@@ -76,12 +70,12 @@
   <!-- Dropify CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify/dist/css/dropify.min.css">
   <script src="https://cdn.jsdelivr.net/npm/dropify/dist/js/dropify.min.js"></script>
-
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 
-<input type="hidden" id="currencysymbol" value="$">
-<input type="hidden" id="currencyCode" value="USD">
+<input type="hidden" id="currencysymbol" value="">
+<input type="hidden" id="currencyCode" value="">
 
 
 <!-- Floating Translator -->
@@ -242,37 +236,137 @@ window.smartsupp||(function(d) {
 })(document);
 </script>
 <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
-
 <body class="theme-light">
 
     <div id="preloader">
         <div class="spinner-border color-highlight" role="status"></div>
     </div>
 
+    <!-- Page Wrapper-->
     <div id="page">
 
-        <div id="footer-bar" class="footer-bar-1 footer-bar-detached">
-        <a href="/secure/cards"><i class="bi bi-wallet2"></i><span>Cards</span></a>
-        <a href="/secure/phone"><i class="bi bi-phone"></i><span>QPhone</span></a>
-        <a href="/secure/dashboard" class="circle-nav-2"><i class="bi bi-house-fill"></i><span>Home</span></a>
-        <a href="/secure/kyc"><i class="bi bi-person-bounding-box"></i><span>Verify Account</span></a>
-        <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-sidebar"><i class="bi bi-three-dots"></i><span>More</span></a>
-</div>
+        <!-- Page Content - Only Page Elements Here-->
+        <div class="page-content my-0 py-0">
+            <form id="loginForm">
+                <div class="card bg-5 card-fixed">
+                    <div class="card-center mx-3 px-4 py-4 bg-white rounded-m">
+                        <!-- <h1 class="font-30 font-800 mb-0">PayApp</h1> -->
+                        <a class="navbar-brand pt-0" href="../"><img src="/img/loginlogo.png" alt="" class="img-fluid diverge-logo"></a>
+                        <p>Login to your Account.</p>
+                        <div class="form-custom form-label form-border form-icon mb-3 bg-transparent">
+                            <i class="bi bi-envelope-at font-13"></i>
+                            <input name="email" required type="email" class="form-control rounded-xs" id="email" placeholder="Email" />
+                            <label for="email" class="color-theme">E-mail</label>
+                            <span>(required)</span>
+                        </div>
+                        <div class="form-custom form-label form-border form-icon mb-4 bg-transparent">
+                            <i class="bi bi-asterisk font-13"></i>
+                            <input name="password" required type="password" class="form-control rounded-xs" id="password" placeholder="Password" />
+                            <label for="password" class="color-theme">Password</label>
+                            <span>(required)</span>
+                        </div>
+                        <div class="form-custom form-label form-border form-icon mb-4 bg-transparent">
+                            <div class="g-recaptcha" data-sitekey="6Lfuao8qAAAAAAiTCez2mcwKOi8UadfDLzGLNE7i"></div>
+                        </div>
+                        <div class="form-check form-check-custom">
+                            <input class="form-check-input" type="checkbox" name="type" value="" id="c2a">
+                            <label class="form-check-label font-12" for="c2a">Remember this account</label>
+                            <i class="is-checked color-highlight font-13 bi bi-check-circle-fill"></i>
+                            <i class="is-unchecked color-highlight font-13 bi bi-circle"></i>
+                        </div>
+                        <input type="submit" class="btn btn-full gradient-highlight shadow-bg shadow-bg-s mt-4 w-100" value="SIGN IN">
 
-	<!-- Main Sidebar Menu -->
-		<div id="menu-sidebar" data-menu-active="nav-welcome" data-menu-load="sidebar"
-			class="offcanvas offcanvas-start offcanvas-detached rounded-m">
-		</div>
+                        <div class="row">
+                            <div class="col-6 text-start">
+                                <a href="/auth/forget-password" class="font-14 font-400 opacity-70 mb-n1">Forgot Password?</a>
+                            </div>
+                            <div class="col-6 text-end">
+                                <a href="/auth/register" class="font-14 font-400 opacity-70 mb-n1">Create Account</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-overlay rounded-0 m-0 bg-black opacity-70"></div>
+                </div>
+            </form>
+        </div>
+        <!-- End of Page Content-->
 
-      
+    </div>
+    <!-- End of Page ID-->
 
-		<!-- modal section -->
-		<div id="deposit_modal" data-menu-load="deposit_modal.html"
-			class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-		</div>
-		<!-- modalsection ends  -->
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
+</body>
 
-		<!--withjdraw modal section -->
-		<div id="withdrawal_modal" data-menu-load="withdraw"
-			class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-		</div>
+
+<script>
+    $(document).ready(function() {
+        $("#loginForm").on("submit", function(e) {
+            e.preventDefault();
+             var response = grecaptcha.getResponse();
+
+            if (response.length == 0) { // Fix here: Use '==' for comparison
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 5000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+             
+                iziToast.error({
+                    position: 'topCenter',
+                    title: 'ERROR',
+                    message: `Please Verify You Are Not a Robot.`,
+                })
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: "/auth/login",
+                    data: new FormData(this),
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function(response) {
+                          if (response.trim() == "Login Successful!") {
+                                iziToast.success({
+                                    position: 'topCenter',
+                                    title: 'OK',
+                                    message: `${response}`,
+                                })
+                                setTimeout(function() {
+                                    window.location = "/secure/dashboard";
+                                }, 900); // 100 milliseconds
+
+                            } else if (response.trim() == "Account not active yet") {
+                            Swal.fire(
+                                'Note!',
+                                'Your account is currently inactive. Kindly refer to the email address you provided during the registration process for a welcome and activation message. To activate your account, please click on the activation button enclosed in the email. Your cooperation in completing this activation process is greatly appreciated. Thank you.',
+                                'info'
+                            )
+                        } else {
+                            if (response.trim().length < 20) {
+                                iziToast.error({
+                                    position: 'topCenter',
+                                    title: 'ERROR',
+                                    message: `${response}`,
+                                })
+                            } else {
+                                iziToast.error({
+                                    position: 'topCenter',
+                                    title: 'ERRORK',
+                                    message: `${response}`,
+                                })
+                            }
+
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

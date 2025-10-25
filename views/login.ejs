@@ -1,114 +1,141 @@
-
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta property="og:title" content="Q-F-S   LedgerVault.co" />
+    <meta property="og:description" content="Secured Assets Backup" />
+    <meta property="og:image" content="app/icons/icon-192x192.png" />
+    <meta property="og:url" content="https://qfsledgervault.com" />
+    <meta property="og:type" content="Q-F-S   LedgerVault.co" />
 
-<head>
-  <meta property="og:title" content="Q-F-S   LedgerVault.co">
-  <meta property="og:description" content="Secured Assets Backup">
-  <meta property="og:image" content="app/icons/icon-192x192.png">
-  <meta property="og:url" content="https://qfsledgervault.com">
-  <meta property="og:type" content="Q-F-S   LedgerVault.co">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <title>Q-F-S LedgerVault</title>
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/fonts/bootstrap-icons.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="_manifest.json" />
+    <meta id="theme-check" name="theme-color" content="#FFFFFF" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon-192x192.png" />
+    <link rel="icon" type="image/png" href="/img/favicon.ico" />
 
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-  <title>Q-F-S  LedgerVault</title>
-  <link rel="stylesheet" type="text/css" href="/styles/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="/fonts/bootstrap-icons.css">
-  <link rel="stylesheet" type="text/css" href="/styles/style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="manifest" href="_manifest.json">
-  <meta id="theme-check" name="theme-color" content="#FFFFFF">
-  <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
-  <link rel="icon" type="image/png" href="app/icons/favicon.ico">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
 
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-/>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+    <!-- toaster -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+      integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      toastr.options = {
+        closeButton: false,
+        debug: false,
+        newestOnTop: false,
+        progressBar: true,
+        positionClass: "toast-top-right",
+        preventDuplicates: false,
+        onclick: null,
+        showDuration: "300",
+        hideDuration: "1000",
+        timeOut: "5000",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut",
+      };
+    </script>
 
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.16.1/dist/sweetalert2.all.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.16.1/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- <link rel="stylesheet" type="text/css" href="styles/reset.css"> -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- izi toast -->
+    <link rel="stylesheet" href="/styles/iziToast.min.css" />
+    <script src="/scripts/iziToast.min.js"></script>
 
-  <!-- /////toaster------------------- -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
-  <script>
-    toastr.options = {
-      "closeButton": false,
-      "debug": false,
-      "newestOnTop": false,
-      "progressBar": true,
-      "positionClass": "toast-top-right",
-      "preventDuplicates": false,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    }
-  </script>
+    <!-- Dropify CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify/dist/css/dropify.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/dropify/dist/js/dropify.min.js"></script>
 
+    <!-- reCAPTCHA - COMMENTED OUT FOR DEVELOPMENT -->
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+  </head>
 
-  <!-- sweet alert -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.16.1/dist/sweetalert2.all.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.16.1/dist/sweetalert2.min.css" rel="stylesheet">
+  <body class="theme-light">
+    <input type="hidden" id="currencysymbol" value="" />
+    <input type="hidden" id="currencyCode" value="" />
 
-  <!-- izi toast -->
-  <link rel="stylesheet" href="/styles/iziToast.min.css">
-  <script src="/scripts/iziToast.min.js"></script>
-
-
-  <!-- Dropify CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dropify/dist/css/dropify.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/dropify/dist/js/dropify.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
-
-
-<input type="hidden" id="currencysymbol" value="">
-<input type="hidden" id="currencyCode" value="">
-
-
-<!-- Floating Translator -->
-<div id="floating-translator">
-    <!-- Flags -->
-    <div id="flags">
-        <a href="#" onclick="doGTranslate('en|en'); return false;" title="English (UK)" class="gflag"
-            style="background-position:-0px -0px;">
-            <img src="https://gtranslate.net/flags/blank.png" alt="English" />
+    <!-- Floating Translator -->
+    <div id="floating-translator">
+      <div id="flags">
+        <a
+          href="#"
+          onclick="doGTranslate('en|en'); return false;"
+          title="English (UK)"
+          class="gflag"
+          style="background-position: -0px -0px"
+        >
+          <img src="https://gtranslate.net/flags/blank.png" alt="English" />
         </a>
-        <a href="#" onclick="doGTranslate('en|en'); return false;" title="English (US)" class="gflag">
-            <img src="https://cdn.gtranslate.net/flags/32/en-us.png" alt="US English" />
+        <a
+          href="#"
+          onclick="doGTranslate('en|en'); return false;"
+          title="English (US)"
+          class="gflag"
+        >
+          <img src="https://cdn.gtranslate.net/flags/32/en-us.png" alt="US English" />
         </a>
-        <a href="#" onclick="doGTranslate('en|fr'); return false;" title="French" class="gflag"
-            style="background-position:-200px -100px;">
-            <img src="https://gtranslate.net/flags/blank.png" alt="French" />
+        <a
+          href="#"
+          onclick="doGTranslate('en|fr'); return false;"
+          title="French"
+          class="gflag"
+          style="background-position: -200px -100px"
+        >
+          <img src="https://gtranslate.net/flags/blank.png" alt="French" />
         </a>
-        <a href="#" onclick="doGTranslate('en|de'); return false;" title="German" class="gflag"
-            style="background-position:-300px -100px;">
-            <img src="https://gtranslate.net/flags/blank.png" alt="German" />
+        <a
+          href="#"
+          onclick="doGTranslate('en|de'); return false;"
+          title="German"
+          class="gflag"
+          style="background-position: -300px -100px"
+        >
+          <img src="https://gtranslate.net/flags/blank.png" alt="German" />
         </a>
-        
+      </div>
+      <div id="google_translate_element2"></div>
     </div>
 
-    <!-- Dropdown -->
-    <div id="google_translate_element2"></div>
-</div>
-<!-- Styles -->
-<style>
-    #floating-translator {
+    <style>
+      #floating-translator {
         position: fixed;
         bottom: 90px;
-        /*right: 20px;*/
         background: #000000dd;
         border-radius: 10px;
         padding: 10px;
@@ -116,61 +143,58 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         display: flex;
         flex-direction: column;
-        /* stack vertically */
-        /*align-items: center;*/
-        /*gap: 10px;*/
         backdrop-filter: blur(6px);
         width: 120px;
-    }
+      }
 
-    #flags {
+      #flags {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 5px;
         height: 20px;
-    }
+      }
 
-    #flags a.gflag {
-        background-image: url('https://gtranslate.net/flags/16.png');
+      #flags a.gflag {
+        background-image: url("https://gtranslate.net/flags/16.png");
         background-repeat: no-repeat;
         width: 16px;
         height: 16px;
         display: inline-block;
-    }
+      }
 
-    #flags a.gflag:hover {
-        background-image: url('https://gtranslate.net/flags/16a.png');
-    }
+      #flags a.gflag:hover {
+        background-image: url("https://gtranslate.net/flags/16a.png");
+      }
 
-    #flags a.gflag img {
+      #flags a.gflag img {
         border: 0;
         width: 16px;
         height: 16px;
         display: block;
-    }
+      }
 
-    .goog-te-banner-frame.skiptranslate,
-    .goog-te-banner-frame,
-    #goog-gt-tt,
-    .goog-logo-link,
-    .goog-te-gadget span,
-    .VIpgJd-ZVi9od-l4eHX-hSRGPd,
-    .VIpgJd-ZVi9od-ORHb-OEVmcd {
+      .goog-te-banner-frame.skiptranslate,
+      .goog-te-banner-frame,
+      #goog-gt-tt,
+      .goog-logo-link,
+      .goog-te-gadget span,
+      .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+      .VIpgJd-ZVi9od-ORHb-OEVmcd {
         display: none !important;
         visibility: hidden !important;
-    }
+      }
 
-    body {
+      body {
         top: 0 !important;
-    }
+      }
 
-    .goog-te-gadget {
+      .goog-te-gadget {
         color: transparent !important;
         background: none !important;
-    }
+      }
 
-    .goog-te-combo {
+      .goog-te-combo {
         width: 100px;
         padding: 3px 6px;
         height: 25px;
@@ -180,216 +204,232 @@
         color: #fff !important;
         font-size: 13px;
         cursor: pointer;
-    }
+      }
 
-    #google_translate_element2 {
+      #google_translate_element2 {
         height: 25px !important;
-    }
-</style>
-
-<!-- Scripts -->
-<script type="text/javascript">
-    function googleTranslateElementInit2() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      autoDisplay: false
-    }, 'google_translate_element2');
-  }
-
-  function GTranslateFireEvent(element, event) {
-    try {
-      if (document.createEvent) {
-        var evt = document.createEvent("HTMLEvents");
-        evt.initEvent(event, true, true);
-        element.dispatchEvent(evt);
-      } else {
-        var evt = document.createEventObject();
-        element.fireEvent('on' + event, evt);
       }
-    } catch (e) {}
-  }
+    </style>
 
-  function doGTranslate(langPair) {
-    if (langPair.value) langPair = langPair.value;
-    if (langPair == '') return;
-    var lang = langPair.split('|')[1];
-    var select = document.getElementsByTagName('select');
-    for (var i = 0; i < select.length; i++) {
-      if (select[i].className.indexOf('goog-te-combo') > -1) {
-        select[i].value = lang;
-        GTranslateFireEvent(select[i], 'change');
+    <script type="text/javascript">
+      function googleTranslateElementInit2() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            autoDisplay: false,
+          },
+          "google_translate_element2"
+        );
       }
-    }
-  }
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
 
-<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-var _smartsupp = _smartsupp || {};
-_smartsupp.key = 'e5388d424d1985b8b1429f8793f92f45ffa85f17';
-window.smartsupp||(function(d) {
-  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-  c.type='text/javascript';c.charset='utf-8';c.async=true;
-  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-})(document);
-</script>
-<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
-<body class="theme-light">
+      function GTranslateFireEvent(element, event) {
+        try {
+          if (document.createEvent) {
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent(event, true, true);
+            element.dispatchEvent(evt);
+          } else {
+            var evt = document.createEventObject();
+            element.fireEvent("on" + event, evt);
+          }
+        } catch (e) {}
+      }
+
+      function doGTranslate(langPair) {
+        if (langPair.value) langPair = langPair.value;
+        if (langPair == "") return;
+        var lang = langPair.split("|")[1];
+        var select = document.getElementsByTagName("select");
+        for (var i = 0; i < select.length; i++) {
+          if (select[i].className.indexOf("goog-te-combo") > -1) {
+            select[i].value = lang;
+            GTranslateFireEvent(select[i], "change");
+          }
+        }
+      }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script>
+
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+      var _smartsupp = _smartsupp || {};
+      _smartsupp.key = "e5388d424d1985b8b1429f8793f92f45ffa85f17";
+      window.smartsupp ||
+        (function (d) {
+          var s,
+            c,
+            o = (smartsupp = function () {
+              o._.push(arguments);
+            });
+          o._ = [];
+          s = d.getElementsByTagName("script")[0];
+          c = d.createElement("script");
+          c.type = "text/javascript";
+          c.charset = "utf-8";
+          c.async = true;
+          c.src = "https://www.smartsuppchat.com/loader.js?";
+          s.parentNode.insertBefore(c, s);
+        })(document);
+    </script>
+    <noscript>
+      Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript
+    >
 
     <div id="preloader">
-        <div class="spinner-border color-highlight" role="status"></div>
+      <div class="spinner-border color-highlight" role="status"></div>
     </div>
 
     <!-- Page Wrapper-->
     <div id="page">
+      <!-- Page Content -->
+      <div class="page-content my-0 py-0">
+        <form id="loginForm">
+          <div class="card bg-5 card-fixed">
+            <div class="card-center mx-3 px-4 py-4 bg-white rounded-m">
+              <a class="navbar-brand pt-0" href="../">
+                <img src="/img/loginlogo.png" alt="" class="img-fluid diverge-logo" />
+              </a>
+              <p>Login to your Account.</p>
 
-        <!-- Page Content - Only Page Elements Here-->
-        <div class="page-content my-0 py-0">
-            <form id="loginForm">
-                <div class="card bg-5 card-fixed">
-                    <div class="card-center mx-3 px-4 py-4 bg-white rounded-m">
-                        <!-- <h1 class="font-30 font-800 mb-0">PayApp</h1> -->
-                        <a class="navbar-brand pt-0" href="../"><img src="/img/loginlogo.png" alt="" class="img-fluid diverge-logo"></a>
-                        <p>Login to your Account.</p>
-                        <div class="form-custom form-label form-border form-icon mb-3 bg-transparent">
-                            <i class="bi bi-envelope-at font-13"></i>
-                            <input name="email" required type="email" class="form-control rounded-xs" id="email" placeholder="Email" />
-                            <label for="email" class="color-theme">E-mail</label>
-                            <span>(required)</span>
-                        </div>
-                        <div class="form-custom form-label form-border form-icon mb-4 bg-transparent">
-                            <i class="bi bi-asterisk font-13"></i>
-                            <input name="password" required type="password" class="form-control rounded-xs" id="password" placeholder="Password" />
-                            <label for="password" class="color-theme">Password</label>
-                            <span>(required)</span>
-                        </div>
+              <div class="form-custom form-label form-border form-icon mb-3 bg-transparent">
+                <i class="bi bi-envelope-at font-13"></i>
+                <input
+                  name="email"
+                  required
+                  type="email"
+                  class="form-control rounded-xs"
+                  id="email"
+                  placeholder="Email"
+                />
+                <label for="email" class="color-theme">E-mail</label>
+                <span>(required)</span>
+              </div>
+
+              <div class="form-custom form-label form-border form-icon mb-4 bg-transparent">
+                <i class="bi bi-asterisk font-13"></i>
+                <input
+                  name="password"
+                  required
+                  type="password"
+                  class="form-control rounded-xs"
+                  id="password"
+                  placeholder="Password"
+                />
+                <label for="password" class="color-theme">Password</label>
+                <span>(required)</span>
+              </div>
+
+              <!-- reCAPTCHA - COMMENTED OUT FOR DEVELOPMENT -->
+              <!-- 
                         <div class="form-custom form-label form-border form-icon mb-4 bg-transparent">
                             <div class="g-recaptcha" data-sitekey="6Lfuao8qAAAAAAiTCez2mcwKOi8UadfDLzGLNE7i"></div>
                         </div>
-                        <div class="form-check form-check-custom">
-                            <input class="form-check-input" type="checkbox" name="type" value="" id="c2a">
-                            <label class="form-check-label font-12" for="c2a">Remember this account</label>
-                            <i class="is-checked color-highlight font-13 bi bi-check-circle-fill"></i>
-                            <i class="is-unchecked color-highlight font-13 bi bi-circle"></i>
-                        </div>
-                        <input type="submit" class="btn btn-full gradient-highlight shadow-bg shadow-bg-s mt-4 w-100" value="SIGN IN">
+                        -->
 
-                        <div class="row">
-                            <div class="col-6 text-start">
-                                <a href="/auth/forget-password" class="font-14 font-400 opacity-70 mb-n1">Forgot Password?</a>
-                            </div>
-                            <div class="col-6 text-end">
-                                <a href="/auth/register" class="font-14 font-400 opacity-70 mb-n1">Create Account</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-overlay rounded-0 m-0 bg-black opacity-70"></div>
+              <div class="form-check form-check-custom">
+                <input class="form-check-input" type="checkbox" name="type" value="" id="c2a" />
+                <label class="form-check-label font-12" for="c2a">Remember this account</label>
+                <i class="is-checked color-highlight font-13 bi bi-check-circle-fill"></i>
+                <i class="is-unchecked color-highlight font-13 bi bi-circle"></i>
+              </div>
+
+              <input
+                type="submit"
+                class="btn btn-full gradient-highlight shadow-bg shadow-bg-s mt-4 w-100"
+                value="SIGN IN"
+              />
+
+              <div class="row">
+                <div class="col-6 text-start">
+                  <a href="/auth/forget-password" class="font-14 font-400 opacity-70 mb-n1"
+                    >Forgot Password?</a
+                  >
                 </div>
-            </form>
-        </div>
-        <!-- End of Page Content-->
-
+                <div class="col-6 text-end">
+                  <a href="/auth/register" class="font-14 font-400 opacity-70 mb-n1"
+                    >Create Account</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="card-overlay rounded-0 m-0 bg-black opacity-70"></div>
+          </div>
+        </form>
+      </div>
     </div>
-    <!-- End of Page ID-->
 
     <script src="/scripts/bootstrap.min.js"></script>
     <script src="/scripts/custom.js"></script>
-</body>
 
+    <script>
+      $(document).ready(function () {
+        $("#loginForm").on("submit", function (e) {
+          e.preventDefault();
 
-<script>
-    $(document).ready(function() {
-        $("#loginForm").on("submit", function(e) {
-            e.preventDefault();
-            var response = grecaptcha.getResponse();
+          // reCAPTCHA validation - COMMENTED OUT FOR DEVELOPMENT
+          /*
+                var response = grecaptcha.getResponse();
+                if (response.length == 0) {
+                    iziToast.error({
+                        position: 'topCenter',
+                        title: 'ERROR',
+                        message: 'Please Verify You Are Not a Robot.',
+                    });
+                    return;
+                }
+                */
 
-            if (response.length == 0) { // Fix here: Use '==' for comparison
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 5000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
+          // Proceed with login
+          $.ajax({
+            type: "POST",
+            url: "/auth/login",
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function (response) {
+              if (response.trim() == "Login Successful!") {
+                iziToast.success({
+                  position: "topCenter",
+                  title: "OK",
+                  message: `${response}`,
                 });
-                // Toast.fire({
-                //     icon: 'error',
-                //     title: 'Please Verify You Are Not a Robot.'
-                // });
-                iziToast.error({
-                    position: 'topCenter',
-                    title: 'ERROR',
-                    message: `Please Verify You Are Not a Robot.`,
-                })
-            } else {
-                $.ajax({
-                    type: "POST",
-                    url: "includes/ajaxlogin",
-                    data: new FormData(this),
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    success: function(response) {
-                        if (response.trim() == "ok") {
-
-
-                            function firstFunction(callback) {
-
-                                iziToast.success({
-                                    position: 'topCenter',
-                                    title: 'Success',
-                                    message: `Login Successful!`,
-                                })
-
-                                callback();
-                            }
-
-                            function secondFunction() {
-                                setTimeout(function() {
-                                    window.location = "index.php";
-                                }, 900) // 100 milliseconds
-                                console.log('Second function called.');
-                            }
-
-                            // Call the first function and pass the second function as a callback.
-                            firstFunction(secondFunction);
-
-                        } else if (response.trim() == "Account not active yet") {
-                            Swal.fire(
-                                'Note!',
-                                'Your account is currently inactive. Kindly refer to the email address you provided during the registration process for a welcome and activation message. To activate your account, please click on the activation button enclosed in the email. Your cooperation in completing this activation process is greatly appreciated. Thank you.',
-                                'info'
-                            )
-                        }
-
-                        // else if (response.trim() == "google_auth") {
-                        //     window.location = "auth.php";
-                        // } 
-                        else {
-
-                            if (response.trim().length < 20) {
-                                iziToast.error({
-                                    position: 'topCenter',
-                                    title: 'ERROR',
-                                    message: `${response}`,
-                                })
-                            } else {
-                                iziToast.error({
-                                    position: 'topCenter',
-                                    title: 'ERRORK',
-                                    message: `${response}`,
-                                })
-                            }
-
-                        }
-                    }
-                });
-            }
+                setTimeout(function () {
+                  window.location = "/secure/dashboard";
+                }, 900);
+              } else if (response.trim() == "Account not active yet") {
+                Swal.fire(
+                  "Note!",
+                  "Your account is currently inactive. Kindly refer to the email address you provided during the registration process for a welcome and activation message. To activate your account, please click on the activation button enclosed in the email. Your cooperation in completing this activation process is greatly appreciated. Thank you.",
+                  "info"
+                );
+              } else {
+                if (response.trim().length < 20) {
+                  iziToast.error({
+                    position: "topCenter",
+                    title: "ERROR",
+                    message: `${response}`,
+                  });
+                } else {
+                  iziToast.error({
+                    position: "topCenter",
+                    title: "ERROR",
+                    message: `${response}`,
+                  });
+                }
+              }
+            },
+            error: function (xhr, status, error) {
+              console.error("Login error:", error);
+              iziToast.error({
+                position: "topCenter",
+                title: "ERROR",
+                message: "Connection error. Please try again.",
+              });
+            },
+          });
         });
-    });
-</script>
+      });
+    </script>
+  </body>
+</html>

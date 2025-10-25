@@ -9,14 +9,18 @@
 					<div class="align-self-center me-auto">
 						<p id="wel" class="font-14 mb-n1">Welcome Back</p>
 						<!-- <h1  class="font-24">Crypto Home</h1> -->
-						<h6 style="margin-top: 25px;" class="font-13 opacity-80 font-500 mb-0 pt-2">micheal peter</h6>
+						<h6 style="margin-top: 25px;" class="font-13 opacity-80 font-500 mb-0 pt-2"><%= currentUser?.fullname %></h6>
 					</div>
 					<div class="align-self-center ms-auto">
 
 
         <a href="#" data-bs-toggle="dropdown"
         class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
-        <img src="/img/user-default.png" width="45" class="rounded-m" alt="img">
+
+				<img 
+                    src="<%= currentUser?.image ? currentUser.image : '/img/user-default.png' %>" 
+                   width="45" class="rounded-m" alt="img"
+                    />
     </a>
     <!-- Page Title Dropdown Menu-->
     <div class="dropdown-menu">
@@ -38,7 +42,7 @@
                     </div>
                 </a>
 
-                <a href="includes/logout.php" class="list-group-item">
+                <a href="/auth/logout" class="list-group-item">
                     <i
                         class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
                     <strong class="font-13">Log Out</strong>
@@ -48,28 +52,7 @@
     </div>
 </div>
 
-<script>
-    count_cart_item();
-    //count_wishlist_item();
-
-    function count_cart_item() {
-        $("#cart_table tbody").empty();
-        var load_count = "loadcount";
-        $.ajax({
-            url: 'includes/server',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                load_count: load_count,
-            },
-            success: function(response) {
-                //porpulate cart count
-                $('.cart_item_count').text(response.mssg);
-            }
-        });
-
-    }
-</script>				</div>
+			</div>
 			</div>
 
 			<style>
@@ -133,25 +116,13 @@
 						<div>
 
 
-															<span class="badge bg-red-dark rounded-xl">Not Verified</span>
-								<!-- <p class="text-center font-11"><i class="bi bi-x-circle-fill color-red-dark pe-2"></i>Not Verified User</p> -->
-
-														<!-- <a href="kyc">
-								<p class="color-white">Click to Verify Now</p>
-							</a> -->
+						<span class="badge bg-red-dark rounded-xl">Not Verified</span>
+						
 						</div>
 					</div>
 				</div>
 				<div class="card-overlay bg-black opacity-70"></div>
 			</div>
-
-
-
-			<!-- chart
-			<div class="section" style="margin-bottom: -60px; background-color: black;">
-				<iframe src="chart.html" width="100%"></iframe>
-			</div> -->
-
 
 			<div class="content py-2">
 				<div class="d-flex text-center">
@@ -185,22 +156,12 @@
 						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Buy Crypto</h6>
 					</div>
 					<div class="ms-auto">
-						<a href="#" class="icon icon-xxl rounded-m bg-theme shadow-m"><i
+						<a href="/secure/dashboard" class="icon icon-xxl rounded-m bg-theme shadow-m"><i
 								class="font-28 color-blue-dark bi bi-arrow-repeat"></i></a>
 						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Swap</h6>
 					</div>
 				</div>
 			</div>
-
-
-
-
-
-
-
-
-
-
 
 			<!-- Title-->
 			<div class="content my-0 px-1">
@@ -225,9 +186,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="btc_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="btc_predict" class="rounded-l font-500 font-12 d-block text-end"><i
-									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="btc_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<span id="bitcoin_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+									class="bi bi-dash pe-2"></i>200.0%</span>
+							<h1 id="bitcoin_price" class="font-20 mb-0 mt-n2">$ 10.0</h1>
 						</div>
 					</div>
 				</div>
@@ -246,9 +207,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="eth_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="eth_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="ethereum_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="eth_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="ethereum_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -267,9 +228,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="usdt_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="usdt_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="tether_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="usdt_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="tether_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -288,9 +249,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="xlm_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="xlm_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="stellar_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="xlm_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="stellar_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -309,9 +270,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="xrp_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="xrp_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="ripple_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="xrp_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="ripple_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -330,9 +291,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="ltc_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="ltc_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="litecoin_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="ltc_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="litecoin_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -351,9 +312,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="doge_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="doge_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="dogecoin_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="doge_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="dogecoin_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -372,9 +333,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="bnb_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="bnb_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="binancecoin_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="bnb_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="binancecoin_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -393,9 +354,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="shib_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="shib_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="shiba-inu_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="shib_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="shiba-inu_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -456,9 +417,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="sol_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="sol_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="solana_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="sol_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="solana_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -477,9 +438,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="matic_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="matic_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="polygon-ecosystem-token_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="matic_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="polygon-ecosystem-token_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -499,9 +460,9 @@
 							<h5 class="font-14 font-400 opacity-70 mb-n1" id="algo_amount">0.00</h5>
 						</div>
 						<div class="ms-auto">
-							<span id="algo_predict" class="rounded-l font-500 font-12 d-block text-end"><i
+							<span id="algorand_predict" class="rounded-l font-500 font-12 d-block text-end"><i
 									class="bi bi-dash pe-2"></i>0.0%</span>
-							<h1 id="algo_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
+							<h1 id="algorand_price" class="font-20 mb-0 mt-n2">$ 0.0</h1>
 						</div>
 					</div>
 				</div>
@@ -550,6 +511,8 @@
 					</div>
 				</div>
 			</div>
+
+
 
 
 
@@ -1493,4 +1456,5 @@
 
 	<script src="/scripts/bootstrap.min.js"></script>
 	<script src="/scripts/custom.js"></script>
+	<script src="/scripts/cryptoPrice.js"></script>
 </body>

@@ -22,23 +22,14 @@
 
         <a href="#" data-bs-toggle="dropdown"
         class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
-        <img src="/img/user-default.png" width="45" class="rounded-m" alt="img">
+        <img src="<%= currentUser?.image ? currentUser.image : '/img/user-default.png' %>"  width="45" class="rounded-m" alt="img">
     </a>
     <!-- Page Title Dropdown Menu-->
     <div class="dropdown-menu">
         <div class="card card-style shadow-m mt-1 me-1">
             <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
-                <!-- <a href="page-wallet.html" class="list-group-item">
-                    <i
-                        class="has-bg gradient-green shadow-bg shadow-bg-xs color-white rounded-xs bi bi-credit-card"></i>
-                    <strong class="font-13">Wallet</strong>
-                </a>
-                <a href="page-activity.html" class="list-group-item">
-                    <i
-                        class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi bi-graph-up"></i>
-                    <strong class="font-13">Activity</strong>
-                </a> -->
-                <a href="profile" class="list-group-item">
+         
+                <a href="/secure/profile" class="list-group-item">
                     <i
                         class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
                     <strong class="font-13">Account</strong>
@@ -53,7 +44,7 @@
                     </div>
                 </a>
 
-                <a href="includes/logout.php" class="list-group-item">
+                <a href="/auth/logout" class="list-group-item">
                     <i
                         class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
                     <strong class="font-13">Log Out</strong>
@@ -62,29 +53,7 @@
         </div>
     </div>
 </div>
-
-<script>
-    count_cart_item();
-    //count_wishlist_item();
-
-    function count_cart_item() {
-        $("#cart_table tbody").empty();
-        var load_count = "loadcount";
-        $.ajax({
-            url: 'includes/server',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                load_count: load_count,
-            },
-            success: function(response) {
-                //porpulate cart count
-                $('.cart_item_count').text(response.mssg);
-            }
-        });
-
-    }
-</script>                </div>
+              </div>
             </div>
 
             <div class="card card-style">
@@ -97,7 +66,7 @@
 
                         <div class="form-custom form-label form-icon mb-3 mt-5">
                             <i class="bi bi-person-circle font-14"></i>
-                            <input name="sender_name" type="text" class="form-control rounded-xs" id="c1" placeholder="John Doe" />
+                            <input name="sender_name" type="text" class="form-control rounded-xs" value="<%= currentUser?.fullname %>" readonly id="c1" placeholder="John Doe" />
                             <label for="c1" class="color-highlight form-label-always-active">Sender Name</label>
                         </div>
 
@@ -109,7 +78,7 @@
 
                         <div class="form-custom form-label form-icon mb-3 mt-5">
                             <i class="bi bi-envelope-at font-14"></i>
-                            <input type="email" name="sender_email" class="form-control rounded-xs" id="c1" placeholder="Your Email" />
+                            <input type="email" name="sender_email" class="form-control rounded-xs" id="c1" value="<%= currentUser?.email %>" readonly placeholder="Your Email" />
                             <label for="c1" class="color-highlight form-label-always-active">Sender Email</label>
                         </div>
 
@@ -122,7 +91,7 @@
                         </div>
 
                         <div class="divider mt-2 mb-4"></div>
-                        <a href="#" id="sendmail" data-bs-dismiss="offcanvas" class="btn btn-full gradient-highlight shadow-bg shadow-bg-s">Send Mail</a>
+                        <a href="#" id="sendmail" data-bs-dismiss="offcanvas" class="btn btn-full gradient-highlight shadow-bg shadow-bg-s">Send Message</a>
                     </form>
                     <!-- End of Tab Wrapper-->
                 </div>
@@ -167,8 +136,7 @@
     </div>
     <!-- End of Page ID-->
 
-    <script src="/scripts/bootstrap.min.js"></script>
-    <script src="/scripts/custom.js"></script>
+   
 </body>
 
 <script>
@@ -206,7 +174,7 @@
 
 
         $.ajax({
-            url: 'includes/server',
+            url: '/secure/contact',
             type: 'POST',
             data: formData,
             contentType: false,
@@ -245,3 +213,6 @@
 
     });
 </script>
+
+ <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/custom.js"></script>
