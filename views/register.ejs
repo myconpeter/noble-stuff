@@ -289,8 +289,8 @@ window.smartsupp||(function(d) {
                         </div>
                         <div class="form-custom form-label form-border form-icon mb-3 bg-transparent">
                             <i class="bi bi-telephone-fill font-16"></i>
-                            <input name="Phone" type="tel" class="form-control rounded-xs" id="Phone" placeholder="Phone" />
-                            <label for="Phone" class="color-theme">Phone</label>
+                            <input name="phone" type="tel" class="form-control rounded-xs" id="phone" placeholder="Phone" />
+                            <label for="phone" class="color-theme">Phone</label>
                         </div>
 
                         <div class="form-custom form-label form-border form-icon mb-3 bg-transparent">
@@ -753,25 +753,30 @@ window.smartsupp||(function(d) {
                     var formData = new FormData(document.getElementById("reg_form"));
                     $.ajax({
                         type: 'POST',
-                        url: 'includes/reg',
+                        url: '/auth/register',
                         data: formData,
                         contentType: false,
                         cache: false,
                         processData: false,
                         success: function(response) {
-                            if (response.trim() == "Registeration Successful!") {
+                           
+                            if (response.trim() == "Registration Successful!") {
                                 iziToast.success({
                                     position: 'topCenter',
                                     title: 'OK',
                                     message: `${response}`,
                                 })
                                 setTimeout(function() {
-                                    window.location = "/secure/index";
+                                    window.location = "/auth/phrase";
                                 }, 900); // 100 milliseconds
 
-                            } else if (response.trim() == "Phrase") {
-
-                                window.location = "phrase.php";
+                            } else if(response.trim() == "Email already exists"){
+                                 iziToast.error({
+                                    position: 'topCenter',
+                                    title: 'Error',
+                                    message: `${response}`,
+                                });
+                                $('#sub_button').html('Create Account').css("pointer-events", "auto");
 
                             } else {
                                 iziToast.error({
