@@ -1,0 +1,28 @@
+<% if (success_msg && success_msg.length > 0) { %>
+<div
+  class="fixed top-14 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-full sm:max-w-sm sm:right-5 sm:left-auto sm:translate-x-0 z-50 bg-green-600 text-white px-4 py-3 rounded-lg shadow-md animate-toast mb-4"
+>
+  <p class="font-semibold text-sm sm:text-base"><%= success_msg[0] %></p>
+</div>
+<% } %> <% if (error_msg && error_msg.length > 0) { %>
+<div
+  class="fixed top-5 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-full sm:max-w-sm sm:right-5 sm:left-auto sm:translate-x-0 z-50 bg-red-600 text-white px-4 py-3 rounded-lg shadow-md animate-toast mb-4"
+>
+  <p class="font-semibold text-sm sm:text-base"><%= error_msg[0] %></p>
+</div>
+<% } %> <% if (error && error.length > 0) { %>
+<div
+  class="fixed top-5 left-1/2 transform -translate-x-1/2 w-[90%] sm:w-full sm:max-w-sm sm:right-5 sm:left-auto sm:translate-x-0 z-50 bg-red-600 text-white px-4 py-3 rounded-lg shadow-md animate-toast mb-4"
+>
+  <p class="font-semibold text-sm sm:text-base"><%= error[0] %></p>
+</div>
+<% } %>
+
+<script>
+  setTimeout(() => {
+    document.querySelectorAll(".animate-toast").forEach((toast) => {
+      toast.classList.add("opacity-0", "transition", "duration-700");
+      setTimeout(() => toast.remove(), 700);
+    });
+  }, 4000);
+</script>

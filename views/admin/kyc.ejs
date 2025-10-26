@@ -1,0 +1,141 @@
+<!-- ============================================ -->
+<!-- views/kyc.ejs -->
+<!-- ============================================ -->
+
+<%- include('../partials/header', { title: 'KYC - Admin Dashboard' }) %>
+<%- include('../partials/nav', { page: 'kyc' }) %>
+    <%- include('../partials/toast') %>
+
+    <div class="bg-white rounded-lg shadow overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-4 py-3 text-left text-sm font-medium">User</th>
+                        <th class="px-4 py-3 text-left text-sm font-medium">Email</th>
+                        <th class="px-4 py-3 text-left text-sm font-medium">Doc Type</th>
+                        <th class="px-4 py-3 text-left text-sm font-medium">Status</th>
+                        <th class="px-4 py-3 text-left text-sm font-medium">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <% kycs.forEach(kyc => { %>
+                    <tr>
+                        <td class="px-4 py-3 text-sm"><%= kyc.user && kyc.user.fullname ? kyc.user.fullname : 'Deleted User' %></td>
+                        <td class="px-4 py-3 text-sm"><%= kyc.user && kyc.user.email ? kyc.user.email : 'Deleted User' %></td>
+                        <td class="px-4 py-3 text-sm"><%= kyc.doc_typ %></td>
+                        <td class="px-4 py-3 text-sm">
+                            <% if (kyc.status === 'Pending') { %>
+                                <span class="text-yellow-600"><%= kyc.status %></span>
+                            <% } else if (kyc.status === 'Approved') { %>
+                                <span class="text-green-600"><%= kyc.status %></span>
+                            <% } else { %>
+                                <span class="text-red-600"><%= kyc.status %></span>
+                            <% } %>
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                            <button onclick="showKycModal('<%= kyc._id %>')" class="text-black hover:underline">View</button>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- KYC MODAL -->
+<div id="kycModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">KYC Details</h2>
+                <button onclick="closeModal()" class="text-2xl">&times;</button>
+            </div>
+            <div id="modalContent" class="space-y-3 text-sm"></div>
+            <div class="flex gap-3 mt-6">
+                <button id="approveBtn" class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Approve</button>
+                <button id="deleteBtn" class="px-4 py-2 bg-black text-white rounded hover:bg-gray-900">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const kycs = <%- JSON.stringify(kycs) %>;
+
+    function showKycModal(kycId) {
+        const kyc = kycs.find(k => k._id === kycId);
+        if (!kyc) return;
+
+        const content = `
+            <div><strong>User:</strong> ${kyc.user && kyc.user.fullname ? kyc.user.fullname : "Deleted User"}</div>
+            <div><strong>Email:</strong> ${kyc.user && kyc.user.email ? kyc.user.email : "Deleted User"}</div>
+            <div><strong>Document Type:</strong> ${kyc.doc_typ}</div>
+            <div><strong>Status:</strong> ${kyc.status}</div>
+            <div><strong>Front Image:</strong></div>
+            <img src="${kyc.front_image}" class="w-full rounded mb-3" alt="Front">
+            <div><strong>Back Image:</strong></div>
+            <img src="${kyc.back_image}" class="w-full rounded" alt="Back">
+        `;
+        
+        document.getElementById('modalContent').innerHTML = content;
+        document.getElementById('kycModal').classList.remove('hidden');
+
+        document.getElementById('approveBtn').onclick = () => approveKyc(kycId);
+        document.getElementById('deleteBtn').onclick = () => deleteKyc(kycId);
+    }
+
+    function closeModal() {
+        document.getElementById('kycModal').classList.add('hidden');
+    }
+
+ async function approveKyc(kycId) {
+  const confirmed = confirm('Are you sure you want to approve this KYC?');
+  if (!confirmed) return;
+
+  try {
+    const res = await fetch(`/admin/kyc/${kycId}/approve`, { method: 'POST' });
+
+    if (!res.ok) {
+      const data = await res.json();
+      alert(`Error: ${data.message || 'Failed to approve KYC'}`);
+      return;
+    }
+
+    const data = await res.json();
+    alert(data.message || 'KYC approved successfully');
+    location.reload();
+  } catch (err) {
+    console.error('Approve KYC Error:', err);
+    alert('An unexpected error occurred while approving KYC.');
+  }
+}
+
+
+async function deleteKyc(kycId) {
+  const confirmed = confirm('Are you sure you want to permanently delete this KYC record?');
+  if (!confirmed) return;
+
+  try {
+    const res = await fetch(`/admin/kyc/${kycId}`, { method: 'DELETE' });
+
+    if (!res.ok) {
+      const data = await res.json();
+      alert(`Error: ${data.message || 'Failed to delete KYC record'}`);
+      return;
+    }
+
+    const data = await res.json();
+    alert(data.message || 'KYC deleted successfully');
+    location.reload();
+  } catch (err) {
+    console.error('Delete KYC Error:', err);
+    alert('An unexpected error occurred while deleting KYC.');
+  }
+}
+
+</script>
+
+</body>
+</html>

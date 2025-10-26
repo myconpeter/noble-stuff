@@ -1,0 +1,16 @@
+<nav class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <h1 class="text-xl font-bold">Admin Dashboard</h1>
+            <a href="/" class="text-sm hover:underline">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-7xl mx-auto px-4 py-6">
+    <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+        <a href="/admin/users" class="px-4 py-2 rounded whitespace-nowrap <%= page === 'users' ? 'bg-black text-white' : 'bg-gray-200 hover:bg-gray-300' %>">Users</a>
+        <a href="/admin/messages" class="px-4 py-2 rounded whitespace-nowrap <%= page === 'messages' ? 'bg-black text-white' : 'bg-gray-200 hover:bg-gray-300' %>">Messages</a>
+        <a href="/admin/wallets" class="px-4 py-2 rounded whitespace-nowrap <%= page === 'wallets' ? 'bg-black text-white' : 'bg-gray-200 hover:bg-gray-300' %>">Wallets</a>
+        <a href="/admin/kyc" class="px-4 py-2 rounded whitespace-nowrap <%= page === 'kyc' ? 'bg-black text-white' : 'bg-gray-200 hover:bg-gray-300' %>">KYC</a>
+    </div>

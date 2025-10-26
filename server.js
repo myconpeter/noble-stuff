@@ -3,7 +3,6 @@ import path, { dirname } from "path";
 import passport from "passport";
 import session from "express-session";
 import flash from "connect-flash";
-import ejs from "ejs";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 
@@ -12,6 +11,7 @@ import initializePassport from "./config/passport.js"; // ✅ Passport config
 import indexRouter from "./routes/index.routes.js";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
+import adminRouter from "./routes/admin.route.js";
 
 dotenv.config();
 
@@ -68,6 +68,7 @@ app.get("/", (req, res) => {
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/secure", userRouter);
+app.use("/admin", adminRouter);
 
 // --------------------- START SERVER ---------------------
 const startServer = async () => {
