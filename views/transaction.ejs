@@ -1,863 +1,119 @@
-<%- include ('./partials/secureHeader') %>	
+<!-- Tailwind CDN -->
+<%- include ('./partials/secureHeader') %>
 
-        <!-- Page Content - Only Page Elements Here-->
-        <div class="page-content footer-clear">
+<script src="https://cdn.tailwindcss.com"></script>
 
-            <!-- Page Title-->
-            <div class="pt-3">
-                <div class="page-title d-flex">
-                    <div class="align-self-center">
-                        <a href="#"
-                            data-back-button
-                            class="me-3 ms-0 icon icon-xxs bg-theme rounded-s shadow-m">
-                            <i class="bi bi-chevron-left color-theme font-14"></i>
-                        </a>
-                    </div>
-                    <div class="align-self-center me-auto">
-                        <p class="color-highlight">Back to Home</p>
-                        <!-- <h1 class="color-theme">Link Wallet</h1> -->
-                    </div>
-                    <div class="align-self-center ms-auto">
-
-
-        <a href="#" data-bs-toggle="dropdown"
-        class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
-        <img src="/img/user-default.png" width="45" class="rounded-m" alt="img">
-    </a>
-    <!-- Page Title Dropdown Menu-->
-    <div class="dropdown-menu">
-        <div class="card card-style shadow-m mt-1 me-1">
-            <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
-             
-            
-                <a href="/secure/profile" class="list-group-item">
-                    <i
-                        class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
-                    <strong class="font-13">Account</strong>
-                </a>
-
-                <a href="#" class="list-group-item" data-toggle-theme="" data-trigger-switch="switch-1">
-                    <i class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi-lightbulb-fill"></i>
-                    <strong class="font-13">Dark Mood</strong>
-                    <div class="form-switch ios-switch switch-green switch-s me-2">
-                        <input type="checkbox" data-toggle-theme="" class="ios-input" id="switch-1">
-                        <label class="custom-control-label" for="switch-1"></label>
-                    </div>
-                </a>
-
-                <a href="#" class="list-group-item">
-                    <i
-                        class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
-                    <strong class="font-13">Log Out</strong>
-                </a>
-            </div>
-        </div>
+<div class="min-h-screen bg-gray-50 py-10 px-4">
+  <div class="max-w-4xl mx-auto bg-white shadow rounded-lg p-6">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-semibold text-gray-800">Your Transactions</h2>
+      <a href="/secure/dashboard" class="text-blue-600 hover:underline">← Go Back</a>
     </div>
+
+    <% if (transactions.length === 0) { %>
+    <p class="text-center text-gray-500">No transactions yet.</p>
+    <% } else { %>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-gray-700 border border-gray-200">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="py-2 px-4 text-left">#</th>
+            <th class="py-2 px-4 text-left">Transaction ID</th>
+            <th class="py-2 px-4 text-left">Amount (USD)</th>
+            <th class="py-2 px-4 text-left">Status</th>
+            <th class="py-2 px-4 text-left">Date</th>
+            <th class="py-2 px-4 text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% transactions.forEach((tx, index) => { %>
+          <tr class="border-b hover:bg-gray-50 transition">
+            <td class="py-2 px-4"><%= index + 1 %></td>
+            <td class="py-2 px-4"><%= tx.transactionId %></td>
+            <td class="py-2 px-4 font-medium">$<%= tx.amount.toFixed(2) %></td>
+            <td class="py-2 px-4">
+              <% if (tx.status === "pending") { %>
+              <span class="text-yellow-600 font-medium">Pending</span>
+              <% } else if (tx.status === "completed") { %>
+              <span class="text-green-600 font-medium">Completed</span>
+              <% } else { %>
+              <span class="text-red-600 font-medium"><%= tx.status %></span>
+              <% } %>
+            </td>
+            <td class="py-2 px-4"><%= tx.createdAt.toLocaleString() %></td>
+            <td class="py-2 px-4 text-center">
+              <button
+                class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-1 rounded view-details-btn"
+                data-transaction="<%= encodeURIComponent(JSON.stringify(tx)) %>"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  id="transactionModal"
+  class="fixed inset-0 bg-transparent bg-opacity-40 hidden justify-center items-center z-50"
+>
+  <div class="bg-white rounded-lg shadow-lg max-w-md w-full p-6 relative">
+    <button id="closeModal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+      ✕
+    </button>
+    <h3 class="text-xl font-semibold mb-4 text-gray-800 text-center">Transaction Details</h3>
+    <div class="space-y-2 text-sm text-gray-700">
+      <p>
+        <span class="font-semibold">Transaction ID:</span> <span id="modalTransactionId"></span>
+      </p>
+      <p><span class="font-semibold">Wallet:</span> <span id="modalWallet"></span></p>
+      <p><span class="font-semibold">Address:</span> <span id="modalAddress"></span></p>
+      <p><span class="font-semibold">Amount:</span> $<span id="modalAmount"></span></p>
+      <p><span class="font-semibold">Status:</span> <span id="modalStatus"></span></p>
+      <p><span class="font-semibold">Date:</span> <span id="modalDate"></span></p>
+    </div>
+  </div>
 </div>
 
 <script>
-    count_cart_item();
-    //count_wishlist_item();
+  const modal = document.getElementById("transactionModal");
+  const closeModal = document.getElementById("closeModal");
 
-    function count_cart_item() {
-        $("#cart_table tbody").empty();
-        var load_count = "loadcount";
-        $.ajax({
-            url: 'includes/server',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                load_count: load_count,
-            },
-            success: function(response) {
-                //porpulate cart count
-                $('.cart_item_count').text(response.mssg);
-            }
-        });
+  document.querySelectorAll(".view-details-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const encoded = btn.getAttribute("data-transaction");
+      const tx = JSON.parse(decodeURIComponent(encoded));
 
+      document.getElementById("modalTransactionId").textContent = tx.transactionId;
+      document.getElementById("modalWallet").textContent = tx.wallet;
+      document.getElementById("modalAddress").textContent = tx.address;
+      document.getElementById("modalAmount").textContent = tx.amount.toFixed(2);
+      document.getElementById("modalStatus").textContent = tx.status;
+      document.getElementById("modalDate").textContent = new Date(tx.createdAt).toLocaleString();
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    });
+  });
+
+  closeModal.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
     }
-</script>                </div>
-            </div>
-
-            
-            <div  class="text-center">
-                <h1>All Transaction</h1>
-            </div>
-
-
-
-            <div class="row text-center">
-                <div class="col-12 mb-n2 text-start">
-
-                    <div style="padding-left: 20px; padding-right: 20px;">
-                                                    <a href="#" class="transID d-flex py-1" data-id="605" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-1">
-                                <div class="align-self-center">
-                                    <span class="icon me-2 shadow-bg shadow-bg-xs rounded-s">
-                                        <i class="font-28 color-green-dark bi bi-arrow-down-circle"></i>
-                                        <!-- <i class="font-28 color-green-dark bi bi-arrow-down-circle"></i> -->
-                                    </span>
-                                </div>
-                                <div class="align-self-center ps-1">
-                                    <h5 class="pt-1 mb-n1">Transfer</h5>
-                                    <p class="mb-0 font-11 opacity-70">From: bc1q89a...pmvcadaf                                        <span class="copyright-year"></span>
-                                    </p>
-                                </div>
-                                <div class="align-self-center ms-auto text-end">
-                                    <h4 class="pt-1 mb-n1 color-green-dark">+1000 BTC</h4>
-                                    <p class="mb-0 font-11">=$108164530</p>
-                                </div>
-                            </a>
-                            <div class="divider my-2 opacity-50"></div>                             <a href="#" class="transID d-flex py-1" data-id="604" data-bs-toggle="offcanvas" data-bs-target="#menu-activity-1">
-                                <div class="align-self-center">
-                                    <span class="icon me-2 shadow-bg shadow-bg-xs rounded-s">
-                                        <i class="font-28 color-green-dark bi bi-arrow-down-circle"></i>
-                                        <!-- <i class="font-28 color-green-dark bi bi-arrow-down-circle"></i> -->
-                                    </span>
-                                </div>
-                                <div class="align-self-center ps-1">
-                                    <h5 class="pt-1 mb-n1">Transfer</h5>
-                                    <p class="mb-0 font-11 opacity-70">From: bc1q89a...pmvcadaf                                        <span class="copyright-year"></span>
-                                    </p>
-                                </div>
-                                <div class="align-self-center ms-auto text-end">
-                                    <h4 class="pt-1 mb-n1 color-green-dark">+1000 BTC</h4>
-                                    <p class="mb-0 font-11">=$111571530</p>
-                                </div>
-                            </a>
-                            <div class="divider my-2 opacity-50"></div> 
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-    <!-- End of Page Content-->
-
-    <!-- Off Canvas and Menu Elements-->
-    <!-- Always outside the Page Content-->
-
-    <!-- Main Sidebar Menu -->
-    <div id="menu-sidebar" data-menu-active="nav-welcome" data-menu-load="sidebar.php"
-        class="offcanvas offcanvas-start offcanvas-detached rounded-m">
-    </div>
-
-    <!-- Highlights Menu -->
-    <div id="menu-highlights"
-        data-menu-load="menu-highlights.html"
-        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-    </div>
-
-    <!-- Notifications Bell -->
-    <div id="menu-notifications" data-menu-load="menu-notifications.html"
-        class="offcanvas offcanvas-top offcanvas-detached rounded-m">
-    </div>
-
-    <!--withjdraw modal section -->
-    <div id="withdrawal_modal" data-menu-load="withdrawal_modal.php"
-        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-    </div>
-    <!-- withdraw modalsection ends  -->
-
-    <!-- modal section -->
-    <div id="deposit_modal" data-menu-load="deposit_modal.php"
-        class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-    </div>
-    <!-- modalsection ends  -->
-
-    <!-- Transaction Action Sheet -->
-    <div id="menu-activity-1" class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-        <!-- menu-size will be the dimension of your menu. If you set it to smaller than your content it will scroll-->
-        <div class="menu-size" style="height:385px;">
-            <div class="content">
-                <a href="#" class="d-flex py-1 pb-4">
-                
-                    <div class="col-12 text-center">
-                        <strong class="col-5 color-theme">Transfer</strong>
-                        <div class="align-self-center ps-1">
-                            <h5 id="coin_amt" class="pt-1 mb-n1">+0.005255555555 BTC</h5>
-                            <p id="fiat_amt" class="mb-0 font-11 opacity-70">= $5.5</p>
-                        </div>
-                    </div>
-                
-                </a>
-                <div class="row">
-                    <strong class="col-5 color-theme">Date</strong>
-                    <strong id="transDate" class="col-7 text-end"></strong>
-                    <div class="col-12 mt-2 mb-2">
-                        <div class="divider my-0"></div>
-                    </div>
-                    <strong class="col-5 color-theme">Status</strong>
-                    <strong id="tranStatus" class="col-7 text-end"></strong>
-                    <div class="col-12 mt-2 mb-2">
-                        <div class="divider my-0"></div>
-                    </div>
-                    <strong id="wallet_tag" class="col-5 color-theme">Sender</strong>
-                    <strong id="wallet" class="col-7 text-end"></strong>
-                    <div class="col-12 mt-2 mb-2">
-                        <div class="divider my-0"></div>
-                    </div>
-                 
-                </div>
-            </div>
-            <div id="button" class="col-12 mt-2 mb-2">
-
-            </div>
-        </div>
-    </div>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var links = document.getElementsByClassName('transID');
-
-            // Convert HTMLCollection to an array
-            Array.from(links).forEach(function(link) {
-                link.addEventListener('click', function(event) {
-                    $('#button').empty();
-                    event.preventDefault();
-                    var id = link.getAttribute('data-id');
-
-                    fetch(`includes/server?id=${id}&get_transData=get_transData`, {
-                            headers: {
-                                'X-Requested-With': 'XMLHttpRequest'
-                            }
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.error) {
-                                console.error('Error:', data.error);
-                                return;
-                            }
-
-
-                            if (["Receive", "Deposit"].includes(data.transfer_type)) {
-                                // If transfer type is "Receive" or "Deposit"
-                                var aritimatic = "+";
-                                $("#wallet_tag").text("Sender");
-                            } else {
-                                var aritimatic = "-";
-                                $("#wallet_tag").text("Recipient");
-
-                                if (["Pending"].includes(data.status)) {
-                                    if (["Send"].includes(data.transfer_type)) {
-                                        $('#button').empty();
-                                        $('#button').append(`<a href="#" data-id="${data.id}" data-bs-dismiss="offcanvas" class="mx-3 btn btn-full gradient-highlight shadow-bg shadow-bg-s">Cancel</a>`);
-                                    }
-                                }
-                            }
-
-                            var coinData = {
-                                "bitcoin": {
-                                    "code": "BTC"
-                                },
-                                "ethereum": {
-                                    "code": "ETH"
-                                },
-                                "algorand": {
-                                    "code": "ALGO"
-                                },
-                                "litecoin": {
-                                    "code": "LTC"
-                                },
-                                "cardano": {
-                                    "code": "ADA"
-                                },
-                                "binancecoin": {
-                                    "code": "BNB"
-                                },
-                                "tether": {
-                                    "code": "USDT"
-                                },
-                                "doge": {
-                                    "code": "DOGE"
-                                },
-                                "tron": {
-                                    "code": "TRX"
-                                },
-                                "solana": {
-                                    "code": "SOL"
-                                },
-                                "stellar": {
-                                    "code": "XLM"
-                                },
-                                "ripple": {
-                                    "code": "XRP"
-                                },
-                                "polygon-ecosystem-token": {
-                                    "code": "MATIC"
-                                },
-                                "shiba-inu": {
-                                    "code": "SHIB"
-                                }
-                            };
-
-                            var walletCode = coinData[data.coin] ? coinData[data.coin].code : "Unknown";
-                            $("#coin_amt").text(`${aritimatic}${data.coin_amt} ${walletCode}`);
-                            var currencysymbol = $("#currencysymbol").val();
-                            $("#fiat_amt").text(`=${currencysymbol}${data.coin_amt_in_fiat}`);
-                            $("#transDate").text(formatDate(data.date));
-
-
-
-                            if (["Pending"].includes(data.status)) {
-                                // If transfer type is "Receive" or "Deposit"
-
-                                $("#tranStatus").addClass('color-yellow-dark').removeClass('color-green-dark');
-                                //iconElement.addClass('bi-arrow-down-circle').removeClass('bi-arrow-up-right-circle');
-                            } else {
-                                // If transfer type is something else (e.g., Send or Transfer)
-                                $("#tranStatus").addClass('color-green-dark').removeClass('color-yellow-dark');
-                                //iconElement.addClass('bi-arrow-up-right-circle').removeClass('bi-arrow-down-circle');
-
-                            }
-
-                            $("#tranStatus").text(data.status);
-
-                            //$("#wallet").text(data.wallet);
-
-
-                            // Ensure updateWallet is called with valid data
-                            updateWallet(data.wallet); // Example wallet address
-
-                            // Function to format wallet address
-                            function formatWallet(wallet) {
-                                return wallet.substring(0, 5) + "..." + wallet.slice(-5);
-                            }
-
-                            // Function to update wallet display
-                            function updateWallet(wallet) {
-                                $("#wallet")
-                                    .text(formatWallet(wallet)) // Show shortened version
-                                    .attr("data-full", wallet) // Store full address for copying
-                                    .css("cursor", "pointer"); // Indicate it's clickable
-                            }
-
-
-                        })
-                        .catch(error => console.error('Error fetching data:', error));
-                });
-            });
-        });
-
-        // Use event delegation to handle dynamically created elements
-        $(document).on("click", "#wallet", function() {
-            var fullWallet = $(this).attr("data-full");
-
-            if (!fullWallet) {
-                console.error("Wallet address not found!");
-                return;
-            }
-
-            // Check if clipboard API is available
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                // Copy the full wallet address to clipboard
-                navigator.clipboard.writeText(fullWallet)
-                    .then(() => {
-                        iziToast.success({
-                            position: 'topCenter',
-                            message: `Wallet address copied!`,
-                        });
-                    })
-                    .catch(err => console.error("Error copying text:", err));
-            } else {
-                console.error("Clipboard API not supported!");
-            }
-        });
-    </script>
-
-
-
-    </div>
-    <!-- End of Page ID-->
-
-    <script>
-        function customAction() {
-            const coinId = $("#coinId").val();
-            $(".walletselect").val(coinId);
-            
-            $(".walletselect").on("mousedown", function(e) {
-                e.preventDefault(); // Prevents dropdown from opening
-            });
-        };
-    </script>
-
-    <script src="/scripts/bootstrap.min.js"></script>
-    <script src="/scripts/custom.js"></script>
-</body>
-
-<script>
-    $(document).ready(function() {
-        if ($('#coinId').val()) {
-            // console.log($('#coinId').val());
-            var currencysymbol = $('#currencysymbol').val();
-            var currencyCode = $('#currencyCode').val();
-            // var amt_of_coin = $("#amt_of_coin").text().match(/[\d.]+/)[0];
-            var amt_of_coin = parseFloat($("#amt_of_coin").text().match(/[\d.]+/)[0]);
-
-
-            //var amt_of_coin_in_fiat = $("#amt_of_coin_in_fiat").text().match(/[\d.]+/)[0];
-            setTimeout(function() {
-                var coinid = $('#coinId').val()
-                const coins = [coinid];
-
-                coins.forEach(function(coin) {
-                    const el = $(`[data-live-price="${coin}"] span`)[0];
-
-                    if (el) {
-                        let oldPrice = $(el).text();
-                        //console.log(amt_of_coin);
-                        // console.log(`First Price: ${oldPrice}`);
-                        $('#coin_price').text(`1 ${coinid.toUpperCase()} = ${currencysymbol}${oldPrice}`);
-                        oldPricefloat = oldPrice.replace(/[^0-9.]/g, ''); ////rmove alpahbetsa 
-                        var newPriceFloat = parseFloat(oldPricefloat); ///make float
-                        const priceInFiatCurrency = amt_of_coin * newPriceFloat;
-
-                        // console.log(priceInFiatCurrency);
-                        const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 3
-                        });
-                        $('#amt_of_coin_in_fiat').text(`${currencysymbol}${formattedPrice}`);
-
-
-                        const observer = new MutationObserver(function(mutationsList) {
-                            for (let mutation of mutationsList) {
-                                if (mutation.type === "childList") {
-                                    let newPrice = $(el).text();
-                                    if (newPrice !== oldPrice) {
-                                        //console.log(`${coin.toUpperCase()} Price changed:`, newPrice);
-                                        oldPrice = newPrice;
-                                        $('#coin_price').text(`1 ${coinid.toUpperCase()} = ${currencysymbol}${oldPrice}`);
-                                        oldPricefloat = oldPrice.replace(/[^0-9.]/g, ''); ////rmove alpahbetsa 
-                                        var newPriceFloat = parseFloat(oldPricefloat); ///make float
-                                        const priceInFiatCurrency = amt_of_coin * newPriceFloat;
-
-                                        // console.log(priceInFiatCurrency);
-                                        const formattedPrice = parseFloat(priceInFiatCurrency).toLocaleString(undefined, {
-                                            minimumFractionDigits: 2,
-                                            maximumFractionDigits: 3
-                                        });
-                                        $('#amt_of_coin_in_fiat').text(`${currencysymbol}${formattedPrice}`);
-
-                                    }
-                                }
-                            }
-                        });
-
-                        observer.observe(el, {
-                            childList: true
-                        });
-                    } else {
-                        console.log(`❗ ${coin.toUpperCase()} price element not found`);
-                    }
-                });
-            }, 2000);
-        } else {
-            console.log("no coin id");
-        }
-    });
+  });
 </script>
 
-<script>
-    /////when a button is clixked 
-    $(document).on("click", ".select_coin", function(e) {
-        e.preventDefault();
-
-        // Get the ID of the clicked element
-        var coinId = $(this).attr("id");
-
-        // Show it in an alert
-        //alert("Clicked ID: " + coinId);
-
-        $.ajax({
-            url: 'deposit.php', // Make sure this points to your actual backend script
-            type: 'POST',
-            data: {
-                coinId: coinId
-            },
-            success: function(response) {
-                // Create a form and submit it programmatically
-                var form = $('<form>', {
-                    action: 'coin', // The actual endpoint for processing the coin
-                    method: 'POST'
-                }).append(
-                    $('<input>', {
-                        type: 'hidden',
-                        name: 'coinId',
-                        value: coinId
-                    })
-                );
-
-                $('body').append(form);
-                form.submit();
-            },
-            error: function(xhr, status, error) {
-                console.error("Error processing transaction:", error);
-            }
-        });
-    });
-
-
-
-
-    // Using event delegation to handle dynamic content
-    $(document).on('change', '.tokenSelect', function() {
-        var selectedValue = $(this).val(); // Get the selected value
-        console.log(selectedValue);
-        // Change the name attribute based on the selection
-        if (selectedValue === 'Crypto') {
-            // $(this).attr('name', 'Crypto'); // Set name to 'token'
-            $('.formicon').removeClass('bi-currency-exchange').addClass('bi-currency-bitcoin'); // Change icon to exchange
-            $('.tokencurrency').text('(Crypto Amount)');
-            $('.amtid').removeClass('bi-currency-dollar').addClass('bi-currency-bitcoin'); // Change icon to exchange
-        } else if (selectedValue === 'fiat') {
-            // $(this).attr('name', 'fiat'); // Set name to 'fiat'
-            $('.formicon').removeClass('bi-currency-bitcoin').addClass('bi-currency-exchange'); // Change icon to dollar
-            $('.tokencurrency').text(`(${currencyCode = $("#currencyCode").val()} Currency Amount:  )`);
-            $('.amtid').removeClass('bi-currency-bitcoin').addClass('bi-currency-exchange'); // Change icon to dollar
-        }
-    });
-
-
-    //////when deposit button is clicked
-    $(document).on("click", "#Proceed", function(e) {
-        e.preventDefault();
-
-        // Change the button text and add a spinner
-        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing, please wait...')
-            .css("pointer-events", "none"); // Prevent multiple clicks
-
-        // Get form data properly
-        var formData = new FormData(document.getElementById("deposit_form"));
-        formData.append("deposit_formkey", "deposit_formkey");
-
-
-
-        // Custom validation for form fields
-        var isValid = true;
-        $("#deposit_form input, #deposit_form select").each(function() {
-            if (!$(this).val()) { // Check if input/select is empty
-                $(this).addClass("is-invalid"); // Add Bootstrap's validation class
-                isValid = false;
-            } else {
-                $(this).removeClass("is-invalid"); // Remove if previously added
-            }
-        });
-        if (!isValid) {
-            // If there are invalid fields, show an alert or a message
-
-            toastr["warning"]("Form is invalid. Please fill in all required fields.!");
-            // Re-enable the button if the form is invalid
-            $('#Proceed').html('Proceed').css("pointer-events", "auto");
-            return;
-        }
-
-
-
-
-
-
-        function sendDataWithRetry(url, data, deposit_format, maxRetries = 20, delay = 5000) {
-            let attempts = 0;
-
-
-            function attemptRequest() {
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: data,
-                    contentType: false,
-                    cache: false,
-                    dataType: 'json', // Expect JSON response
-                    processData: false,
-                    success: function(response) {
-                        if (response.status === 'success') { // Adjust based on API response structure
-                            // console.log('Success:', response);
-                            let cal_crypto_amount = response.crypto_amount;
-                            let crypto_price = response.crypto_price;
-                            let fiat_amount = response.fiat_amount;
-                            $('#deposit_form')[0].reset();
-                            $('#Proceed').html('Proceed') // Reset button text
-                                .css("pointer-events", "auto"); // Re-enable click
-                            //console.log("enable button ckicl");
-
-                            ///redirectet and send data to deposite page
-                            $.ajax({
-                                url: 'deposit', // The endpoint where the data should go
-                                type: 'POST',
-                                data: {
-                                    amount: cal_crypto_amount,
-                                    crypto_wallet: crypto_wallet
-                                },
-                                success: function(response) {
-                                    // console.log("Crypto transaction processed:", response);
-                                    // Redirect using POST, data will be in the request body, not in the URL
-                                    var form = $('<form action="deposit" method="POST">' +
-                                        '<input type="hidden" name="amount" value="' + cal_crypto_amount + '">' +
-                                        '<input type="hidden" name="fiat_amount" value="' + fiat_amount + '">' +
-                                        '<input type="hidden" name="deposit_format" value="' + deposit_format + '">' +
-                                        '<input type="hidden" name="crypto_price" value="' + crypto_price + '">' +
-                                        '<input type="hidden" name="crypto_wallet" value="' + crypto_wallet + '">' +
-                                        '</form>');
-                                    $('body').append(form); // Append the form to the body
-                                    form.submit(); // Submit the form
-                                },
-                                error: function(xhr, status, error) {
-                                    console.error("Error processing transaction:", error);
-                                }
-                            });
-
-                        } else {
-                            retry();
-                        }
-                    },
-                    error: function(xhr) {
-                        console.error('Error:', xhr.responseText);
-                        retry();
-                    }
-                });
-            }
-
-            function retry() {
-                attempts++;
-                if (attempts < maxRetries) {
-                    console.log(`Retrying... Attempt ${attempts}/${maxRetries}`);
-                    setTimeout(attemptRequest, delay);
-                } else {
-                    //console.log('Max retries reached. Stopping attempts.');
-                    toastr["error"]("Network Error Please Try Again.!");
-
-                    $("#Proceed").html("Proceed").css("pointer-events", "auto");
-                }
-            }
-
-            attemptRequest();
-        }
-
-        // Get specific field values (e.g., 'amount', 'crypto_wallet')
-        var deposit_format = formData.get("deposit_format");
-        var amount = formData.get("amount");
-        var crypto_wallet = formData.get("crypto_wallet");
-
-        //  amount = amount.replace(/[^0-9.]/g, '');
-        // // Set the modified amount back into the FormData object
-        formData.set("amount", amount.replace(/[^0-9.]/g, ''));
-
-        sendDataWithRetry('includes/server', formData);
-
-
-    });
-
-
-
-
-    //////when witrhdraw button is clicked
-    $(document).on("click", "#withdraw", function(e) {
-        e.preventDefault();
-
-        // Change the button text and add a spinner
-        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing, please wait...')
-            .css("pointer-events", "none"); // Prevent multiple clicks
-
-        // Get form data properly
-        var formData = new FormData(document.getElementById("withdraw_form"));
-
-        formData.append("deposit_formkey", "deposit_formkey");
-
-
-
-        // Custom validation for form fields
-        var isValid = true;
-        $("#withdraw_form input, #withdraw_form select").each(function() {
-            if (!$(this).val()) { // Check if input/select is empty
-                $(this).addClass("is-invalid"); // Add Bootstrap's validation class
-                isValid = false;
-            } else {
-                $(this).removeClass("is-invalid"); // Remove if previously added
-            }
-        });
-        if (!isValid) {
-            toastr["warning"]("Form is invalid. Please fill in all required fields.!");
-            // Re-enable the button if the form is invalid
-            $('#withdraw').html('Proceed').css("pointer-events", "auto");
-            return;
-        }
-
-
-        var amount = formData.get("amount");
-
-        // Remove non-numeric characters except dot (.)
-        amount = amount.replace(/[^0-9.]/g, '');
-
-        // Set the cleaned amount back into formData
-        formData.set("amount", amount);
-
-        // sendDataWithRetry('includes/server', formData);
-        // console.log("Form submitted via AJAX");
-
-        // Get specific field values (e.g., 'amount', 'crypto_wallet')
-        var withdraw_format = formData.get("withdraw_format");
-        var crypto_wallet = formData.get("crypto_wallet");
-        var wallet_address = formData.get("wallet_address");
-        var withdraw_format = formData.get("withdraw_format");
-        //formData.append("deposit_format", withdraw_format);
-
-
-        function sendDataWithRetry(url, formData, maxRetries = 20, delay = 5000) {
-            let attempts = 0;
-
-            function attemptRequest() {
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    cache: false,
-                    dataType: 'json', // Expect JSON response
-                    processData: false,
-                    success: function(response) {
-                        if (response.status === 'success') { // Adjust based on API response structure
-
-                            // console.log('Success:', response);
-                            $('#withdraw').html('Proceed').css("pointer-events", "auto");
-                            $('#withdraw_form')[0].reset();
-                            $('#withdraw').html('Proceed') // Reset button text
-                                .css("pointer-events", "auto");
-                            // Re-enable click
-                            console.log(response.fiat_amount);
-                            console.log(response.crypto_price);
-
-                            let crypto_amount = response.crypto_amount;
-                            let crypto_price = response.crypto_price;
-                            let fiat_amount = response.fiat_amount;
-
-                            $.ajax({
-                                url: 'includes/server?withdrawvalidate',
-                                type: 'POST',
-                                dataType: 'json',
-                                data: {
-                                    crypto_amount: crypto_amount,
-                                    crypto_price: crypto_price,
-                                    fiat_amount: fiat_amount,
-                                    crypto_wallet: crypto_wallet,
-                                    wallet_address: wallet_address,
-                                    withdraw_format: withdraw_format
-                                },
-                                success: function(response) {
-                                    if (response.mssg == "ok") {
-                                        Swal.fire({
-                                            icon: "success",
-                                            title: "Success!",
-                                            text: `Your withdrawal request has been successfully submitted. Please wait while we process your withdrawal!`,
-                                        }).then((result) => {
-
-                                            window.location = "index";
-
-                                        });
-                                    } else {
-                                        Swal.fire({
-                                            icon: "error",
-                                            title: "Oops...",
-                                            text: `${response.mssg}`,
-                                        });
-                                    }
-                                }
-                            });
-                        } else {
-                            retry();
-                        }
-                    },
-                    error: function(xhr) {
-                        console.error('Error:', xhr.responseText);
-                        retry();
-                    }
-                });
-            }
-
-
-            function retry() {
-                attempts++;
-                if (attempts < maxRetries) {
-                    console.log(`Retrying... Attempt ${attempts}/${maxRetries}`);
-                    setTimeout(attemptRequest, delay);
-                } else {
-                    // console.log('Max retries reached. Stopping attempts.');
-                    toastr["error"]("Network Error Please Try Again.!");
-                    $("#Proceed").html("Proceed").css("pointer-events", "auto");
-                }
-            }
-
-            attemptRequest();
-        }
-
-        sendDataWithRetry('includes/server', formData);
-
-
-    });
-
-
-    ///style input number
-    $(document).ready(function() {
-        // Listen for input event using event delegation
-        $(document).on('input', '.numberinput', function() {
-            var rawValue = $(this).val();
-
-            // Allow only numbers, commas, and periods
-            var validValue = rawValue.replace(/[^0-9.,]/g, ''); // Remove any character that's not a number, comma, or period
-
-            // Validate the value to prevent incorrect formats like "0.00000,555555555555"
-            validValue = validateFormat(validValue);
-
-            // Format the number with commas, but handle the decimal point
-            var formattedValue = formatNumber(validValue);
-
-            // Update the input field with the formatted value
-            $(this).val(formattedValue);
-        });
-
-        // Validate the format to prevent invalid decimal and comma usage
-        function validateFormat(value) {
-            // Prevent starting with a comma or period
-            if (value.startsWith(',') || value.startsWith('.')) {
-                value = value.substring(1);
-            }
-
-            // Only allow one period
-            if ((value.match(/\./g) || []).length > 1) {
-                value = value.replace(/\.(?=.*\.)/g, ''); // Remove additional periods
-            }
-
-            // Prevent commas after a period or multiple commas
-            if (value.includes('.') && value.indexOf(',') > value.indexOf('.')) {
-                value = value.replace(/,/g, ''); // Remove commas after a decimal point
-            }
-
-            return value;
-        }
-
-        // Format the number with commas, but keep the decimal part intact
-        function formatNumber(value) {
-            if (!value) return value;
-
-            // Split the value at the decimal point (if exists)
-            var parts = value.split('.');
-
-            // Format the integer part with commas
-            parts[0] = parts[0].replace(/,/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-            // Join the integer part and the decimal part back together
-            return parts.join('.');
-        }
-
-        // Optional: Handle form submission or other processing
-        $('#submit-button').on('click', function() {
-            var rawValue = $('#c4').val().replace(/[^0-9.]/g, ''); // Remove commas and non-numeric characters except for the decimal point
-            console.log('Raw numeric value (no commas or invalid characters):', rawValue); // Submit or process the raw numeric value
-        });
-
-
-
-    });
-</script>
+<script src="/scripts/bootstrap.min.js"></script>
+<script src="/scripts/custom.js"></script>

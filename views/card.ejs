@@ -22,23 +22,14 @@
 
         <a href="#" data-bs-toggle="dropdown"
         class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
-        <img src="/img/user-default.png" width="45" class="rounded-m" alt="img">
+        <img src="<%= currentUser?.image ? currentUser.image : '/img/user-default.png' %>" width="45" class="rounded-m" alt="img">
     </a>
     <!-- Page Title Dropdown Menu-->
     <div class="dropdown-menu">
         <div class="card card-style shadow-m mt-1 me-1">
             <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
-                <!-- <a href="page-wallet.html" class="list-group-item">
-                    <i
-                        class="has-bg gradient-green shadow-bg shadow-bg-xs color-white rounded-xs bi bi-credit-card"></i>
-                    <strong class="font-13">Wallet</strong>
-                </a>
-                <a href="page-activity.html" class="list-group-item">
-                    <i
-                        class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi bi-graph-up"></i>
-                    <strong class="font-13">Activity</strong>
-                </a> -->
-                <a href="profile" class="list-group-item">
+            
+                <a href="/secure/profile" class="list-group-item">
                     <i
                         class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
                     <strong class="font-13">Account</strong>
@@ -53,7 +44,7 @@
                     </div>
                 </a>
 
-                <a href="includes/logout.php" class="list-group-item">
+                <a href="/auth/logout" class="list-group-item">
                     <i
                         class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
                     <strong class="font-13">Log Out</strong>
@@ -136,7 +127,7 @@
 
                         <div class="card-details">
                             <div class="logo" style="margin-bottom: 30px;">
-                                <img src="../../img/loginlogo.png" alt="" width="60px" />
+                                <img src="/img/loginlogo.png" alt="" width="60px" />
                             </div>
                         </div>
 
@@ -352,12 +343,7 @@
                     </div>
                 </form>
             </div>
-            <!-- End of Page Content-->
-
-            <!-- Off Canvas and Menu Elements-->
-            <!-- Always outside the Page Content-->
-
-            <!-- Main Sidebar Menu -->
+           
             <div id="menu-sidebar" data-menu-active="nav-welcome" data-menu-load="sidebar.php"
                 class="offcanvas offcanvas-start offcanvas-detached rounded-m">
             </div>
@@ -727,7 +713,7 @@
             formData.set("wallet_address", $('#wallet_address option:selected').data('wallet-name'));
 
             $.ajax({
-                url: 'includes/server',
+                url: '/secure/cards',
                 type: 'POST',
                 data: formData,
                 contentType: false,

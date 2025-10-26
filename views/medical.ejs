@@ -29,7 +29,7 @@
         <div class="card card-style shadow-m mt-1 me-1">
             <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
            
-                <a href="/secure/profile" class="list-group-item">
+                <a href="/secure/profile" class="list-group-item no-ajax"  onclick="window.location=this.href; return false;">
                     <i
                         class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
                     <strong class="font-13">Account</strong>
@@ -54,28 +54,7 @@
     </div>
 </div>
 
-<script>
-    count_cart_item();
-    //count_wishlist_item();
-
-    function count_cart_item() {
-        $("#cart_table tbody").empty();
-        var load_count = "loadcount";
-        $.ajax({
-            url: 'includes/server',
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                load_count: load_count,
-            },
-            success: function(response) {
-                //porpulate cart count
-                $('.cart_item_count').text(response.mssg);
-            }
-        });
-
-    }
-</script>                </div>
+              </div>
             </div>
 
 
@@ -114,7 +93,7 @@
                                 Harness the power of advanced quantum technology to support natural healing, restore balance, and elevate your well-being.
                             </p>
                             <a style="border-top-right-radius: 0px; border-bottom-left-radius: 0px; border-bottom-right-radius: 25px; border-top-left-radius: 25px;" href="/secure/contact"
-                                class="btn gradient-green shadow-bg shadow-bg-m animate__animated animate__pulse">
+                                class="btn gradient-green shadow-bg shadow-bg-m animate__animated animate__pulse no-ajax" onclick="window.location=this.href; return false;">
                                 BOOK YOUR APPOINTMENT NOW <i class="bi bi-caret-right"></i>
                             </a>
 
@@ -198,7 +177,7 @@
 
                                 <!-- Button -->
                                 <a href="/secure/contact"
-                                    class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2 animate__animated animate__pulse">
+                                    class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2 animate__animated animate__pulse no-ajax" onclick="window.location=this.href; return false;">
                                     <span>Book Now!</span>
                                     <!-- SVG Icon -->
                                     <i class="bi bi-caret-right"></i>
@@ -221,7 +200,7 @@
 
                                 <!-- Button -->
                                 <a href="/secure/contact"
-                                    class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2 animate__animated animate__pulse">
+                                    class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2 animate__animated animate__pulse no-ajax" onclick="window.location=this.href; return false;">
                                     <span>Book Now!</span>
                                     <!-- SVG Icon -->
                                     <i class="bi bi-caret-right"></i>
@@ -244,7 +223,7 @@
 
                                 <!-- Button -->
                                 <a href="/secure/contact"
-                                    class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2 animate__animated animate__pulse">
+                                    class="btn btn-primary btn-sm d-inline-flex align-items-center gap-2 animate__animated animate__pulse no-ajax" onclick="window.location=this.href; return false;">
                                     <span>Book Now!</span>
                                     <!-- SVG Icon -->
                                     <i class="bi bi-caret-right"></i>

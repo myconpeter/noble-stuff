@@ -1,0 +1,129 @@
+<%- include ('./partials/secureHeader') %>
+
+<div class="text-center mt-4">
+  <h4>Crypto Wallet: <%= crypto_wallet %></h4>
+
+  <img
+    src="<%= qrImage %>"
+    alt="QR Code"
+    class="img-fluid mt-3"
+    style="width: 200px; height: 200px"
+  />
+
+  <p>Scan the QR Code above to get Address</p>
+
+  <!-- Deposit Address with Copy Button -->
+  <div class="mt-3">
+    <h5>Deposit Address</h5>
+    <div class="input-group mb-3 justify-content-center" style="max-width: 500px; margin: auto;">
+      <input
+        type="text"
+        id="walletAddress"
+        class="form-control text-center"
+        value="<%= walletAddress %>"
+        readonly
+      />
+      <button
+        id="copyBtn"
+        class="btn btn-outline-primary"
+        type="button"
+        title="Copy address"
+      >
+        <i class="bi bi-clipboard"></i> Copy
+      </button>
+    </div>
+  </div>
+
+  <!-- Transaction ID -->
+  <div class="mt-3">
+    <h6>Transaction ID:</h6>
+    <p class="text-success fw-bold"><%= transactionId %></p>
+  </div>
+
+  <!-- Amount Input -->
+  <div class="mt-3">
+    <label for="amount">Amount</label>
+    <input
+      id="amount"
+      type="number"
+      class="form-control text-center"
+      placeholder="Enter amount"
+    />
+  </div>
+
+  <!-- Finish Deposit Button -->
+  <button id="finishDeposit" class="btn btn-primary mt-3">FINISH DEPOSIT</button>
+
+  <!-- Go Back Button -->
+  <button onclick="window.history.back()" class="btn btn-secondary mt-3 ms-2">
+    <i class="bi bi-arrow-left"></i> Go Back
+  </button>
+
+  <!-- Warning Notes -->
+  <div
+    class="alert alert-warning text-start mt-4"
+    style="max-width: 600px; margin: 0 auto;"
+  >
+    <h6 class="fw-bold text-danger">
+      ⚠️ Important Deposit Instructions:
+    </h6>
+    <ol class="mt-2">
+      <li>Send only <strong>Bitcoin (BTC)</strong> to the above wallet address. Sending any other coin may result in <strong>permanent asset loss</strong>.</li>
+      <li>Ensure the security of your device and browser. Do not expose your account login details.</li>
+      <li>Deposits require <strong>2–15 network confirmations</strong> to arrive at your <strong>Q-F-S LedgerVault.co</strong> account.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+  // ✅ Copy wallet address
+  $("#copyBtn").click(function () {
+    const walletAddress = $("#walletAddress").val();
+
+    navigator.clipboard.writeText(walletAddress)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Copied!",
+          text: "Wallet address copied to clipboard.",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      })
+      .catch(() => {
+        Swal.fire("Error", "Failed to copy address.", "error");
+      });
+  });
+
+  // ✅ Finish deposit AJAX call
+  $("#finishDeposit").click(function () {
+    const amount = $("#amount").val();
+
+    if (!amount) {
+      Swal.fire("Error", "Please enter an amount", "error");
+      return;
+    }
+
+    $.ajax({
+      url: "/secure/confirm-deposit",
+      type: "POST",
+      data: {
+        transactionId: "<%= transactionId %>",
+        wallet: "<%= crypto_wallet %>",
+        address: "<%= walletAddress %>",
+        amount: amount,
+      },
+      success: function (response) {
+        Swal.fire("Success", response.mssg, "success");
+      },
+      error: function () {
+        Swal.fire("Error", "Something went wrong", "error");
+      },
+    });
+  });
+</script>
+
+<script src="/scripts/bootstrap.min.js"></script>
+<script src="/scripts/custom.js"></script>
+<script src="/scripts/cryptoPrice.js"></script>
+</body>

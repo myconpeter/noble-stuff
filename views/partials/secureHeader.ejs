@@ -252,10 +252,11 @@ window.smartsupp||(function(d) {
     <div id="page">
 
         <div id="footer-bar" class="footer-bar-1 footer-bar-detached">
-        <a href="/secure/cards"><i class="bi bi-wallet2"></i><span>Cards</span></a>
-        <a href="/secure/phone"><i class="bi bi-phone"></i><span>QPhone</span></a>
-        <a href="/secure/dashboard" class="circle-nav-2"><i class="bi bi-house-fill"></i><span>Home</span></a>
-        <a href="/secure/kyc"><i class="bi bi-person-bounding-box"></i><span>Verify Account</span></a>
+        <a href="/secure/cards" class="no-ajax" onclick="window.location=this.href; return false;"><i class="bi bi-wallet2"></i><span>Cards</span></a>
+        <a href="/secure/phone" class="no-ajax" onclick="window.location=this.href; return false;"><i class="bi bi-phone"></i><span>QPhone</span></a>
+        <a href="/secure/dashboard" onclick="window.location=this.href; return false;" class="circle-nav-2 no-ajax"><i class="bi bi-house-fill"></i><span>Home</span></a>
+        <a href="/secure/kyc" class="no-ajax" onclick="window.location=this.href; return false;">
+            <i class="bi bi-person-bounding-box"></i><span>Verify Account</span></a>
         <a href="#" data-bs-toggle="offcanvas" data-bs-target="#menu-sidebar"><i class="bi bi-three-dots"></i><span>More</span></a>
 </div>
 

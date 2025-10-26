@@ -24,7 +24,7 @@
         <div class="dropdown-menu">
           <div class="card card-style shadow-m mt-1 me-1">
             <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
-              <a href="profile" class="list-group-item">
+              <a href="/secure/profile" class="list-group-item">
                 <i
                   class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"
                 ></i>
@@ -40,7 +40,7 @@
                 <i
                   class="has-bg gradient-blue shadow-bg shadow-bg-xs color-white rounded-xs bi-lightbulb-fill"
                 ></i>
-                <strong class="font-13">Dark Mood</strong>
+                <strong class="font-13">Dark Mode</strong>
                 <div class="form-switch ios-switch switch-green switch-s me-2">
                   <input type="checkbox" data-toggle-theme="" class="ios-input" id="switch-1" />
                   <label class="custom-control-label" for="switch-1"></label>
@@ -57,41 +57,39 @@
           </div>
         </div>
       </div>
-
-      <script>
-        count_cart_item();
-        //count_wishlist_item();
-
-        function count_cart_item() {
-          $("#cart_table tbody").empty();
-          var load_count = "loadcount";
-          $.ajax({
-            url: "includes/server",
-            type: "POST",
-            dataType: "JSON",
-            data: {
-              load_count: load_count,
-            },
-            success: function (response) {
-              //porpulate cart count
-              $(".cart_item_count").text(response.mssg);
-            },
-          });
-        }
-      </script>
     </div>
 
     <div class="divider divider-margins mb-3 opacity-50"></div>
 
     <!-- Main Menu List-->
     <div class="list-group list-custom list-menu-large">
-      <a href="/secure/kyc" id="nav-welcome" class="list-group-item">
+      <a
+        href="/secure/kyc"
+        id="nav-welcome"
+        class="list-group-item no-ajax"
+        onclick="window.location=this.href; return false;"
+      >
         <!-- <i class="bi bg-red-dark shadow-bg shadow-bg-xs bi-heart-fill"></i> -->
         <div>Account Status</div>
-        <span class="badge bg-red-dark rounded-xl">Not Verified</span>
+        <% if (!currentUser?.verified) { %>
+        <p class="text-center font-11">
+          <i class="bi bi-x-circle-fill color-red-dark pe-2"></i>
+          Not Verified User
+        </p>
+        <% } else { %>
+        <p class="text-center font-11">
+          <i class="bi bi-check-circle-fill color-green-dark pe-2"></i>
+          Verified User
+        </p>
+        <% } %>
         <!-- <p class="text-center font-11"><i class="bi bi-x-circle-fill color-red-dark pe-2"></i>Not Verified User</p> -->
       </a>
-      <a href="/secure/link" id="nav-pages" class="list-group-item">
+      <a
+        href="/secure/link"
+        id="nav-pages"
+        class="list-group-item no-ajax"
+        onclick="window.location=this.href; return false;"
+      >
         <i class="bi bg-green-dark shadow-bg shadow-bg-xs bi bi-link-45deg"></i>
         <div>Link Wallet</div>
         <i class="bi bi-chevron-right"></i>
@@ -118,7 +116,12 @@
         <i class="bi bi-plus font-18"></i>
       </a>
       <div class="list-submenu" id="sub1">
-        <a href="/secure/cards" id="nav-waves" class="list-group-item">
+        <a
+          href="/secure/cards"
+          id="nav-waves"
+          class="list-group-item no-ajax"
+          onclick="window.location=this.href; return false;"
+        >
           <div class="ps-4">Request Card</div>
           <i class="bi bi-chevron-right"></i>
         </a>
@@ -127,7 +130,12 @@
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
-      <a href="/secure/transaction" id="nav-comps" class="list-group-item">
+      <a
+        href="/secure/transaction"
+        id="nav-comps"
+        class="list-group-item no-ajax"
+        onclick="window.location=this.href; return false;"
+      >
         <i class="bi bg-brown-dark shadow-bg shadow-bg-xs bi-gear-wide-connected"></i>
         <div>Transactions</div>
         <i class="bi bi-chevron-right"></i>
@@ -160,12 +168,20 @@
     <!-- Useful Links-->
     <h6 class="opacity-40 px-3 mt-n2 mb-0">Useful Links</h6>
     <div class="list-group list-custom list-menu-small">
-      <a href="/secure/contact" class="list-group-item default-link">
+      <a
+        href="/secure/contact"
+        class="list-group-item default-link no-ajax"
+        onclick="window.location=this.href; return false;"
+      >
         <i class="bi bi-arrow-up-circle-fill opacity-20 font-16"></i>
         <div>Support</div>
         <i class="bi bi-chevron-right"></i>
       </a>
-      <a href="/secure/profile" class="list-group-item">
+      <a
+        href="/secure/profile"
+        class="list-group-item no-ajax"
+        onclick="window.location=this.href; return false;"
+      >
         <i class="bi bi-person-circle opacity-20 font-16"></i>
         <div>Account</div>
         <i class="bi bi-chevron-right"></i>

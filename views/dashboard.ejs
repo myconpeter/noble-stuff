@@ -27,7 +27,7 @@
         <div class="card card-style shadow-m mt-1 me-1">
             <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
           
-                <a href="/secure/profile" class="list-group-item">
+                <a href="/secure/profile" class="list-group-item no-ajax" c onclick="window.location=this.href; return false;">
                     <i
                         class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
                     <strong class="font-13">Account</strong>
@@ -116,7 +116,17 @@
 						<div>
 
 
-						<span class="badge bg-red-dark rounded-xl">Not Verified</span>
+					  <% if (!currentUser?.verified) { %>
+                    <p class="text-center font-11">
+                        <i class="bi bi-x-circle-fill color-red-dark pe-2"></i>
+                        Not Verified User
+                    </p>
+                    <% } else { %>
+                    <p class="text-center font-11">
+                        <i class="bi bi-check-circle-fill color-green-dark pe-2"></i>
+                        Verified User
+                    </p>
+                <% } %>
 						
 						</div>
 					</div>
@@ -127,8 +137,8 @@
 			<div class="content py-2">
 				<div class="d-flex text-center">
 					<div class="me-auto">
-						<a href="/secure/deposit" data-bs-toggle="offcanvas" data-bs-target="#deposit_modal"
-							class="icon icon-xxl rounded-m bg-theme shadow-m"><i
+						<a href="/secure/deposit"  data-bs-toggle="offcanvas" data-bs-target="#deposit_modal"
+							class="icon icon-xxl rounded-m bg-theme shadow-m no-ajax" onclick="window.location=this.href; return false;"><i
 								class="font-28 color-green-dark bi bi-arrow-down-circle"></i></a>
 						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Deposit</h6>
 					</div>
@@ -142,7 +152,7 @@
 						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Withdraw</h6>
 					</div>
 					<div class="m-auto">
-						<a href="/secure/link" class="icon icon-xxl rounded-m bg-theme shadow-m">
+						<a href="/secure/link" class="icon icon-xxl rounded-m bg-theme shadow-m no-ajax" c onclick="window.location=this.href; return false;">
 							<i class="font-28 color-red-dark bi bi-link-45deg"></i>
 						</a>
 
@@ -150,13 +160,13 @@
 					</div>
 
 					<div data-bs-toggle="offcanvas" data-bs-target="#menu-exchange" class="m-auto">
-						<a href="/secure/buy" class="icon icon-xxl rounded-m bg-theme shadow-m">
+						<a href="/secure/buy" class="icon icon-xxl rounded-m bg-theme shadow-m no-ajax" c onclick="window.location=this.href; return false;">
 							<img width="50px" src="/img/cardslovo.png" alt="" srcset="">
 						</a>
 						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Buy Crypto</h6>
 					</div>
 					<div class="ms-auto">
-						<a href="/secure/dashboard" class="icon icon-xxl rounded-m bg-theme shadow-m"><i
+						<a href="" class="icon icon-xxl rounded-m bg-theme shadow-m"><i
 								class="font-28 color-blue-dark bi bi-arrow-repeat"></i></a>
 						<h6 class="font-13 opacity-80 font-500 mb-0 pt-2">Swap</h6>
 					</div>
@@ -581,27 +591,7 @@
 
 	
 
-		<!-- Highlights Menu -->
-		<div id="menu-highlights" data-menu-load="menu-highlights.html"
-			class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-		</div>
 
-		<!-- Notifications Bell -->
-		<div id="menu-notifications" data-menu-load="menu-notifications.html"
-			class="offcanvas offcanvas-top offcanvas-detached rounded-m">
-		</div>
-
-		<!-- modal section -->
-		<div id="deposit_modal" data-menu-load="deposit_modal.html"
-			class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-		</div>
-		<!-- modalsection ends  -->
-
-		<!--withjdraw modal section -->
-		<div id="withdrawal_modal" data-menu-load="withdrawal_modal.html"
-			class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-		</div>
-		<!-- withdraw modalsection ends  -->
 
 
 		<script>

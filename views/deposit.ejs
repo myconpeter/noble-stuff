@@ -22,14 +22,14 @@
 
         <a href="#" data-bs-toggle="dropdown"
         class="icon gradient-blue shadow-bg shadow-bg-s rounded-m">
-        <img src="/img/user-default.png" width="45" class="rounded-m" alt="img">
+        <img src="<%= currentUser?.image ? currentUser.image : '/img/user-default.png' %>" width="45" class="rounded-m" alt="img">
     </a>
     <!-- Page Title Dropdown Menu-->
     <div class="dropdown-menu">
         <div class="card card-style shadow-m mt-1 me-1">
             <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
            
-                <a href="profile" class="list-group-item">
+                <a href="/secure/profile" class="list-group-item">
                     <i
                         class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
                     <strong class="font-13">Account</strong>
@@ -44,7 +44,7 @@
                     </div>
                 </a>
 
-                <a href="includes/logout.php" class="list-group-item">
+                <a href="/auth/logout" class="list-group-item">
                     <i
                         class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
                     <strong class="font-13">Log Out</strong>
@@ -539,12 +539,8 @@
                         const coinId = $(el).data("id"); // or use .attr("data-id")
                         console.log(coinId);
 
-
-
-
-                        ///redirectet and send data to deposite page
                         $.ajax({
-                            url: 'deposit2', // The endpoint where the data should go
+                            url: '/secure/deposit2', // The endpoint where the data should go
                             type: 'POST',
                             data: {
                                 crypto_wallet: coinId,
@@ -561,23 +557,6 @@
                             }
                         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        // $(".walletselect").val(coinId);
-                        // $(".walletselect").on("mousedown", function(e) {
-                        //     e.preventDefault(); // Prevents dropdown from opening
-                        // });
                     };
 
                     // Using event delegation to handle dynamic content
@@ -680,34 +659,7 @@
             </div>
         </div>
 
-        <!-- Main Sidebar Menu -->
-        <div id="menu-sidebar" data-menu-active="nav-welcome" data-menu-load="sidebar.html"
-            class="offcanvas offcanvas-start offcanvas-detached rounded-m">
-        </div>
-
-        <!-- Highlights Menu -->
-        <div id="menu-highlights" data-menu-load="menu-highlights.html"
-            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-        </div>
-
-        <!-- Notifications Bell -->
-        <div id="menu-notifications" data-menu-load="menu-notifications.html"
-            class="offcanvas offcanvas-top offcanvas-detached rounded-m">
-        </div>
-
-        <!-- modal section -->
-        <div id="deposit_modal" data-menu-load="deposit_modal.html"
-            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-        </div>
-        <!-- modalsection ends  -->
-
-
-
-        <!--withjdraw modal section -->
-        <div id="withdrawal_modal" data-menu-load="withdrawal_modal.php"
-            class="offcanvas offcanvas-bottom offcanvas-detached rounded-m">
-        </div>
-        <!-- withdraw modalsection ends  -->
+    
 
 
     </div>
