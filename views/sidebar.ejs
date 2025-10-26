@@ -24,7 +24,7 @@
         <div class="dropdown-menu">
           <div class="card card-style shadow-m mt-1 me-1">
             <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
-              <a href="/secure/profile" class="list-group-item">
+              <a href="/secure/profile" class="list-group-item no-ajax" onclick="window.location=this.href; return false;">
                 <i
                   class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"
                 ></i>
@@ -47,7 +47,7 @@
                 </div>
               </a>
 
-              <a href="/auth/logout" class="list-group-item">
+              <a href="/auth/logout" class="list-group-item no-ajax" onclick="window.location=this.href; return false;">
                 <i
                   class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"
                 ></i>
@@ -186,7 +186,11 @@
         <div>Account</div>
         <i class="bi bi-chevron-right"></i>
       </a>
-      <a href="/auth/logout" class="list-group-item">
+      <a
+        href="/auth/logout"
+        class="list-group-item no-ajax"
+        onclick="window.location=this.href; return false;"
+      >
         <i class="bi bi-bar-chart-fill opacity-20 font-16"></i>
         <div>Log Out</div>
         <i class="bi bi-chevron-right"></i>

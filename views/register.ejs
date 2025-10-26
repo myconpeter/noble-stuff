@@ -249,7 +249,7 @@ window.smartsupp||(function(d) {
             <form id="reg_form">
                 <div class="card bg-5 card-fixed">
                     <div class="card-center mx-3 px-4 py-4 bg-white rounded-m">
-                        <a class="navbar-brand pt-0" href="../"><img src="/img/loginlogo.png" alt="" class="img-fluid diverge-logo"></a>
+                        <a class="navbar-brand pt-0" href="/"><img src="/img/loginlogo.png" alt="" class="img-fluid diverge-logo"></a>
                         <p>Create an account</p>
                         <div class="form-custom form-label form-border form-icon mb-3 bg-transparent">
                             <i class="bi bi-person-circle font-13"></i>
@@ -309,22 +309,16 @@ window.smartsupp||(function(d) {
                         <div class="form-custom form-label form-border form-icon mb-4 bg-transparent">
                             <div class="g-recaptcha" data-sitekey="6Lfuao8qAAAAAAiTCez2mcwKOi8UadfDLzGLNE7i"></div>
                         </div>
-                        <!-- <div class="form-check form-check-custom">
-                        <input class="form-check-input" type="checkbox" name="type" value="" id="c2a">
-                        <label class="form-check-label font-12" for="c2a">I agree with the <a href="#">Terms and Conditions</a>.</label>
-                        <i class="is-checked color-highlight font-13 bi bi-check-circle-fill"></i>
-                        <i class="is-unchecked color-highlight font-13 bi bi-circle"></i>
-                    </div> -->
-                        <!-- <input type="submit" class="w-100 btn btn-full gradient-highlight shadow-bg shadow-bg-s mt-4" value="Create Account"> -->
+                        
                         <button id="sub_button" class="w-100 btn btn-full gradient-highlight shadow-bg shadow-bg-s mt-4" type="submit">
                             Create Account
                         </button>
                         <div class="row">
                             <div class="col-6 text-start">
-                                <a href="/auth/forget-password" class="font-14 font-400 opacity-70 mb-n1">Forgot Password?</a>
+                                <a href="/auth/forget-password" class="font-14 font-400 opacity-70 mb-n1 no-ajax" onclick="window.location=this.href; return false;">Forgot Password?</a>
                             </div>
                             <div class="col-6 text-end">
-                                <a href="/auth/login" class="font-14 font-400 opacity-70 mb-n1">Sign In Account</a>
+                                <a href="/auth/login" class="font-14 font-400 opacity-70 mb-n1 no-ajax" onclick="window.location=this.href; return false;" >Sign In Account</a>
                             </div>
                         </div>
                     </div>
@@ -332,15 +326,11 @@ window.smartsupp||(function(d) {
                 </div>
             </form>
         </div>
-        <!-- End of Page Content-->
 
-        <!-- Off Canvas and Menu Elements-->
-        <!-- Always outside the Page Content-->
 
 
 
     </div>
-    <!-- End of Page ID-->
 
     <script src="/scripts/bootstrap.min.js"></script>
     <script src="/scripts/custom.js"></script>

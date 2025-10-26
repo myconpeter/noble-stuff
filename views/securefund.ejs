@@ -29,7 +29,7 @@
         <div class="card card-style shadow-m mt-1 me-1">
             <div class="list-group list-custom list-group-s list-group-flush rounded-xs px-3 py-1">
           
-                <a href="/secure/profile" class="list-group-item">
+                <a href="/secure/profile" class="list-group-item no-ajax" onclick="window.location=this.href; return false;">
                     <i
                         class="has-bg gradient-yellow shadow-bg shadow-bg-xs color-white rounded-xs bi bi-person-circle"></i>
                     <strong class="font-13">Account</strong>
@@ -44,7 +44,7 @@
                     </div>
                 </a>
 
-                <a href="/auth/logout" class="list-group-item">
+                <a href="/auth/logout" class="list-group-item no-ajax" onclick="window.location=this.href; return false;">
                     <i
                         class="has-bg gradient-red shadow-bg shadow-bg-xs color-white rounded-xs bi bi-power"></i>
                     <strong class="font-13">Log Out</strong>

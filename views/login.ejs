@@ -286,7 +286,7 @@
         <form id="loginForm">
           <div class="card bg-5 card-fixed">
             <div class="card-center mx-3 px-4 py-4 bg-white rounded-m">
-              <a class="navbar-brand pt-0" href="../">
+              <a class="navbar-brand pt-0" href="/">
                 <img src="/img/loginlogo.png" alt="" class="img-fluid diverge-logo" />
               </a>
               <p>Login to your Account.</p>
@@ -341,12 +341,18 @@
 
               <div class="row">
                 <div class="col-6 text-start">
-                  <a href="/auth/forget-password" class="font-14 font-400 opacity-70 mb-n1"
+                  <a
+                    href="/auth/forget-password"
+                    class="font-14 font-400 opacity-70 mb-n1 no-ajax"
+                    onclick="window.location=this.href; return false;"
                     >Forgot Password?</a
                   >
                 </div>
                 <div class="col-6 text-end">
-                  <a href="/auth/register" class="font-14 font-400 opacity-70 mb-n1"
+                  <a
+                    href="/auth/register"
+                    class="font-14 font-400 opacity-70 mb-n1 no-ajax"
+                    onclick="window.location=this.href; return false;"
                     >Create Account</a
                   >
                 </div>
