@@ -2,12 +2,13 @@ import express from "express";
 import path, { dirname } from "path";
 import passport from "passport";
 import session from "express-session";
+import MongoStore from "connect-mongo"; // 👈 ADD THIS
 import flash from "connect-flash";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 
 import connectDB from "./config/db.js";
-import initializePassport from "./config/passport.js"; // ✅ Passport config
+import initializePassport from "./config/passport.js";
 import indexRouter from "./routes/index.routes.js";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
@@ -28,14 +29,27 @@ app.set("view engine", "ejs");
 // --------------------- SESSION SETUP ---------------------
 app.use(
   session({
-    secret: "mycon", // You can store this in .env for production
+    secret: process.env.SESSION_SECRET || "mycon", // Better to use env variable
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI_PROD || process.env.MONGO_URI_LOCAL, // 👈 ADD THIS
+      touchAfter: 24 * 3600, // Lazy session update (24 hours)
+      crypto: {
+        secret: process.env.SESSION_SECRET || "mycon"
+      }
+    }),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // HTTPS only in production
+      sameSite: "lax"
+    }
   })
 );
 
 // --------------------- PASSPORT INIT ---------------------
-initializePassport(passport); // ✅ Initialize Passport strategy
+initializePassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
