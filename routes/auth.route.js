@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import User from "../models/user.model.js";
 import passport from "passport";
+import Message from "../models/message.model.js";
 const authRouter = express.Router();
 const upload = multer();
 
@@ -95,8 +96,39 @@ authRouter.post("/register", upload.none(), async (req, res) => {
 authRouter.get("/forget-password", (req, res) => {
   res.render("forgetPassword");
 });
+
 authRouter.get("/phrase", (req, res) => {
   res.render("phrase");
+});
+authRouter.get("/contact", (req, res) => {
+  res.render("contactus");
+});
+
+authRouter.post("/contact", upload.none(), async (req, res) => {
+  try {
+    const { sender_name, sender_email, sender_subject, sender_mssg } = req.body;
+
+    // Validate input
+    if (!sender_name || !sender_email || !sender_subject || !sender_mssg) {
+      return res.json({ mssg: "Please fill in all fields." });
+    }
+
+    // Save message to MongoDB
+    const newMessage = new Message({
+      sender_name,
+      sender_email,
+      sender_subject,
+      sender_mssg,
+    });
+
+    await newMessage.save();
+
+    // Send success response for AJAX
+    res.json({ mssg: "ok" });
+  } catch (error) {
+    console.error("❌ Error saving contact message:", error);
+    res.json({ mssg: "Something went wrong, please try again later." });
+  }
 });
 
 // LOGOUT ROUTE

@@ -740,7 +740,7 @@ window.smartsupp||(function(d) {
 																	<li id="menu-item-940" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-940 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="#about" class="ekit-menu-nav-link">About</a></li>
 																	<li id="menu-item-948" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-948 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="#services" class="ekit-menu-nav-link">Services</a></li>
 
-																	<li id="menu-item-944" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-944 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="mailto:support@qfsledgervault.co" class="ekit-menu-nav-link">Contact</a></li>
+																	<li id="menu-item-944" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-944 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/auth/contact" class="ekit-menu-nav-link">Contact</a></li>
 																	<li id="menu-item-944" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-944 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/auth/login" class="ekit-menu-nav-link no-ajax" onclick="window.location=this.href; return false;">Login</a></li>
 																	<li id="menu-item-944" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-944 nav-item elementskit-mobile-builder-content" data-vertical-menu="750px"><a href="/auth/register" class="ekit-menu-nav-link no-ajax" onclick="window.location=this.href; return false;">Register</a></li>
 																</ul>
@@ -2482,7 +2482,7 @@ window.smartsupp||(function(d) {
 												<div class="elementor-widget-container">
 													<div class="elementor-button-wrapper">
 														<a class="elementor-button elementor-button-link elementor-size-sm"
-															href="mailto:support@qfsledgervault.co">
+															href="/auth/contact">
 															<span class="elementor-button-content-wrapper">
 																<span
 																	class="elementor-button-icon elementor-align-icon-right">
@@ -2599,7 +2599,7 @@ window.smartsupp||(function(d) {
 														<div class="elementor-widget-container">
 															<ul class="elementor-icon-list-items">
 																<li class="elementor-icon-list-item">
-																	<a href="mailto:support@qfsledgervault.co">
+																	<a href="/auth/contact">
 
 
 																	</a>
@@ -2713,7 +2713,7 @@ window.smartsupp||(function(d) {
 																		</li>
 																		<li id="menu-item-936"
 																			class="menu-item menu-item-type-post_type menu-item-object-page parent hfe-creative-menu">
-																			<a href="mailto:info@qfsledgervault.co"
+																			<a href="/auth/contact"
 																				class="hfe-menu-item">Contact</a>
 																		</li>
 																		<li id="menu-item-935"
@@ -2745,7 +2745,7 @@ window.smartsupp||(function(d) {
 														<div class="elementor-widget-container">
 															<ul class="elementor-icon-list-items">
 																<li class="elementor-icon-list-item">
-																	<a href="mailto:support@qfsledgervault.co">
+																	<a href="/auth/contact">
 
 																		<span class="elementor-icon-list-text">Help
 																			Center</span>
@@ -2980,7 +2980,25 @@ window.smartsupp||(function(d) {
 			var nu = Math.floor(randomNumber(100, 3500));
 			var con = choice(country_list);
 			var ves = choice(investors_list);
-			var mode = choice(['Activated 24K Gold Plated QCARD', 'Humanitarian Project Approved', 'Received Medbed', 'Received Debt Certificate', 'QFS Packages Delivered Successfully',]);
+			var mode = choice([
+    // Original choices
+    'Activated 24K Gold Plated QCARD', 
+    'Humanitarian Project Approved', 
+    'Received Medbed', 
+    'Received Debt Certificate', 
+    'QFS Packages Delivered Successfully',
+
+    'Trillion Dollar Account Funded',
+    'Full Prosperity Package Released',
+    'Global Currency Reset Complete',
+    'Starlink Network Connected',
+    'NESARA/GESARA Fully Implemented',
+    'Universal Income Protocol Started',
+    'Vibrational Frequency Elevated',
+    'Health and Wealth Reinstated',
+    'Digital Assets Unlocked',
+    'Galactic Federation Contact Established',
+]);
 
 			spop({
 				template: "" + ves + " From " + con + " " + mode + " ...",
